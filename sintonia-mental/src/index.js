@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 // arquvivos de estilo
 import './index.css';
+// bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle'
+// componentes
 import NavBar from './navbar/navbar';
 
 
