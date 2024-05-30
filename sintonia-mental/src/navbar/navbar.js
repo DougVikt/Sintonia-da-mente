@@ -1,5 +1,5 @@
 import React from "react";
-import './navbar.css';
+import './navstyle.css';
 
 function NavBar(){
     return (
@@ -23,7 +23,7 @@ function NavBar(){
                 </ul>
               </div>
             <div className="d-flex justify-content-end ms-auto text-end">
-              <button type="button" className="btn btinciar me-5">Iniciar</button>
+              <button type="button" className="me-5 btiniciar">Iniciar</button>
             </div>
         </nav>
     </>
