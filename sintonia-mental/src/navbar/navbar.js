@@ -3,20 +3,29 @@ import './navstyle.css';
 import imagem from '../../src/imagens/logo3_semfundo.png';
 
 
+const nav = document.querySelector('.fixed-top');
+// funciona para ocultar o navbar
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) { 
+    nav.classList.add('hide-nav');// adiciona a classe
+  } else {
+    nav.classList.remove('hide-nav');// remove a classe
+  }
+});
 function NavBar(){
   
     return (
     <>
         <nav className="navbar navbar-expand-md fixed-top m-0 p-0 sty-navbar">
-          <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <button className="navbar-toggler ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span className="navbar-toggler-icon"></span>
           </button>
-            <div className="mb-0 mb-md-0 ms-5 ">
+            <div className="mb-0 mb-md-0 ms-4 ">
               <a className="navbar-brand" href="home">
-                <img src={imagem} alt="logo sintonia mental" width="80" height="80"/>
+                <img src={imagem} alt="logo sintonia mental" width="140" height="80"/>
               </a>
             </div>
-            <div className="offcanvas offcanvas-start text-bg-dark py-3" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div className="offcanvas offcanvas-start text-bg-dark " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
               <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
                 <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -36,8 +45,8 @@ function NavBar(){
               </div>
             </div>
               
-            <div className="d-flex justify-content-end ms-auto text-end">
-              <button type="button" className="me-5 btiniciar">Iniciar</button>
+            <div className="text-end me-5">
+              <button type="button" className=" btiniciar">Iniciar</button>
             </div>
         </nav>
     </>
