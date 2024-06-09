@@ -1,5 +1,36 @@
 .btiniciar{
     background-color: rgb(241, 167, 69);
-    padding: 20px;
-    color: blue;
+    padding: 8px;
+    color: rgb(0, 0, 2);
+    font-weight: 500;
+    border-radius: 2rem;
+    width: 7rem;
+}
+
+.sty-navbar{
+    background-color: rgba(54, 54, 54, 0.479);
+    font-size: 20px;
+
+}
+.sty-link-nav{
+    color: rgb(0, 0, 0);
+      
+}
+.sty-link-nav:hover{
+    color: aliceblue;
+    font-weight: 700;
+    
+}
+@media (max-width: 767px) {
+    .sty-link-nav{
+        margin: 10px;
+        color: rgb(241, 167, 69);
+        background-color: transparent;
+    }
+    .sty-link-nav:hover{
+        border-radius: .5rem;
+        color: black;
+        background-color: rgb(241, 167, 69);
+        font-weight: 700;
+}
 }

@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 // bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle'
+import 'bootstrap/dist/js/bootstrap.bundle';
 // componentes
 import NavBar from './navbar/navbar';
 
