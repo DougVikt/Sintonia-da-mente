@@ -1,27 +1,43 @@
-import React from "react";
+import React, { useState , useLayoutEffect} from "react";
 import './navstyle.css';
 import imagem from '../../src/imagens/logo3_semfundo.png';
 
 
-const nav = document.querySelector('.fixed-top');
-// funciona para ocultar o navbar
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) { 
-    nav.classList.add('hide-nav');// adiciona a classe
-  } else {
-    nav.classList.remove('hide-nav');// remove a classe
-  }
-});
 function NavBar(){
+    const [nav, setNav] = useState(null);
+    let scroll = 0;
+  // useLayoutEffect é executado a função após o componente ter sido renderizado
+    useLayoutEffect(() => {
+      // Obter o elemento nav pelo ID
+      const navElement = document.getElementById('nav');
+      setNav(navElement);
+    }, []);
+  
+    useLayoutEffect(() => {
+      if (nav) {
+        window.addEventListener('scroll', () => {
+          // Obter a posição da barra de rolagem
+          const scrollTop = window.scrollY;
+          if (scrollTop > scroll) {
+            // Rolar para baixo
+            nav.style.top = '-100px';
+          } else {
+            // Rolar para cima
+            nav.style.top = '0px';
+          }
+         scroll = scrollTop;
+        });
+      }
+    }, [nav]);
   
     return (
     <>
-        <nav className="navbar navbar-expand-md fixed-top m-0 p-0 sty-navbar">
+        <nav id="nav" className="navbar navbar-expand-md fixed-top m-0 p-0 sty-navbar">
           <button className="navbar-toggler ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span className="navbar-toggler-icon"></span>
           </button>
             <div className="mb-0 mb-md-0 ms-4 ">
-              <a className="navbar-brand" href="home">
+              <a className="navbar-brand" href="index.html">
                 <img src={imagem} alt="logo sintonia mental" width="140" height="80"/>
               </a>
             </div>
@@ -33,20 +49,20 @@ function NavBar(){
               <div className="offcanvas-body px-0">
                   <ul className="navbar-nav  mx-auto">
                     <li className="nav-item">
-                      <a href="#" className="nav-link sty-link-nav px-5">Iniciar</a>
+                      <a href="#iniciar" className="nav-link sty-link-nav px-5">Iniciar</a>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link sty-link-nav px-5">Depoimentos</a>
+                      <a href="#depoimentos" className="nav-link sty-link-nav px-5">Depoimentos</a>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link sty-link-nav px-5">Sobre</a>
+                      <a href="#sobre" className="nav-link sty-link-nav px-5">Sobre</a>
                       </li>
                   </ul>
               </div>
             </div>
               
             <div className="text-end me-5">
-              <button type="button" className=" btiniciar">Iniciar</button>
+              <button type="button" className=" btiniciar" href="#iniciar">Iniciar</button>
             </div>
         </nav>
     </>

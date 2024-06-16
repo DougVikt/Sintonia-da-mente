@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 // componentes
 import NavBar from './navbar/navbar';
+import Body from './body/body';
 
 
 
@@ -16,6 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <NavBar />
+  <Body />
   </React.StrictMode>
 );
 
