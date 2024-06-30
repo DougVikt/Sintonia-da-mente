@@ -1,5 +1,5 @@
 .btiniciar{
-    background-color: rgb(241, 167, 69);
+    background-color: rgb(241, 96, 28);
     padding: .4rem;
     color: rgb(0, 0, 2);
     font-weight: 500;
@@ -7,24 +7,39 @@
     width: 5rem;
 }
 .btiniciar:hover{
-    color:  rgb(241, 167, 69);
+    color:  rgb(241, 96, 28);
     background-color: rgb(0, 0, 2);
 }
 
 .sty-navbar{
-    background-color: rgba(54, 54, 54, 0.479);
+    background-color: rgb(36, 36, 36);
     font-size: 20px;
+    
 
 }
 .sty-link-nav{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
       
 }
 .sty-link-nav:hover{
-    color: aliceblue;
+    color: rgb(241, 96, 28);
     font-weight: 600;
     
 }
+.sty-image{
+    opacity: 80%;
+    
+}
+.sty-image img{
+    padding: 1rem;
+    position: fixed;
+    background-color: rgb(8, 8, 8);
+    margin-left: 1rem;
+    border-radius:0 0 1rem 1rem;
+    
+}
+
+
 .fixed-top {
     position: fixed;
     top: 0;
@@ -40,13 +55,13 @@
 @media (max-width: 767px) {
     .sty-link-nav{
         margin: 10px;
-        color: rgb(241, 167, 69);
+        color: rgb(241, 96, 28);
         background-color: transparent;
     }
     .sty-link-nav:hover{
         border-radius: .5rem;
         color: black;
-        background-color: rgb(241, 167, 69);
+        background-color: rgb(241, 96, 28);
         font-weight: 700;
     }
 
@@ -55,5 +70,12 @@
         padding: .3rem;
         font-size: 1rem;
         margin-left: .5rem;
+    }
+    .sty-image{
+        content: url('../imagens/logo5-semfundo.png');
+        width: 7rem;
+    }
+    .offcanvas{
+        opacity: 100%;
     }
 }

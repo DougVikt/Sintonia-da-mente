@@ -1,3 +1,37 @@
-.img-fluid{
-    height: 100%;
+.sty-img{
+    border-radius: 0 2rem 2rem 0;
+}
+.sty-div-image{
+    width: 50%;
+}
+.sty-carrossel-item{
+    background-color: rgba(148, 148, 148, 0.705);
+}
+.sty-h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgb(236, 105, 44);
+    
+}
+.sty-p{
+    font-size: 1.5rem;
+    margin-top: 7rem ;
+}
+.sty-button{
+    background-color: rgb(241, 96, 28);
+    font-weight: 500;
+    width: 8rem;
+    font-size: 1.2rem;
+    margin-top:9rem ;
+    margin-left: 30rem;
+    border-color: rgb(0, 0, 0);
+    box-shadow: 2px 2px 8px rgb(0, 0, 0);
+    
+}
+.sty-button:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(241, 96, 28);
+    border-color: rgb(241, 96, 28);
+    width: 8.5rem;
+    height: 2.9rem;
 }

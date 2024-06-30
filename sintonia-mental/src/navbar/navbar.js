@@ -1,6 +1,8 @@
 import React, { useState , useLayoutEffect} from "react";
 import './navstyle.css';
-import imagem from '../../src/imagens/logo3_semfundo.png';
+import imagem from '../../src/imagens/sm2.svg';
+
+
 
 
 function NavBar(){
@@ -25,6 +27,12 @@ function NavBar(){
             // Rolar para cima
             nav.style.top = '0px';
           }
+          if (scrollTop === 0) {
+            nav.style.opacity = "100%" 
+          }
+          else{
+            nav.style.opacity = "70%"
+          }
          scroll = scrollTop;
         });
       }
@@ -32,13 +40,13 @@ function NavBar(){
   
     return (
     <>
-        <nav id="nav" className="navbar navbar-expand-md fixed-top m-0 p-0 sty-navbar">
-          <button className="navbar-toggler ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <nav id="nav" className="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
+          <button className="navbar-toggler ms-4 bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span className="navbar-toggler-icon"></span>
           </button>
-            <div className="mb-0 mb-md-0 ms-4 ">
+            <div className="mb-0 mb-md-0  sty-image">
               <a className="navbar-brand" href="index.html">
-                <img src={imagem} alt="logo sintonia mental" width="140" height="80"/>
+                <img className="img-fluid" src={imagem} alt="logo sintonia mental" width="90" height="90"/>
               </a>
             </div>
             <div className="offcanvas offcanvas-start text-bg-dark " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
