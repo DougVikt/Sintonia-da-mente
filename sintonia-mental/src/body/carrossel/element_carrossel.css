@@ -15,15 +15,13 @@
 }
 .sty-p{
     font-size: 1.5rem;
-    margin-top: 7rem ;
+ 
 }
 .sty-button{
     background-color: rgb(241, 96, 28);
     font-weight: 500;
     width: 8rem;
     font-size: 1.2rem;
-    margin-top:9rem ;
-    margin-left: 30rem;
     border-color: rgb(0, 0, 0);
     box-shadow: 2px 2px 8px rgb(0, 0, 0);
     
@@ -34,4 +32,9 @@
     border-color: rgb(241, 96, 28);
     width: 8.5rem;
     height: 2.9rem;
+}
+@media (max-width: 768px) {
+    .sty-img{
+        border-radius: 0 0 2rem 2rem;
+    }
 }

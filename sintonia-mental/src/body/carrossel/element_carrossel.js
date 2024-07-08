@@ -5,7 +5,7 @@ import imagem2 from '../../imagens/mente2.jpg';
 import imagem3 from '../../imagens/mente3.jpg';
 
 
-function Element_carrossel(){
+const Element_carrossel = () =>{
     
     return (
         <>
@@ -13,13 +13,13 @@ function Element_carrossel(){
           <div className="carousel-inner p-0 m-0">
             <div className="carousel-item active sty-carrossel-item">
               <div className="row">
-                <div className="col-sm-6 sty-div-image" >
-                  <img src={imagem2} alt="{alt}" className="img-fluid w-100 sty-img" />
+                <div className="col-md-6 sty-div-image" >
+                  <img src={imagem2} alt="{alt}" className="img-fluid sty-img w-100 h-100" />
                 </div>
-                <div className="col-sm-6 p-5 text-start">
-                  <h1 className="pt-5 sty-h1">bemvindo</h1>
-                  <p className="sty-p">exp0licando</p>
-                  <button className="sty-button btn ">saiba mais</button>
+                <div className="col-md-6 p-5  ">
+                  <h1 className="pt-5 sty-h1 text-start mt-4">bemvindo</h1>
+                  <p className="sty-p text-end col-sm-4 ">exp0licando</p>
+                  <button className="sty-button btn d-block ">saiba mais</button>
                 </div>
               </div>
             </div>

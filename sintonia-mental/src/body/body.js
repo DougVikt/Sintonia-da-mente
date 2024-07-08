@@ -1,7 +1,7 @@
 import React from "react";
 import Element_carrossel from "./carrossel/element_carrossel";
 
-function Body(){
+const Body = () =>{
     return (
         <>
         <section id="iniciar">

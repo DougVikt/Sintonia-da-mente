@@ -5,7 +5,7 @@ import imagem from '../../src/imagens/sm2.svg';
 
 
 
-function NavBar(){
+const NavBar = () => {
     const [nav, setNav] = useState(null);
     let scroll = 0;
   // useLayoutEffect é executado a função após o componente ter sido renderizado
@@ -64,6 +64,9 @@ function NavBar(){
                     </li>
                     <li className="nav-item">
                       <a href="#sobre" className="nav-link sty-link-nav px-5">Sobre</a>
+                      </li>
+                    <li className="nav-item">
+                      <a href="#sobre" className="nav-link sty-link-nav px-5">Ajuda</a>
                       </li>
                   </ul>
               </div>
