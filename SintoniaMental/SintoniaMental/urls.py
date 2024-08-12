@@ -19,4 +19,5 @@ from django.urls import path , include
 
 urlpatterns = [
     path('', include("principal_app.urls")),
+    path('', include("carrossel_app.urls")),
 ]
