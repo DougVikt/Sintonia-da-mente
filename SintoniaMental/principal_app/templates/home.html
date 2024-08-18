@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sintonia Mental</title>
     {% load static %}
-    <!------bootstrap----->
+    <!----------bootstrap------------>
     <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
     <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <!------outros------->
+    <!---------- staticos ----------->
     <link rel="stylesheet" href="{% static 'Css/home.css' %}">
     
     <!------- statico do carrossel ------->
@@ -51,5 +51,15 @@
             <button type="button" class=" btiniciar" href="#iniciar">Iniciar</button>
           </div>
       </nav>
+      <section id="iniciar">
+        <!-------------- carrossel ----------------->
+        {% block carrossel %}
+          {% include 'carrossel.html' %}
+          {% include 'carrossel.html' %}
+          {% include 'carrossel.html' %}
+        {% endblock %}
+      </section>
+
+      <script src="{% static 'Js/home.js' %}"></script>
 </body>
 </html>
