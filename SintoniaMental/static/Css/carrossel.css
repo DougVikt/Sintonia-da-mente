@@ -6,6 +6,7 @@
 }
 .sty-carrossel-item{
     background-color: rgba(148, 148, 148, 0.705);
+    transition: transform 8s ease-in-out ;
 }
 .sty-h1{
     font-size: 3rem;
