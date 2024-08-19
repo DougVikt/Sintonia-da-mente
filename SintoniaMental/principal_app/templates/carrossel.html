@@ -4,32 +4,42 @@
 {% endblock %}
 
 {% block carrossel %}
-<div id="carrosselExampleSlidesFade" class="carousel slide carousel-fade sty-carrossel mt-3" data-bs-ride="carousel" >
+
+<div id="carrosselExampleSlidesFade" class="carousel slide carousel-fade sty-carrossel mt-3 h-50" data-bs-ride="carousel" >
     <div class="carousel-inner p-0 m-0">
+      
       <div class="carousel-item active sty-carrossel-item">
-        <div class="row">
+        <div class="row ">
           <div class="col-md-6 " >
             <img src="{% static 'imagens/mente1.jpg' %}" alt="" class="img-fluid sty-img w-100 h-100" />
           </div>
-          <div class="col-md-6 p-5  ">
-            <h1 class="pt-5 sty-h1 text-start mt-4">bemvindo</h1>
-            <p class="sty-p text-end col-sm-4 ">explicando</p>
-            <button class="sty-button btn d-block ">saiba mais</button>
+          <div class="col-md-6 p-1 ">
+            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center">bemvindo</h1><br>
+            <p class="sty-p text-center ">
+              testando um texto aleatorio para ver como esta o comportamento do mesmo , assim espero que fique como quero 
+            </p><br>
+            <div class="mt-4 text-center">
+              <button class="sty-button btn ">saiba mais</button>
+            </div>
           </div>
         </div>
       </div>
+    <!--
       <div class="carousel-item sty-carrossel-item">
-        <div class="row">
-          <div class="col-md-6 " >
-            <img src="{% static 'imagens/mente2.jpg' %}" alt="" class="img-fluid sty-img w-100 h-100" />
-          </div>
+        <div class="row">         
           <div class="col-md-6 p-5  ">
             <h1 class="pt-5 sty-h1 text-start mt-4">bemvindo2</h1>
             <p class="sty-p text-end col-sm-4 ">explicando2</p>
+          </div>
+          <div class="">
             <button class="sty-button btn d-block ">saiba mais</button>
+          </div> 
+          <div class="col-md-6 " >
+            <img src="{% static 'imagens/mente2.jpg' %}" alt="" class="img-fluid sty-img w-100 h-100" />
           </div>
         </div>
       </div>
+
       <div class="carousel-item sty-carrossel-item">
         <div class="row">
           <div class="col-md-6 " >
@@ -43,5 +53,6 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
+-->
 {% endblock %}

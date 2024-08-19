@@ -1,9 +1,6 @@
 .sty-img{
     border-radius: 0 2rem 2rem 0;
 }
-.sty-div-image{
-    width: 50%;
-}
 .sty-carrossel-item{
     background-color: rgba(148, 148, 148, 0.705);
     transition: transform 8s ease-in-out ;
@@ -12,6 +9,7 @@
     font-size: 3rem;
     font-weight: 700;
     color: rgb(236, 105, 44);
+    
     
 }
 .sty-p{
@@ -38,4 +36,5 @@
     .sty-img{
         border-radius: 0 0 2rem 2rem;
     }
+   
 }
