@@ -5,13 +5,12 @@
 
 {% block carrossel %}
 
-<div id="carrosselExampleSlidesFade" class="carousel slide carousel-fade sty-carrossel mt-3 h-50" data-bs-ride="carousel" >
+<div id="carrosselExampleSlidesFade" class="carousel slide carousel-fade sty-carrossel mt-3 h-50" data-bs-ride="carousel" data-interval="9000" >
     <div class="carousel-inner p-0 m-0">
-      
       <div class="carousel-item active sty-carrossel-item">
         <div class="row ">
           <div class="col-md-6 " >
-            <img src="{% static 'imagens/mente1.jpg' %}" alt="" class="img-fluid sty-img w-100 h-100" />
+            <img src="{% static 'imagens/mente1.jpg' %}" alt="" class="img-fluid sty-img1 w-100 h-100" />
           </div>
           <div class="col-md-6 p-1 ">
             <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center">bemvindo</h1><br>
@@ -23,8 +22,24 @@
             </div>
           </div>
         </div>
+      </div> 
+      <div class="carousel-item sty-carrossel-item">
+        <div class="row ">
+          <div class="col-md-6 p-1 ">
+            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center">bemvindo</h1><br>
+            <p class="sty-p text-center px-3">
+              testando um texto aleatorio para ver como esta o comportamento do mesmo , assim espero que fique como quero 
+            </p><br>
+            <div class="mt-4 text-center">
+              <button class="sty-button btn ">saiba mais</button>
+            </div>
+          </div> 
+          <div class="col-md-6 " >
+            <img src="{% static 'imagens/mente2.jpg' %}" alt="" class="img-fluid sty-img2 w-100 h-100" />
+          </div>
+        </div>
       </div>
-    <!--
+      {% comment %}   
       <div class="carousel-item sty-carrossel-item">
         <div class="row">         
           <div class="col-md-6 p-5  ">
@@ -51,8 +66,8 @@
             <button class="sty-button btn d-block ">saiba mais</button>
           </div>
         </div>
-      </div>
+      </div>{% endcomment %}
     </div>
-</div>
--->
+</div> 
+
 {% endblock %}
