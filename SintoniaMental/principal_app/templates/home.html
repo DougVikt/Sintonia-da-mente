@@ -8,11 +8,13 @@
     <!----------bootstrap------------>
     <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
     <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <!---------- staticos ----------->
+    <!----------- staticos ------------>
     <link rel="stylesheet" href="{% static 'Css/home.css' %}">
     
-    <!------- statico do carrossel ------->
+    <!------- statico do carrossel -------->
     {% block corosel_css %} {% endblock %}
+    <!------- statico da avaliações -------->
+    {% block avaliacoes_css %} {% endblock %}
 </head>
 <body>
     <nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
@@ -41,7 +43,7 @@
                     <a href="#sobre" class="nav-link sty-link-nav px-5">Sobre</a>
                     </li>
                   <li class="nav-item">
-                    <a href="#sobre" class="nav-link sty-link-nav px-5">Ajuda</a>
+                    <a href="#ajuda" class="nav-link sty-link-nav px-5">Ajuda</a>
                     </li>
                 </ul>
             </div>
@@ -52,11 +54,17 @@
           </div>
       </nav>
       <section id="iniciar">
-        <!-------------- carrossel ----------------->
+        <!------------------ carrossel -------------------->
         {% block carrossel %}
           {% include 'carrossel.html' %}
-          <!--{% include 'carrossel.html' %}
-          {% include 'carrossel.html' %}-->
+          {% include 'carrossel.html' %}
+          {% include 'carrossel.html' %}
+        {% endblock %}
+      </section>
+      <section id="depoimentos">
+        <!------------------- avaliações ------------------>
+        {% block avaliacoes %}
+          {% include 'avaliacoes.html' %}
         {% endblock %}
       </section>
 
