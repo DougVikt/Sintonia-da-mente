@@ -1,4 +1,17 @@
 .sty-body{
-    height: 28rem;
+    height: 25rem;
     background-color: rgb(29, 29, 29);
+}
+.sty-aspas{
+    font-size: 8rem;
+    color:rgb(236, 105, 44);
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.sty-row{
+    height: 10rem;
+}
+.col{
+    height: 3rem;
 }

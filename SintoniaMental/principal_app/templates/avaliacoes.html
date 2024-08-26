@@ -6,16 +6,21 @@
 
 {% block avaliacoes %}
 
-<div id="carrossel-avaliacoes" class="carousel slide carousel-fade mt-3 h-50" data-bs-ride="carousel" data-interval="8000" >
-    <div class="carousel-inner sty-body ">
-        <div class="row text-center align-items-center">
+<div id="carrossel-avaliacoes" class="carousel slide carousel-fade mt-3 w-100" data-bs-ride="carousel" data-interval="8000" >
+    <div class="carousel-inner sty-body text-center">
             {% comment %}{% for avaliacao in avaliacoes %}{% endcomment %}
-            <div class="col carousel-item active{% if forloop.first %}active{% endif %}">
-                <div class="text-light">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+            <div class="carousel-item active{% if forloop.first %}active{% endif %}">
+                <div class="text-light container">
+                    <div class="text-center m-5 text-md-start">
+                        <h5 class="m-4 p-3">First slide label</h5>
+                    </div>
+                    <div class="row aligh-item-center sty-row">
+                        <div class="col-2 sty-aspas fw-bold  align-self-start">"</div>
+                        <div class="col-6 sty-text p-2 fst-italic  align-self-center">Some representative placeholder content for the first slide.</div>
+                        <div class="col-2 sty-aspas fw-bold  align-self-end">"</div>
+                    </div>
                 </div>
-            </div>
+            {% comment %} {% endfor %}{% endcomment %}
         </div>
     </div>
 </div>
