@@ -3,11 +3,10 @@
     background-color: rgb(29, 29, 29);
 }
 .sty-aspas{
-    font-size: 8rem;
+    font-size: 6rem;
     color:rgb(236, 105, 44);
-    font-family: "Passion One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+
+    
 }
 .sty-row{
     height: 10rem;
