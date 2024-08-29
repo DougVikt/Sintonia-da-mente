@@ -2,6 +2,10 @@
     height: 25rem;
     background-color: rgb(29, 29, 29);
 }
+h4{
+    color:rgb(236, 105, 44);
+    font-weight: 700;
+}
 .sty-aspas{
     font-size: 6rem;
     color:rgb(236, 105, 44);

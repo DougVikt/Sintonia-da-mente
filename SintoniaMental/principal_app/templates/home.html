@@ -15,18 +15,20 @@
     {% block corosel_css %} {% endblock %}
     <!------- statico da avaliações -------->
     {% block avaliacoes_css %} {% endblock %}
-    <!-------------- import font google ------------------>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
-    </style>
+    <!------ statico do questionario -------->
+    {% block quest_css %}{% endblock %}
+    <!------- statico do sobre-------------->
+    {% block sobre_css %}{% endblock %}
+  
 </head>
 <body>
+  <!------------ navbar ---------------->
     <nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
         <button class="navbar-toggler ms-4 bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
           <div class="mb-0 mb-md-0  sty-image">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{% url 'home' %}">
               <img class="img-fluid" src="{% static 'imagens/sm2.svg' %}" alt="logo sintonia mental" width="90" height="90"/>
             </a>
           </div>
@@ -54,7 +56,7 @@
           </div>
             
           <div class="text-end me-5">
-            <button type="button" class=" btiniciar" href="#iniciar">Iniciar</button>
+            <button type="button" class=" btiniciar" href="#quest">Iniciar</button>
           </div>
       </nav>
       <section id="iniciar">
@@ -69,6 +71,18 @@
         <!------------------- avaliações ------------------>
         {% block avaliacoes %}
           {% include 'avaliacoes.html' %}
+        {% endblock %}
+      </section>
+      <section id="quest">{% comment %}
+        <!---------------- questionario -------------------->
+        {% block quest %}
+          {% include 'quest.html' %}
+        {% endblock %}
+      </section>
+      <section id="sobre">{% endcomment %}
+        <!------------------- sobre -------------------->
+        {% block sobre %}
+          {% include 'sobre.html' %}
         {% endblock %}
       </section>
 
