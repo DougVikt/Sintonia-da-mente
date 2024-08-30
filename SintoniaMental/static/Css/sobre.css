@@ -1,14 +1,14 @@
 #sobre{
     background:linear-gradient(#c7c7c7,#000000);
-    height: 33rem;
+    height: 35rem;
 }
 svg{
     color:  rgb(241, 96, 28);
     
 }
-p{
+.sty-p2{
     color: aliceblue;
 }
-h2{
+.sty-h2{
     color:  rgb(241, 96, 28);
 }
