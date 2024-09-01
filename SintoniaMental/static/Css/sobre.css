@@ -12,9 +12,3 @@ svg{
 .sty-h2{
     color:  rgb(241, 96, 28);
 }
-@media (max-width: 768px) {
-    .sty-sobre{
-        background:linear-gradient(#c7c7c7,#000000);
-        height: 80rem;
-    }
-}
