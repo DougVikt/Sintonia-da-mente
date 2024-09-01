@@ -1,0 +1,74 @@
+{% load static %}
+{% block cards_css %}
+<link rel="stylesheet" href="{% static 'Css/cards.css' %}">
+{% endblock %}
+
+{% block cards %}
+ {% comment %}
+  {{ objeto.id }} = id referente ao banco
+  {{ objeto.titulo }} = titulo da dica
+  {{ objeto.conteudo }} = conteudo resumido da dica
+  {{ objeto.descricao }} = descrição completa da dica que vai no modal
+  {{ objeto.imagem }} = caminho da imagem no statico
+  {{ objeto.desc_imagem }} = descrição da imagem 
+ {% endcomment %}
+
+  {% comment %}{% for objeto in objetos %}{% endcomment %}
+  {% comment %} {% if forloop.counter0 == 0 or forloop.counter0 == 2 %} {% endcomment %}
+    <div class="row featurette p-0 m-0 sty-cards h-100">   
+      <div class="col-md-6 " >
+        <img src="{% static 'imagens/mente1.jpg' %}" alt="" class="rounded-4 img-fluid w-100 h-100" />
+      </div>
+      <div class="col-md-6 p-1 ">
+        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center">bemvindo</h1><br>
+        <p class="sty-p text-center px-3">
+          testando um texto aleatorio para ver como esta o comportamento do mesmo , assim espero que fique como quero 
+        </p><br>
+        <div class="mt-4 mb-4 text-center">
+          <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-{{ objeto.id }}">saiba mais</button>
+        </div>
+      </div>
+    </div>
+    <hr class="featurette-divider m-3">
+  {% comment %} {% else %} {% endcomment %}
+    <div class="row featurette p-0 m-0 sty-cards h-100">   
+      <div class="col-md-6 p-1 ">
+        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center">bemvindo</h1><br>
+        <p class="sty-p text-center px-3">
+          testando um texto aleatorio para ver como esta o comportamento do mesmo , assim espero que fique como quero 
+        </p><br>
+        <div class="mt-4 mb-4 text-center">
+          <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-{{ objeto.id }}">saiba mais</button>
+        </div>
+      </div> 
+      <div class="col-md-6 " >
+        <img src="{% static 'imagens/mente2.jpg' %}" alt="" class="rounded-4 img-fluid sty-img2 w-100 h-100" />
+      </div>
+    </div>
+   
+      <!--------------- modal ---------------------->
+        <div class="modal fade" id="modaldica" tabindex="-1" aria-labelledby="modaldica-{{ objeto.id }}" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content bg-secondary text-light">
+              <div class="modal-header">
+                <h5 class="modal-title">{{ objeto.titulo }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>{{ objeto.descricao }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+      {% comment %}{% endfor %}{% endcomment %}
+  
+
+
+
+
+{% endblock %}

@@ -1,18 +1,11 @@
-.sty-img1{
-    border-radius: 0 2rem 2rem 0;
-}
-.sty-img2{
-    border-radius: 2rem 0 0 2rem;
-}
-.sty-carrossel-item{
+.sty-cards{
     background-color: rgba(148, 148, 148, 0.705);
-    transition: transform 5s ease-in-out ;
+    
 }
 .sty-h1{
     font-size: 3rem;
     font-weight: 700;
     color: rgb(236, 105, 44);
-    
     
 }
 .sty-p{
@@ -34,14 +27,4 @@
     border-color: rgb(241, 96, 28);
     width: 8.5rem;
     height: 2.9rem;
-}
-@media (max-width: 768px) {
-    .sty-img1{
-        border-radius:0 0 2rem 2rem;
-    }
-    .sty-img2{
-        border-radius:2rem 2rem 0 0;
-    }
-
-   
 }

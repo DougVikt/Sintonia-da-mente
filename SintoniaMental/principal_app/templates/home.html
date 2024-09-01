@@ -59,12 +59,12 @@
             <button type="button" class=" btiniciar" href="#quest">Iniciar</button>
           </div>
       </nav>
+      <br>
       <section id="iniciar">
-        <!------------------ carrossel -------------------->
-        {% block carrossel %}
-          {% include 'carrossel.html' %}
-          {% include 'carrossel.html' %}
-          {% include 'carrossel.html' %}
+        <!------------------ cards --------------------> 
+        {% block cards %}
+          {% include 'cards.html' %}
+          {% comment %} {% include 'cards.html' with objeto=objeto %}{% endcomment %}
         {% endblock %}
       </section>
       <section id="depoimentos">
