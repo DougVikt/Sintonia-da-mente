@@ -60,27 +60,27 @@
           </div>
       </nav>
       <br>
-      <section id="iniciar">
-        <!------------------ cards --------------------> 
+  <!------------------ cards --------------------> 
+      <section id="iniciar">        
         {% block cards %}
           {% include 'cards.html' %}
           {% comment %} {% include 'cards.html' with objeto=objeto %}{% endcomment %}
         {% endblock %}
       </section>
+  <!------------------- avaliações ------------------> 
       <section id="depoimentos">
-        <!------------------- avaliações ------------------>
         {% block avaliacoes %}
           {% include 'avaliacoes.html' %}
         {% endblock %}
-      </section>
-      <section id="quest">{% comment %}
-        <!---------------- questionario -------------------->
+      </section>      
+  <!---------------- questionario -------------------->
+      <section id="quest">
         {% block quest %}
           {% include 'quest.html' %}
         {% endblock %}
       </section>
-      <section id="sobre">{% endcomment %}
-        <!------------------- sobre -------------------->
+  <!------------------- sobre -------------------->
+      <section id="sobre">
         {% block sobre %}
           {% include 'sobre.html' %}
         {% endblock %}
