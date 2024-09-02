@@ -4,9 +4,9 @@
     color: rgb(0, 0, 2);
     font-weight: 500;
     border-radius: .8rem;
-    width: 5rem;
+    width: 7rem;
 }
-.btiniciar:hover{
+.btiniciar:hover , .bt-modal:hover{
     color:  rgb(241, 96, 28);
     background-color: rgb(0, 0, 2);
 }
@@ -38,8 +38,6 @@
     border-radius:0 0 1rem 1rem;
     
 }
-
-
 .fixed-top {
     position: fixed;
     top: 0;
@@ -50,6 +48,11 @@
   
 .hide-nav {
     top: -100px; /* esconda o nav quando rolar a página */
+}
+.bt-modal{
+    background-color: rgb(241, 96, 28);
+    color: rgb(0, 0, 2);
+    font-weight: 500;
 }
 
 @media (max-width: 767px) {
@@ -66,8 +69,8 @@
     }
 
     .btiniciar{
-        width: 4rem;
-        padding: .3rem;
+        width: 5rem;
+        padding: .4rem;
         font-size: 1rem;
         margin-left: .5rem;
     }

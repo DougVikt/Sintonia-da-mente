@@ -8,11 +8,11 @@
     <!----------bootstrap------------>
     <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
     <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <!----------- staticos ------------>
-    <link rel="stylesheet" href="{% static 'Css/home.css' %}">
     
-    <!------- statico do carrossel -------->
-    {% block corosel_css %} {% endblock %}
+    <!------- statico do navbar ---------->
+    {% block navbar_css %}{% endblock %}    
+    <!------- statico do casds ------------>
+    {% block cards_css %} {% endblock %}
     <!------- statico da avaliações -------->
     {% block avaliacoes_css %} {% endblock %}
     <!------ statico do questionario -------->
@@ -20,45 +20,22 @@
     <!------- statico do sobre-------------->
     {% block sobre_css %}{% endblock %}
   
+    <style>
+      body {
+        margin: 0;
+        background-image: url('{% static '/imagens/backgroud-body.png' %}');
+        background-repeat: repeat;
+        background-size: 5rem;
+        height: 100vh;
+        z-index: -1;
+      }
+    </style>
 </head>
 <body>
   <!------------ navbar ---------------->
-    <nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
-        <button class="navbar-toggler ms-4 bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-          <div class="mb-0 mb-md-0  sty-image">
-            <a class="navbar-brand" href="{% url 'home' %}">
-              <img class="img-fluid" src="{% static 'imagens/sm2.svg' %}" alt="logo sintonia mental" width="90" height="90"/>
-            </a>
-          </div>
-          <div class="offcanvas offcanvas-start text-bg-dark " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body px-0">
-                <ul class="navbar-nav  mx-auto">
-                  <li class="nav-item">
-                    <a href="#iniciar" class="nav-link sty-link-nav px-5">Iniciar</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#depoimentos" class="nav-link sty-link-nav px-5">Depoimentos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#sobre" class="nav-link sty-link-nav px-5">Sobre</a>
-                    </li>
-                  <li class="nav-item">
-                    <a href="#ajuda" class="nav-link sty-link-nav px-5">Ajuda</a>
-                    </li>
-                </ul>
-            </div>
-          </div>
-            
-          <div class="text-end me-5">
-            <button type="button" class=" btiniciar" href="#quest">Iniciar</button>
-          </div>
-      </nav>
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
       <br>
   <!------------------ cards --------------------> 
       <section id="iniciar">        
@@ -86,6 +63,6 @@
         {% endblock %}
       </section>
 
-      <script src="{% static 'Js/home.js' %}"></script>
+      <script src="{% static 'Js/navbar.js' %}"></script>
 </body>
 </html>

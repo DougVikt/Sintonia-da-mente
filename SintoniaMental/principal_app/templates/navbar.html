@@ -1,0 +1,63 @@
+{% load static %}
+
+{% block navbar_css %}
+<link rel="stylesheet" href="{% static 'Css/navbar.css' %}">
+{% endblock %}
+
+{% block navbar %}
+<nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
+    <button class="navbar-toggler ms-4 bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="mb-0 mb-md-0  sty-image">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img class="img-fluid" src="{% static 'imagens/sm2.svg' %}" alt="logo sintonia mental" width="90" height="90"/>
+        </a>
+      </div>
+      <div class="offcanvas offcanvas-start text-bg-dark " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-0">
+            <ul class="navbar-nav  mx-auto">
+              <li class="nav-item">
+                <a href="#quest" class="nav-link sty-link-nav px-5">Iniciar</a>
+              </li>
+              <li class="nav-item">
+                <a href="#depoimentos" class="nav-link sty-link-nav px-5">Depoimentos</a>
+              </li>
+              <li class="nav-item">
+                <a href="#sobre" class="nav-link sty-link-nav px-5">Sobre</a>
+                </li>
+              <li class="nav-item">
+                <a href="#ajuda" class="nav-link sty-link-nav px-5">Ajuda</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+        
+      <div class="text-end me-5">
+        <button type="button" class="btiniciar" data-bs-toggle="modal" data-bs-target="#modalcadastrar">Cadastrar</button>
+      </div>
+  </nav>
+<!-------- modal ---------->
+<div class="modal fade" id="modalcadastrar" tabindex="-1" aria-labelledby="modalcadastrar" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm ">
+      <div class="modal-content bg-secondary">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="row m-3 d-flex justify-content-center">
+            <div class="col-sm-8">
+                <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a href="">Sou Profissional</a></button>  
+            </div>
+            <div class="col-sm-8">
+                <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a href="">Sou Paciente</a></button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
