@@ -1,0 +1,14 @@
+.sty-container{
+    border: 4px solid rgb(241, 96, 28)
+    
+}
+.sty-btquest{
+    background-color: rgb(241, 96, 28);
+}
+.sty-btquest:hover{
+    background-color: rgb(168, 168, 168);
+    border: 3px solid rgb(241, 96, 28);
+}
+.sty-quest{
+    background-color: rgba(155, 155, 155, 0.719);
+}
