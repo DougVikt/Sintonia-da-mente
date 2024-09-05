@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    background-image: url("../imagens/backgroud-body.png");
+    background-repeat: repeat;
+    background-size: 6rem;
+    height: 100vh;
+    z-index: -1;
+  }
+  .sty-footer{
+    color:#ebebeb;
+    background-color: #000000;
+  }
