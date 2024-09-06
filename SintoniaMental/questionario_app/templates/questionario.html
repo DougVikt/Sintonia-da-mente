@@ -11,8 +11,32 @@
     <link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
 
 </head>
-<body>
- 
+<body class="bg-secondary d-flex justify-content-center">
+    <div  class="container mx-3 my-3 rounded-3 bg-light shadow-lg">
+        <a class="sty-a-svg" href="{% url 'home' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+            </svg>
+        </a>
+        <div class="p-5 text-center rounded-3">
+          
+            <h1 class="text-body-emphasis">Faça o Teste</h1>
+            <p class="col-lg-8 mx-auto fs-5 text-muted">
+              Descubra se você apresenta sintomas de TDAH ou autismo respondendo ao nosso questionário rapido e facil! Com base na sua pontuação, você pode ter indícios de um ou ambos os transtornos e descobrir recursos e informações úteis aqui mesmo no nosso site para entender melhor e lidar com esses desafios.
+            </p>
+            <div class="d-inline-flex gap-2 mb-5">
+              <a href="{% url "quest" %}">
+              <button class="d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button">
+                FAZER TESTE
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short text-dark" viewBox="0 0 10 16">
+                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                </svg>
+              </button>
+            </a>
+            </div>
+          </div>
+    </div>
+    
      
 </body>
 </html>

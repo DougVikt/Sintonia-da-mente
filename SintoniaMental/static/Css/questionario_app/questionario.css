@@ -1,0 +1,13 @@
+.sty-return{
+    color: rgb(236, 105, 44);
+    pointer-events: all;
+}
+.sty-a-svg {
+    display: inline-block;
+}
+
+.sty-a-svg:hover .sty-return {
+transform: scale(0.8);
+transform-origin: center;
+}
+

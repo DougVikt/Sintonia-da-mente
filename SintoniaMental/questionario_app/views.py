@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def quest(request):
-    return render(request, 'questinario.html') 
+    return render(request, 'questionario.html') 
 
 
 # from django.shortcuts import render, redirect
