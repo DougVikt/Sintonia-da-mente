@@ -4,10 +4,23 @@
 }
 .sty-btquest{
     background-color: rgb(241, 96, 28);
+    
+}
+.sty-a-quest{
+    pointer-events: all;
+}
+.sty-svg2{
+    color: black;
 }
 .sty-btquest:hover{
-    background-color: rgb(168, 168, 168);
-    border: 3px solid rgb(241, 96, 28);
+    transform: scale(0.8);
+    transform-origin: center;
+    background-color: rgb(117, 117, 117);
+    color: rgb(241, 96, 28);
+    font-weight: 700;
+    .sty-svg2{
+        color: rgb(241, 96, 28);
+    }
 }
 .sty-quest{
     background-color: rgba(155, 155, 155, 0.719);
