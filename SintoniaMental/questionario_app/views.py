@@ -1,57 +1,44 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.http import JsonResponse
+from .perg_alter import perguntas_usu , alternativas 
 
 
-alternativas = {
-    'teste 1':0,
-    'teste 2':2,
-    'teste 3':4,
-    'teste 4':6,
-    'teste 5':8,
-    }  
 
 def quest(request):
     return render(request, 'questionario.html') 
 
+def quest_user(request, pergunta_indice=0):
+    # Verifica se o índice da pergunta é válido
+    if pergunta_indice >= len(perguntas_usu):
+        return render(request, 'questionario.html')
 
-# Função para exibir as perguntas e alternativas
-def quest_usuario(request):
-# Verificar se o usuário enviou uma resposta
+    # Obtém a pergunta atual
+    questao = perguntas_usu[pergunta_indice]
+
     if request.method == 'POST':
-        # Obter a resposta do usuário
-        resposta_atual = request.POST.get('answer')
-        
-        # Obter a pergunta atual da sessão
-        pergunta_atual = request.session.get('pergunta_atual')
-        
-        # Verificar se a pergunta atual e a resposta do usuário são válidas
-        if pergunta_atual is not None and resposta_atual is not None:
-            # Armazenar a resposta do usuário na sessão
-            request.session['respostas'][pergunta_atual] = resposta_atual
-            
-            # Incrementar a pergunta atual
-            request.session['pergunta_atual'] += 1
+        # Processa a resposta e acumula os pontos
+        alterna_indice = int(request.POST.get('alternativa'))
+        texto = alternativas[alterna_indice]
+        pontos = texto['pontos']
 
-    # Definir as perguntas e alternativas
-    perguntas = [
-        'olgo aqui ?',
-        'olgo aqui ?',
-        'olgo aqui ?',
-        'olgo aqui ?',
-        'olgo aqui ?',
-    ]
+        # Armazena os pontos na sessão ou banco de dados
+        if 'total_pontos' not in request.session:
+            request.session['total_pontos'] = 0
+        request.session['total_pontos'] += pontos
 
-    # Verificar se a pergunta atual está definida na sessão
-    if 'pergunta_atual' not in request.session:
-        # Definir a pergunta atual como 0 e criar um dicionário para armazenar as respostas
-        request.session['pergunta_atual'] = 0
-        request.session['respostas'] = {}
+        # Define o índice da próxima pergunta
+        next_index = pergunta_indice + 1
+        next_url = request.build_absolute_uri(f'questionario_app/{next_index}')
 
-    # Obter a pergunta atual da sessão
-    pergunta_atual = request.session['pergunta_atual']
+        return JsonResponse({'next_url': next_url})
 
-    # Renderizar a página com a pergunta atual e suas alternativas
-    return render(request, 'quest_usuario.html', {'pergunta': perguntas[pergunta_atual],'alternativas':alternativas})
+    context = {
+        'questao': questao,
+        'pergunta_indice': pergunta_indice,
+    }
+    return render(request, 'questionario_app/quest_uasuario.html', context)
+
+
 
 
 
@@ -60,8 +47,8 @@ def quest_usuario(request):
 # from .forms import QuestionForm
 
 # def questionnaire(request):
-#     questions = Question.objects.all()
-#     current_question = questions.first()
+#     perguntas_usu = Question.objects.all()
+#     current_question = perguntas_usu.first()
 #     answers = []
 
 #     if request.method == 'POST':
