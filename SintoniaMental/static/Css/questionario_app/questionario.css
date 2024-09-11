@@ -3,6 +3,7 @@
 }
 .sty-btquest{
     background-color: rgba(0, 0, 0, 0.685);
+    
 }
 .sty-return , .sty-btquest{
     color: rgb(250, 119, 59);
@@ -13,7 +14,7 @@
 }
 
 .sty-a-svg:hover , .sty-return , .sty-btquest:hover{
-    transform: scale(0.8);
+    transform: scale(0.9);
     transform-origin: center;        
     .sty-svgbt{
         color: black;
