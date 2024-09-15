@@ -7,36 +7,13 @@ from .perg_alter import perguntas_usu , alternativas
 def quest(request):
     return render(request, 'questionario.html') 
 
-def quest_user(request, pergunta_indice=0):
-    # Verifica se o índice da pergunta é válido
-    if pergunta_indice >= len(perguntas_usu):
-        return render(request, 'questionario.html')
-
-    # Obtém a pergunta atual
-    questao = perguntas_usu[pergunta_indice]
-
-    if request.method == 'POST':
-        # Processa a resposta e acumula os pontos
-        alterna_indice = int(request.POST.get('alternativa'))
-        texto = alternativas[alterna_indice]
-        pontos = texto['pontos']
-
-        # Armazena os pontos na sessão ou banco de dados
-        if 'total_pontos' not in request.session:
-            request.session['total_pontos'] = 0
-        request.session['total_pontos'] += pontos
-
-        # Define o índice da próxima pergunta
-        next_index = pergunta_indice + 1
-        next_url = request.build_absolute_uri(f'questionario_app/{next_index}')
-
-        return JsonResponse({'next_url': next_url})
-
+def quest_user(request):
+  
     context = {
-        'questao': questao,
-        'pergunta_indice': pergunta_indice,
+        'perguntas': perguntas_usu,
+        'alternativas': alternativas
     }
-    return render(request, 'questionario_app/quest_uasuario.html', context)
+    return render(request, 'quest_usuario.html', context)
 
 
 
