@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import JsonResponse
 from .perg_alter import perguntas_usu , alternativas 
 
 
