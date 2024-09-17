@@ -20,9 +20,11 @@
         </a>
             
         <div class="p-5 text-center rounded-3">
-            {% csrf_token %}
+            {% if questao %}
+            
             <div class="row">
-                <h2>{{ pergunta }}</h2>
+                <h2>{{ pergunta.pergunta }}</h2>
+                {% csrf_token %}
                 <form method="post">
                     <ul id="options">
                     {% for alternativa , valor in alternativas.items %}
@@ -35,6 +37,25 @@
         </div>
         
     </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch(window.location.href, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.next_url) {
+                    window.location.href = data.next_url;
+                }
+            });
+        });
+    </script>
     
      
 </body>
