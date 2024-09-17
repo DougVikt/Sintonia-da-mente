@@ -24,3 +24,9 @@
         background-color:rgb(250, 119, 59);
     }
 }
+.sty-radio{
+    border:2px solid rgb(250, 119, 59);
+}
+.progress-bar{
+    background-color: rgb(250, 119, 59);
+}
