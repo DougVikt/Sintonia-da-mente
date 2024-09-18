@@ -1,0 +1,175 @@
+.sty-body{
+    height: 25rem;
+    background-color: rgb(29, 29, 29);
+}
+h4{
+    color:rgb(236, 105, 44);
+    font-weight: 700;
+}
+.sty-aspas{
+    font-size: 6rem;
+    color:rgb(236, 105, 44);
+
+    
+}
+.sty-row{
+    height: 10rem;
+}
+.col{
+    height: 3rem;
+}
+
+.sty-cards{
+    background-color: rgba(148, 148, 148, 0.705);
+    
+}
+.sty-h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgb(236, 105, 44);
+    
+}
+.sty-p{
+    font-size: 1.5rem;
+ 
+}
+.sty-button{
+    background-color: rgb(241, 96, 28);
+    font-weight: 500;
+    width: 8rem;
+    font-size: 1.2rem;
+    border-color: rgb(0, 0, 0);
+    box-shadow: 2px 2px 8px rgb(0, 0, 0);
+    
+}
+.sty-button:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(241, 96, 28);
+    border-color: rgb(241, 96, 28);
+    width: 8.5rem;
+    height: 2.9rem;
+}
+
+.btiniciar{
+    background-color: rgb(241, 96, 28);
+    padding: .4rem;
+    color: rgb(0, 0, 2);
+    font-weight: 500;
+    border-radius: .8rem;
+    width: 7rem;
+}
+.btiniciar:hover , .bt-modal:hover{
+    color:  rgb(241, 96, 28);
+    background-color: rgb(0, 0, 2);
+}
+
+.sty-navbar{
+    background-color: rgb(36, 36, 36);
+    font-size: 20px;
+    
+
+}
+.sty-link-nav{
+    color: rgb(255, 255, 255);
+      
+}
+.sty-link-nav:hover{
+    color: rgb(241, 96, 28);
+    font-weight: 600;
+    
+}
+.sty-image{
+    opacity: 80%;
+    
+}
+.sty-image img{
+    padding: 1rem;
+    position: fixed;
+    background-color: rgb(8, 8, 8);
+    margin-left: 1rem;
+    border-radius:0 0 1rem 1rem;
+    
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.5s; /* adicione uma transição para o efeito de subida */
+}
+  
+.hide-nav {
+    top: -100px; /* esconda o nav quando rolar a página */
+}
+.bt-modal{
+    background-color: rgb(241, 96, 28);
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+    .sty-link-nav{
+        margin: 10px;
+        color: rgb(241, 96, 28);
+        background-color: transparent;
+    }
+    .sty-link-nav:hover{
+        border-radius: .5rem;
+        color: black;
+        background-color: rgb(241, 96, 28);
+        font-weight: 700;
+    }
+
+    .btiniciar{
+        width: 5rem;
+        padding: .4rem;
+        font-size: 1rem;
+        margin-left: .5rem;
+    }
+    .sty-image{
+        content: url('../imagens/logo5-semfundo.png');
+        width: 7rem;
+    }
+    .offcanvas{
+        opacity: 100%;
+    }
+}
+
+.sty-container{
+    border: 4px solid rgb(241, 96, 28)
+    
+}
+.sty-btquest{
+    background-color: rgb(241, 96, 28);
+    
+}
+.sty-a-quest{
+    pointer-events: all;
+}
+.sty-svg2{
+    color: black;
+}
+.sty-btquest:hover{
+    transform: scale(0.8);
+    transform-origin: center;
+    background-color: rgb(117, 117, 117);
+    color: rgb(241, 96, 28);
+    font-weight: 700;
+    .sty-svg2{
+        color: rgb(241, 96, 28);
+    }
+}
+.sty-quest{
+    background-color: rgba(155, 155, 155, 0.719);
+}
+
+.sty-sobre{
+    background:linear-gradient(#c7c7c7,#000000);
+    
+}
+svg , .sty-h2{
+    color:  rgb(241, 96, 28);
+}
+.sty-p2{
+    color: aliceblue;
+}

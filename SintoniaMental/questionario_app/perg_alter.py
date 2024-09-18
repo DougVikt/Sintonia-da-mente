@@ -65,7 +65,7 @@ perguntas_prof = [
 
 alternativas = [
     {'texto':'Nunca','pontos':0},
-    {'texto':'Às vezez','pontos':2},
+    {'texto':'Às vezes','pontos':2},
     {'texto':'Raramente','pontos':1},
     {'texto':'Frequentimente','pontos':3},
     {'texto':'sempre','pontos':4},

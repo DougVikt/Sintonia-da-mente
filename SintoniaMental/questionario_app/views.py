@@ -27,3 +27,6 @@ def quest_prof(request):
         'alternativas':alternativas
     }
     return render(request,'quest_prof.html' , context)
+
+def resultado(request):
+    return render(request,'resultado.html')

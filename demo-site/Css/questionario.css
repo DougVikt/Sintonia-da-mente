@@ -1,0 +1,32 @@
+.sty-h1 , .sty-svgbt{
+    color: rgb(236, 105, 44);
+}
+.sty-btquest{
+    background-color: rgba(0, 0, 0, 0.685);
+    
+}
+.sty-return , .sty-btquest{
+    color: rgb(250, 119, 59);
+    pointer-events: all;
+}
+.sty-a-svg {
+    display: inline-block;
+}
+
+.sty-a-svg:hover , .sty-return , .sty-btquest:hover{
+    transform: scale(0.9);
+    transform-origin: center;        
+    .sty-svgbt{
+        color: black;
+    }
+    
+    &:not(.sty-a-svg,.sty-return){
+        background-color:rgb(250, 119, 59);
+    }
+}
+.sty-radio{
+    border:2px solid rgb(250, 119, 59);
+}
+.progress-bar{
+    background-color: rgb(250, 119, 59);
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintonia Mental</title>
+    
+    <!----------bootstrap------------>
+    <link rel="stylesheet" href="Bootstrap/bootstrap.min.css">
+    <script src="Bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Css/home.css">
+
+   
+</head>
+<body>
+  <!------------ navbar ---------------->
+  <nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
+    <button class="navbar-toggler ms-4 bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="mb-0 mb-md-0  sty-image">
+        <a class="navbar-brand" href="#home">
+          <img class="img-fluid" src="imagens/sm2.svg" alt="logo sintonia mental" width="90" height="90"/>
+        </a>
+      </div>
+      <div class="offcanvas offcanvas-start text-bg-dark " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-0">
+            <ul class="navbar-nav  mx-auto">
+              <li class="nav-item">
+                <a href="#quest" class="nav-link sty-link-nav px-5">Iniciar</a>
+              </li>
+              <li class="nav-item">
+                <a href="#depoimentos" class="nav-link sty-link-nav px-5">Depoimentos</a>
+              </li>
+              <li class="nav-item">
+                <a href="#sobre" class="nav-link sty-link-nav px-5">Sobre</a>
+                </li>
+              <li class="nav-item">
+                <a href="#ajuda" class="nav-link sty-link-nav px-5">Ajuda</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+        
+      <div class="text-end me-5">
+        <button type="button" class="btiniciar" data-bs-toggle="modal" data-bs-target="#modalcadastrar">Cadastrar</button>
+      </div>
+  </nav>
+<!-------- modal ---------->
+<div class="modal fade" id="modalcadastrar" tabindex="-1" aria-labelledby="modalcadastrar" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered modal-sm ">
+      <div class="modal-content bg-dark">
+        <div class="modal-header-border-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="row m-3 d-flex justify-content-center">
+            <div class="col-sm-8">
+                <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="">Sou Profissional</a></button>  
+            </div>
+            <div class="col-sm-8">
+                <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="">Sou Paciente</a></button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <br>
+  <!------------------ cards --------------------> 
+      <section id="home">        
+        <div  class="row featurette p-0 m-0 sty-cards h-100">   
+          <div class="col-md-6 " >
+            <img src="imagens/mente1.jpg" alt="" class="rounded-4 img-fluid w-100 h-100" />
+          </div>
+          <div class="col-md-6 p-1 ">
+            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center"> Crie uma Rotina Estruturada</h1><br>
+            <p class="sty-p text-center px-3">
+              Ter uma rotina diária pode ser extremamente benéfico. Tente estabelecer horários fixos para atividades como acordar, trabalhar, estudar e relaxar.
+            </p><br>
+            <div class="mt-4 mb-4 text-center">
+              <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-">saiba mais</button>
+            </div>
+          </div>
+        </div>
+        <hr class="featurette-divider m-3">
+        <div class="row featurette p-0 m-0 sty-cards h-100">   
+          <div class="col-md-6 p-1 ">
+            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> Ambiente de Trabalho Organizado</h1><br>
+            <p class="sty-p text-center px-3">
+             Um espaço de trabalho livre de distrações é crucial. Organize seu ambiente de modo que apenas os itens essenciais estejam visíveis.
+            </p><br>
+            <div class="mt-4 mb-4 text-center">
+              <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-">saiba mais</button>
+            </div>
+          </div> 
+          <div class="col-md-6 " >
+            <img src="imagens/mente2.jpg" alt="" class="rounded-4 img-fluid sty-img2 w-100 h-100" />
+          </div>
+        </div>
+       
+      </section>
+  <!------------------- avaliações ------------------> 
+      <section id="depoimentos">
+        <div  class="carousel slide carousel-fade mt-3 w-100" data-bs-ride="carousel" data-interval="8000" >
+          <div class="carousel-inner sty-body text-center">
+                  <div class="carousel-item active">
+                      <div class="text-light container">
+                          <div class="text-center m-5 text-md-start">
+                              <h4 class="m-4 p-3 ">Vanessa Valentim</h4>
+                          </div>
+                          <div class="row aligh-item-center sty-row">
+                              <div class="col-2 sty-aspas fw-bold  d-flex flex-row-reverse align-self-start p-0">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+                                      <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+                                  </svg>
+                              </div>
+                              <div class="col-8 sty-text p-2 fst-italic  align-self-center">
+                                  O medico Clodoaldo foi muito sinpatico, me atendeu muito bem . Ja estou fazendo o tratamento , me sinto mais atento as coisa e tudo isso a um preço acessivel . Obrigado a Sintonia Mental por existir .
+                               </div>
+                              <div class="col-2 sty-aspas fw-bold  d-flex align-self-end p-0">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+                                      <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+                                  </svg>
+                              </div>
+                          </div>
+                      </div>
+              </div>
+          </div>
+      </div>
+      </section>      
+  <!---------------- questionario -------------------->
+      <section id="quest">
+        <div  class="container sty-container mt-5 mb-5 rounded-3 sty-quest" >
+          <div class="p-5 text-center rounded-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+              <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+              <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+            </svg>
+              <h1 class="text-body-emphasis my-3">Faça o Teste</h1>
+              <p class="col-lg-8 mx-auto fs-5 text-muted">
+                Descubra se você apresenta sintomas de TDAH ou autismo respondendo ao nosso questionário rapido e facil! Com base na sua pontuação, você pode ter indícios de um ou ambos os transtornos e descobrir recursos e informações úteis aqui mesmo no nosso site para entender melhor e lidar com esses desafios.
+              </p>
+              <div class="d-inline-flex gap-2 mb-5 my-4">
+                <a class="text-reset sty-a-quest" href="questionario.html">
+                <button class="d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button">
+                  FAZER TESTE
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svg2" viewBox="0 0 10 16">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                  </svg>
+                </button>
+              </a>
+              </div>
+            </div>
+      </div>
+      </section>
+  <!------------------- sobre -------------------->
+      <section id="sobre">
+        <div  class="container-fluid h-100 mt-3 sty-sobre">
+          <div class="px-4 py-5 ">
+              <h2 class="pb-2 border-bottom text-center fw-bold sty-h2">SOBRE</h2>
+              <div class="row py-5">
+                <div class="feature col-sm-12 col-md-4">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+                          <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                        </svg>
+                  </div>
+                    <h3 class="fs-2 text-body-emphasis">O que e ?</h3>
+                    <p class="sty-p2">Sintonia Mental é um projeto destinado a pessoas com Transtorno de Déficit de Atenção e Hiperatividade (TDAH) e Transtorno do Espectro Autista (TEA), idealizado por um professor de TI que tem um filho com TDAH e identificou a falta de apoio específico para esse público.</p>
+                </div>
+                <div class="feature col-sm-12 col-md-4">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+                          <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                        </svg>
+                  </div>
+                    <h3 class="fs-2 text-body-emphasis">Qual e o objetivo ? </h3>
+                    <p class="sty-p2">O principal objetivo do Sintonia Mental é conectar pessoas com TDAH e TEA a profissionais especializados de forma rápida e sem complicações, identificando suas necessidades e oferecendo suporte personalizado.</p>
+                </div>
+                <div class="feature col-sm-12 col-md-4">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+                          <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                          <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4"/>
+                      </svg>
+                  </div>
+                    <h3 class="fs-2 text-body-emphasis">Quem pode participar ?</h3>
+                    <p class="sty-p2">Profissionais de saúde das áreas específicas são bem-vindos a colaborar conosco. Além disso, qualquer pessoa pode contribuir compartilhando nossa plataforma, ajudando a ampliar o alcance do projeto e beneficiar mais pessoas.</p>
+                 </div>
+                </div>
+            </div>
+      </div>
+    </section>
+      <!--------------- footer ---------------------->
+      <div class="container-fluid h-100 sty-footer py-3">
+        <footer class="d-flex flex justify-content-between align-items-center py-5 mb-4">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="#home" class="w-50 mb-3 me-3 mb-md-2 text-muted text-decoration-none lh-1">
+              <img class="img-fluid ms-5" width="20%" height="20%" src="imagens/sm2.svg">
+            </a>
+            <span class="mb-1 mb-md-0 text-light">@ Sintonia Mental 2024</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="me-3">
+              <a class="text-muted" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                </svg>
+              </a>  
+            </li>
+            <li class="me-3">
+              <a class="text-muted" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+              </a>
+            </li>
+           </ul>
+        </footer>
+      </div>
+    </section>
+
+      <script src="Js/navbar.js"></script>
+     
+</body>
+</html>
