@@ -20,9 +20,9 @@
         <img src="{% static 'imagens/mente1.jpg' %}" alt="" class="rounded-4 img-fluid w-100 h-100" />
       </div>
       <div class="col-md-6 p-1 ">
-        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center">bemvindo</h1><br>
+        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center"> Crie uma Rotina Estruturada</h1><br>
         <p class="sty-p text-center px-3">
-          testando um texto aleatorio para ver como esta o comportamento do mesmo , assim espero que fique como quero 
+          Ter uma rotina diária pode ser extremamente benéfico. Tente estabelecer horários fixos para atividades como acordar, trabalhar, estudar e relaxar.
         </p><br>
         <div class="mt-4 mb-4 text-center">
           <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-{{ objeto.id }}">saiba mais</button>
@@ -33,9 +33,9 @@
   {% comment %} {% else %} {% endcomment %}
     <div class="row featurette p-0 m-0 sty-cards h-100">   
       <div class="col-md-6 p-1 ">
-        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center">bemvindo</h1><br>
+        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> Ambiente de Trabalho Organizado</h1><br>
         <p class="sty-p text-center px-3">
-          testando um texto aleatorio para ver como esta o comportamento do mesmo , assim espero que fique como quero 
+         Um espaço de trabalho livre de distrações é crucial. Organize seu ambiente de modo que apenas os itens essenciais estejam visíveis.
         </p><br>
         <div class="mt-4 mb-4 text-center">
           <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-{{ objeto.id }}">saiba mais</button>
@@ -55,7 +55,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <p>{{ objeto.descricao }}</p>
+                <p>{{ objeto.descricao }}Ter uma rotina diária pode ser extremamente benéfico. Tente estabelecer horários fixos para atividades como acordar, trabalhar, estudar e relaxar. Use um calendário visual ou uma agenda digital com lembretes. Dividir as tarefas em blocos menores e mais gerenciáveis pode ajudar a manter o foco. 
+                Considere também incluir intervalos regulares para descanso, pois isso ajuda a recarregar a energia e a manter a concentração.</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
@@ -66,9 +67,5 @@
 
 
       {% comment %}{% endfor %}{% endcomment %}
-  
-
-
-
-
+     
 {% endblock %}
