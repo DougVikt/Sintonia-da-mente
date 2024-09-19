@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste Mental</title>
-    {% load static %}
+  
     <!----------bootstrap------------>
-    <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
-    <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
+    <link rel="stylesheet" href="Bootstrap/bootstrap.min.css">
+    <script src="Bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Css/questionario.css">
 
 </head>
 <body class="bg-secondary d-flex justify-content-center">
     <div  class="container mx-3 my-3 rounded-3 bg-light shadow-lg">
-        <a class="sty-a-svg" href="{% url 'home' %}">
+        <a class="sty-a-svg" href="index.html">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
             </svg>
@@ -26,7 +26,7 @@
             </p>
             <div class="d-inline-flex mb-5 row flex-column">
               <h5 class="">O teste é para :</h5>
-              <a class="col-11 text-reset my-2" href="{% url 'quest_user' %}" >
+              <a class="col-11 text-reset my-2" href="quest_usuario.html" >
               <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
                 PARA MIM MESMO
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 10 16">
@@ -34,7 +34,7 @@
                 </svg>
               </button>
             </a>
-            <a class="col-11 text-reset my-2" href="{% url 'quest_pais' %}">
+            <a class="col-11 text-reset my-2" href="quest_pais.html">
               <button class="px-md-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-1 rounded-pill" type="button">
                 PARA MEU FILHO(A)/PARENTE
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 10 16">
@@ -42,7 +42,7 @@
                 </svg>
               </button>
             </a> 
-            <a class="col-11 text-reset my-2" href="{% url "quest_prof" %}">
+            <a class="col-11 text-reset my-2" href="quest_prof.html">
               <button class="px-md-5 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button">
                 PARA MEU ALUNO(A)
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt" viewBox="0 0 10 16">
