@@ -33,6 +33,7 @@ function quest(perguntas) {
 
 function next(event, perguntas) {
     event.preventDefault();
+    const barra_progresso = document.getElementById("progresso");
     const radios = document.querySelectorAll(`input[name="q${indice_perguntas + 1}"]:checked`);
     if (radios.length > 0) {
         soma_pontos += parseInt(radios[0].value);
@@ -40,7 +41,7 @@ function next(event, perguntas) {
         indice_perguntas++;
         if (indice_perguntas < perguntas.length) {
             quest(perguntas);
-            document.getElementById("progresso").innerHTML = `
+            barra_progresso.innerHTML = `
             <div class="progress-bar progress-bar-striped rounded" role="progressbar" aria-label="Example with label" style="width: ${porcentagem}%;" aria-valuemin="0" aria-valuemax="100">${porcentagem}%</div>
             `;
         } 
@@ -48,14 +49,14 @@ function next(event, perguntas) {
             document.getElementById("pergunta").innerHTML = `
                 <h2>CONCLUIDO !</h2>
             `;
-            document.getElementById("progresso").innerHTML = `
+            barra_progresso.innerHTML = `
             <div class="progress-bar progress-bar-striped rounded" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuemin="0" aria-valuemax="100">100%</div>
             `;
             document.getElementById('proximo').innerHTML = 'Resultado'
 
         }
         else {
-            window.location.href = 'home.html';
+            window.location.href = `result_func.js?resultado=${soma_pontos}`;
         }
     }else {
         if(indice_perguntas < perguntas.length){

@@ -22,35 +22,34 @@
           
             <h1 class="sty-h1 mb-5 ">Resultado do Teste </h1>
             <p id="resultado" class="col-lg-8 mx-auto fs-5 text-muted"></p>
-            <div class="d-inline-flex mb-5 row flex-column">
-              <a class="col-11 text-reset my-2" href="{% url 'home' %}" >
-              <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
-                PARA MIM MESMO
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 10 16">
-                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-                </svg>
-              </button>
-            </a>
-            <a class="col-11 text-reset my-2" href="{% url 'quest_pais' %}">
-              <button class="px-md-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-1 rounded-pill" type="button">
-                PARA MEU FILHO(A)/PARENTE
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 10 16">
-                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-                </svg>
-              </button>
-            </a> 
-            <a class="col-11 text-reset my-2" href="{% url "quest_prof" %}">
-              <button class="px-md-5 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button">
-                PARA MEU ALUNO(A)
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt" viewBox="0 0 10 16">
-                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-                </svg>
-              </button>
-            </a>
+            
+            <div id="btn-cadastrar" class="d-inline-flex mb-5 row flex-column">
+                <a class="col-11 text-reset my-2" href="{% url '' %}" >
+                    <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
+                        CADASTRAR
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 10 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                        </svg>
+                    </button>
+                </a>
             </div>
-          </div>
+            <div id="btn-cadastrar" class="d-inline-flex mb-5 row flex-column">
+                <a class="col-11 text-reset my-2" href="{% url 'home' %}" >
+                    <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
+                        VOLTAR
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 10 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                        </svg>
+                    </button>
+                </a>
+            </div>
+        </div>
     </div>
     
-     
+     <script>
+       
+
+
+     </script>
 </body>
 </html>
