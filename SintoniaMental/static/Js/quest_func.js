@@ -52,7 +52,8 @@ function next(event, perguntas) {
             barra_progresso.innerHTML = `
             <div class="progress-bar progress-bar-striped rounded" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuemin="0" aria-valuemax="100">100%</div>
             `;
-            document.getElementById('proximo').innerHTML = 'Resultado'
+            document.getElementById('proximo').innerHTML = 'Resultado';
+            document.getElementById('enviar').href = "resultado.html";
 
         }
         else {

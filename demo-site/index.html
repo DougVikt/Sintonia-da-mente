@@ -13,6 +13,15 @@
    
 </head>
 <body>
+  <!------------ alerta -------------->
+  <div id="alerta" class="alert alert-warning align-items-center mt-5 pt-5" role="alert">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi flex-shrink-0 me-2 bi-exclamation-triangle-fill" role="img" aria-label="Warning:" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+    </svg>
+    <div>
+      Este é um site de demonstração que está em desenvolvimento. Entretanto, a parte do teste já está funcional para que você possa verificar o possível potencial de ter TDAH (não considerar como diagnóstico). Para saber mais sobre o projeto, vá em <b>SOBRE</b>.  
+    </div>
+  </div>
   <!------------ navbar ---------------->
   <nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
     <button class="navbar-toggler ms-4 bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -68,7 +77,7 @@
       </div>
     </div>
   </div>
-      <br>
+    
   <!------------------ cards --------------------> 
       <section id="home">        
         <div  class="row featurette p-0 m-0 sty-cards h-100">   
@@ -76,28 +85,61 @@
             <img src="imagens/mente1.jpg" alt="" class="rounded-4 img-fluid w-100 h-100" />
           </div>
           <div class="col-md-6 p-1 ">
-            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center"> Crie uma Rotina Estruturada</h1><br>
+            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center"> Estabeleça Rotinas Claras e Previsíveis</h1><br>
             <p class="sty-p text-center px-3">
-              Ter uma rotina diária pode ser extremamente benéfico. Tente estabelecer horários fixos para atividades como acordar, trabalhar, estudar e relaxar.
-            </p><br>
+              Ter uma rotina bem definida pode ajudar a minimizar distrações e aumentar a produtividade. </p><br>
             <div class="mt-4 mb-4 text-center">
-              <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-">saiba mais</button>
+              <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-1">saiba mais</button>
             </div>
           </div>
         </div>
         <hr class="featurette-divider m-3">
         <div class="row featurette p-0 m-0 sty-cards h-100">   
           <div class="col-md-6 p-1 ">
-            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> Ambiente de Trabalho Organizado</h1><br>
+            <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> Use Recursos Visuais</h1><br>
             <p class="sty-p text-center px-3">
-             Um espaço de trabalho livre de distrações é crucial. Organize seu ambiente de modo que apenas os itens essenciais estejam visíveis.
+              Ferramentas visuais como listas de tarefas, calendários e lembretes visuais podem ser extremamente úteis
             </p><br>
             <div class="mt-4 mb-4 text-center">
-              <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-">saiba mais</button>
+              <button class="sty-button btn "data-bs-toggle="modal" data-bs-target="#modaldica-2">saiba mais</button>
             </div>
           </div> 
           <div class="col-md-6 " >
             <img src="imagens/mente2.jpg" alt="" class="rounded-4 img-fluid sty-img2 w-100 h-100" />
+          </div>
+        </div>
+
+        <!----------- modais -------------->
+        <div class="modal fade" id="modaldica-1" tabindex="-1" aria-labelledby="modaldica-1" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content bg-secondary text-light">
+              <div class="modal-header">
+                <h5 class="modal-title">Estabeleça Rotinas Claras e Previsíveis</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Tente criar um cronograma diário que inclua horários específicos para tarefas importantes, pausas e momentos de lazer. Manter essa rotina consistente pode ajudar a criar um ambiente mais previsível e menos estressante.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="modaldica-2" tabindex="-1" aria-labelledby="modaldica-2" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content bg-secondary text-light">
+              <div class="modal-header">
+                <h5 class="modal-title">Use Recursos Visuais</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Eles ajudam a manter o foco nas tarefas e a lembrar dos compromissos. Por exemplo, usar um quadro branco para anotar as tarefas do dia ou post-its coloridos para destacar prioridades pode ser uma ótima maneira de se organizar1.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
+            </div>
+            </div>
           </div>
         </div>
        

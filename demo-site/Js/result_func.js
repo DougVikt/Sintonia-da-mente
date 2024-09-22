@@ -1,8 +1,4 @@
-   // Função para obter o valor do parâmetro da URL
-function getParametro(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name);
-}
+document.addEventListener("DOMContentLoaded" , () =>{
 
 // Obtendo o resultado da URL e exibindo no HTML
 const resultado = getParametro('resultado');
@@ -42,3 +38,5 @@ function exibirResultado(){
     }
 
 }
+
+});

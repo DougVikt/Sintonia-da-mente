@@ -124,8 +124,9 @@ function next(event, perguntas) {
             document.getElementById("progresso").innerHTML = `
             <div class="progress-bar progress-bar-striped rounded" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuemin="0" aria-valuemax="100">100%</div>
             `;
-            document.getElementById('proximo').innerHTML = 'Resultado'
-
+            document.getElementById('enviar').innerHTML = 'Resultado'
+            document.getElementById('enviar').href = "resultado.html";
+            localStorage.setItem('resultado',soma_pontos);
         }
         else {
             window.location.href = 'home.html';
