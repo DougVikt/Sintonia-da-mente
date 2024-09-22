@@ -11,29 +11,29 @@
     <link rel="stylesheet" href="Css/questionario.css">
 <head>
 <body class="bg-secondary d-flex justify-content-center row flex-column-flex-row-reverse">
-        <div id="alerta" class="col-12"></div>
-        <div class="col-10 container mx-3 my-3 rounded-3 bg-light shadow-lg">
-            <a class="sty-a-svg" href="index.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
-                </svg>
-            </a>
-                
-            <div class="p-5 text-center rounded-3">
-                <div class="row">
-                    <form class="col">
-                        <div class="row flex-column" id="pergunta"></div>
-                        <br>
-                        <a id="enviar" href="#" class="text-reset"><button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" id="proximo" onclick="next(event,perguntas)">Proximo</button></a>
-                    </form>
-                    <div class="p-0 progress mt-5" id="progresso"></div>
-                </div>            
-            </div>
+    <div id="alerta" class="col-12"></div>
+    <div class="col-10 container mx-3 my-3 rounded-3 bg-light shadow-lg">
+        <a class="sty-a-svg" href="questionario.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+            </svg>
+        </a>
             
-            <script>
-                const perguntas = textos('pais');
-                quest(perguntas);
-                
-            </script>
-        </body>
-    </html>
+        <div class="p-5 text-center rounded-3">
+            <div class="row">
+                <form class="col">
+                    <div class="row flex-column" id="pergunta"></div>
+                    <br>
+                    <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" id="proximo" onclick="next(event,perguntas)">Proximo</button>
+                </form>
+                <div class="p-0 progress mt-5" id="progresso"></div>
+            </div>            
+        </div>
+        
+        <script>
+            const perguntas = textos('pais');
+            quest(perguntas);
+            
+        </script>
+    </body>
+</html>

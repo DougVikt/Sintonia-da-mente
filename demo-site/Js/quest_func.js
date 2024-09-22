@@ -48,16 +48,26 @@ function textos(tipo=''){
     ];
 
     const perguntas_prof = [
-
-        'Dificudade em prestar atenção aos detalhes?',
-        'Não mantém a atenção em tarefas ou brincadeiras?',
-        'Parece não ouvir quando você fala com ele(a)?',
-        'Não segue instruções e não termina os trabalhos escolares, tarefas ou deveres no local?',
-        'Não consegue organizar tarefas e atividades?',
-        'Evita, reluta ou se desvia de tarefas que exigem esforço mental sustentado?',
-        'Perde objetos necessários para tarefas ou atividades?',
-        'É facilmente distraído por estímulos alheios?',
-        'É esquecido em relação às atividades diárias?'
+        'O aluno(a) tem dificuldade em prestar atenção aos detalhes ou comete erros por descuido nas tarefas escolares?',
+        'O aluno(a) tem dificuldade em manter a atenção em tarefas ou atividades lúdicas?',
+        'O aluno(a) parece não escutar quando se fala diretamente com ele?',
+        'O aluno(a) não segue instruções e não termina tarefas escolares, tarefas domésticas ou deveres?',
+        'O aluno(a) tem dificuldade em organizar tarefas e atividades?',
+        'O aluno(a) evita, não gosta ou reluta em se envolver em tarefas que exigem esforço mental prolongado?',
+        'O aluno(a) perde coisas necessárias para tarefas ou atividades (por exemplo, brinquedos, tarefas escolares, lápis, livros)?',
+        'O aluno(a) é facilmente distraído por estímulos externos?',
+        'O aluno(a) é esquecido em atividades diárias?',
+        'O aluno(a) se mexe ou bate com as mãos ou pés, ou se remexe na cadeira?',
+        'O aluno(a) se levanta da cadeira em situações em que se espera que permaneça sentado?',
+        'O aluno(a) corre ou sobe em lugares inadequados?',
+        'O aluno(a) tem dificuldade em brincar ou se envolver em atividades de lazer de forma calma?',
+        'O aluno(a) está "a mil" ou frequentemente age como se estivesse "a todo vapor"?',
+        'O aluno(a) fala excessivamente?',
+        'O aluno(a) responde antes que as perguntas sejam completadas?',
+        'O aluno(a) tem dificuldade em esperar a sua vez?',
+        'O aluno(a) interrompe ou se intromete nas conversas ou jogos dos outros?',
+        'O aluno(a) tem dificuldade em seguir regras ou instruções?',
+        'O aluno(a) apresenta comportamentos impulsivos que podem ser perigosos?',
     ];
     
     if(tipo == 'user'){
@@ -84,6 +94,7 @@ const alternativas = [
 let indice_perguntas = 0;
 let soma_pontos =  0;
 let porcentagem = 0;
+let direcionanado = false;
 function quest(perguntas) {
     let alternativasHtml = '';
     alternativas.forEach((alternativa) => { 
@@ -107,6 +118,11 @@ function quest(perguntas) {
 function next(event, perguntas) {
     event.preventDefault();
     const radios = document.querySelectorAll(`input[name="q${indice_perguntas + 1}"]:checked`);
+    if(direcionanado){
+        window.location.href = 'resultado.html';
+        localStorage.setItem('resultado', soma_pontos);     
+        
+    }
     if (radios.length > 0) {
         soma_pontos += parseInt(radios[0].value);
     
@@ -124,12 +140,12 @@ function next(event, perguntas) {
             document.getElementById("progresso").innerHTML = `
             <div class="progress-bar progress-bar-striped rounded" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuemin="0" aria-valuemax="100">100%</div>
             `;
-            document.getElementById('enviar').innerHTML = 'Resultado'
-            document.getElementById('enviar').href = "resultado.html";
-            localStorage.setItem('resultado',soma_pontos);
+            document.getElementById('proximo').innerHTML = 'Resultado'
+            
+            direcionanado = true;
         }
         else {
-            window.location.href = 'home.html';
+            window.location.href = 'index.html';
         }
     }else {
         if(indice_perguntas < perguntas.length){
@@ -145,4 +161,6 @@ function next(event, perguntas) {
         }
           
     }
+  
 }
+

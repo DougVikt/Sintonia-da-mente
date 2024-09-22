@@ -6,7 +6,7 @@ body {
     height: 100%;
     z-index: -1;
 }
-  .sty-footer{
+.sty-footer{
     color:#ebebeb;
     background-color: #000000;
 }
@@ -23,6 +23,14 @@ h4{
     color:rgb(236, 105, 44);
 
     
+}
+.sty-btnmodal{
+    background-color:rgb(236, 105, 44) ;
+}
+.sty-btnmodal:hover{
+    background-color: #000000;
+    color: rgb(236, 105, 44);
+    border: 0.1px solid rgb(236, 105, 44)
 }
 .sty-row{
     height: 10rem;

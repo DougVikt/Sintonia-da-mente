@@ -10,6 +10,7 @@
     <script src="Bootstrap/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="Css/questionario.css">
     <script src="Js/result_func.js"></script>
+    <script src="Js/quest_func.js"></script>
 
 </head>
 <body class="bg-secondary d-flex justify-content-center">
@@ -21,25 +22,25 @@
       </a>
       <div class="p-5 text-center rounded-3">
         
-          <h1 class="sty-h1 mb-5 ">Resultado do Teste </h1>
+          <h1 class="sty-h1 mb-5 me-4">Resultado do Teste </h1>
           <p id="texto" class="col-lg-8 mx-auto fs-5 text-muted"></p>
           
-          <div class="d-inline-flex mb-5 row flex-column ">
-              <a id="btn-cadastrar" class="col-11 text-reset my-2 disabled" style="display:none;" href="index.html" >
-                  <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
+          <div class="d-inline-flex mt-3 row flex-column text-center">
+              <a id="btn-cadastrar" class="col-11 text-reset my-2" style="display:none;" href="#" >
+                  <button class="w-100 px-md-5 fs-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill disabled" type="button" >
                       CADASTRAR
-                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 10 16">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 12 16">
                       <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
                       </svg>
                   </button>
               </a>            
           
-              <a  class="col-11 text-reset my-2" href="index.html" >
-                  <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+              <a  class="col-11 text-reset my-2 mt-3" href="index.html" >
+                  <button class="w-100 px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="16" fill="currentColor" class="bi bi-arrow-left me-3" viewBox="0 0 18 16">
                           <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
                       </svg>
-                      VOLTAR
+                       VOLTAR
                   </button>
               </a>
           </div>
@@ -47,7 +48,10 @@
   </div>
   
    <script>
-    exibirResultado();
+    document.addEventListener('DOMContentLoaded', () => {
+        const resultado = localStorage.getItem('resultado');
+        exibirResultado(resultado);
+    });
    </script>
 </body>
 </html>
