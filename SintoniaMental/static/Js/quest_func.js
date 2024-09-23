@@ -38,7 +38,7 @@ function textos(tipo=''){
         'Abandona a sua cadeira em lugares fechados ou em outras situações em que se espera que permaneça sentado?',
         'Corre ou escala em demasia em situações inapropriadas (em adolescentes ou adultos, pode se limitar a uma sensação de inquietação)?',
         'Tem dificuldade em brincar ou se envolver em atividades de lazer calmamente?',
-        'Age como se estivesse "a motor"?',
+        'Age como se estivesse "a todo vapor"?',
         'Fala excessivamente?',
         'Dá respostas precipitadas antes que as perguntas sejam completamente feitas?',
         'Tem dificuldade em esperar a sua vez?',
@@ -85,10 +85,10 @@ function textos(tipo=''){
 
 const alternativas = [
     {'texto':'Nunca','pontos':0},
-    {'texto':'Às vezes','pontos':2},
+    {'texto':'As vezes','pontos':2},
     {'texto':'Raramente','pontos':1},
     {'texto':'Frequentemente','pontos':3},
-    {'texto':'sempre','pontos':4},
+    {'texto':'Sempre','pontos':4},
 ];
 
 let indice_perguntas = 0;
