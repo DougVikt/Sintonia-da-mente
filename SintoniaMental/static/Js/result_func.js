@@ -1,20 +1,11 @@
-   // Função para obter o valor do parâmetro da URL
-function getParametro(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name);
-}
-
-// Obtendo o resultado da URL e exibindo no HTML
-const resultado = getParametro('resultado');
-const texto = document.getElementById('texto');
-const btn_cadastrar = document.getElementById('btn-cadastrar');
-
-function exibirResultado(){
+function exibirResultado(resultado){
+    const texto = document.getElementById('texto');
+    const btn_cadastrar = document.getElementById('btn-cadastrar');
+    
     if(resultado <= 28){
-        texto.innerHTML = `A pontução foi de ${resultado} , implica que não corresponde a ter um potencial de 
-        Transtorno de Déficit de Atenção e Hiperatividade (TDAH). Agradecemos sua participação !`;
+        texto.innerHTML = `A pontução foi de ${resultado} , implica que não corresponde a ter um potencial de Transtorno de Déficit de Atenção e Hiperatividade (TDAH). Agradecemos sua participação !`;
         btn_cadastrar.style.display = 'none';
-       
+    
     }
     else if (resultado > 28 && resultado <= 42 ){
         texto.innerHTML = `A pontução foi de ${resultado} , implica que tem um leve potencial 
@@ -37,8 +28,12 @@ function exibirResultado(){
     else if (resultado > 70 ){
         texto.innerHTML = `A pontução foi de ${resultado} , implica que tem um alto potencial de ter 
         Transtorno de Déficit de Atenção e Hiperatividade (TDAH) . Recomendamos a comecar um acompanhamento de imediato
-        , cadastre em nossa plataforma para comerçar agora !.`;
+        , cadastre-se em nossa plataforma para comerçar agora !.`;
         btn_cadastrar.style.display = 'block';
+    }
+    else{
+        texto.innerHTML = "nada foi mandado";
+        btn_cadastrar.style.display = 'none';
     }
 
 }

@@ -47,19 +47,18 @@
     </div>
    
       <!--------------- modal ---------------------->
-        <div class="modal fade" id="modaldica" tabindex="-1" aria-labelledby="modaldica-{{ objeto.id }}" aria-hidden="true">
+        <div class="modal fade" id="modaldica-{{ objeto.id }}" tabindex="-1" aria-labelledby="modaldica-{{ objeto.id }}" aria-hidden="true">
           <div class="modal-dialog ">
-            <div class="modal-content bg-secondary text-light">
+            <div class="modal-content text-dark opacity-75">
               <div class="modal-header">
-                <h5 class="modal-title">{{ objeto.titulo }}</h5>
+                <h5 class="modal-title fs-4">{{ objeto.titulo }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <p>{{ objeto.descricao }}Ter uma rotina diária pode ser extremamente benéfico. Tente estabelecer horários fixos para atividades como acordar, trabalhar, estudar e relaxar. Use um calendário visual ou uma agenda digital com lembretes. Dividir as tarefas em blocos menores e mais gerenciáveis pode ajudar a manter o foco. 
-                Considere também incluir intervalos regulares para descanso, pois isso ajuda a recarregar a energia e a manter a concentração.</p>
+              <div class="modal-body fs-5 fw-semibold">
+                <p>{{ objeto.descricao }}</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn sty-btnmodal" data-bs-dismiss="modal">Fechar</button>
             </div>
             </div>
           </div>

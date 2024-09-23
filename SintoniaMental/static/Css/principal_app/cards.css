@@ -28,3 +28,11 @@
     width: 8.5rem;
     height: 2.9rem;
 }
+.sty-btnmodal{
+    background-color:rgb(236, 105, 44) ;
+}
+.sty-btnmodal:hover{
+    background-color: #000000;
+    color: rgb(236, 105, 44);
+    border: 0.1px solid rgb(236, 105, 44)
+}
