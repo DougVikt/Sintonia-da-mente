@@ -1,0 +1,11 @@
+.sty-btnsimp{
+    background-color: rgb(236, 105, 44);
+    color: black;
+}
+.sty-btnsimp:hover{
+    background-color: black;
+    color: rgb(236, 105, 44);
+}
+h1{
+    color: rgb(236, 105, 44);
+}

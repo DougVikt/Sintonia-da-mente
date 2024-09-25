@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrando</title>
+    {% load static %}
+    <!----------bootstrap------------>
+    <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
+    <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Css/cadastro_app/simplificado.css' %}">
+
+</head>
+<body class="d-flex align-items-center p-5 bg-dark">
+            
+    <main class="form-signin w-50 m-auto m-4">
+      <form>
+        <img class="mb-4 img-fluid " src="{% static 'imagens/logo5-semfundo.png'%}" alt="" width="100" height="80">
+        <h1 class="mb-3 fw-bold fs-1">Cadastro</h1>
+        
+        <div class="form-floating m-1">
+            <input type="text" name="nome" class="form-control" id="name" placeholder="Nome Exemplo">
+            <label for="name">Nome</label>
+        </div>
+        <div class="form-floating m-1">
+          <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+          <label for="email">Email </label>
+        </div>
+        <div class="form-floating m-1">
+            <input type="text" name="fone" class="form-control" id="fone" placeholder="(00) 900000000">
+            <label for="fone">Telefone</label>
+        </div>
+        <div class="form-floating m-1">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Senh@123">
+          <label for="floatingPassword">Senha</label>
+        </div>
+        <div class="form-floating m-1">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Senh@123">
+            <label for="floatingPassword">Repetir Senha</label>
+        </div>
+    
+        <button class="btn sty-btnsimp w-100 py-2 me-1" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-body-secondary">© Sintonia Mental-2024</p>
+      </form>
+    </main>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+        
+    
+</body>
+
+</html>

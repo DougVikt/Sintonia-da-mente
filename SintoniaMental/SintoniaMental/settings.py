@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.core.serializers.json',
     'principal_app',
     'questionario_app',
+    'cadastro_app',
 ]
 
 MIDDLEWARE = [

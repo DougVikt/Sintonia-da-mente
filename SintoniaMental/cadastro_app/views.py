@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def casd_lite(request):
+    return render(request , 'simplificado.html')
+
