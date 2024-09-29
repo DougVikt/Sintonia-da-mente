@@ -9,34 +9,37 @@
     <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
     <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'Css/cadastro_app/simplificado.css' %}">
+    <script src="{% static 'Js/simplifiq_func.js' %}"></script>
 
 </head>
 <body class="d-flex align-items-center p-5 bg-dark ">
     <main class="form-signin w-50 m-auto m-4">
-      <form>
+      <form onsubmit = "return ValidacaoSenha()">
+        {% csrf_token %}
         <div class="d-flex justify-content-center">
           <h1 class="mb-3 fw-bold p-0 fs-1">Cadastro</h1>
         </div>
         <div class="form-floating m-1">
-            <input type="text" name="nome" class="form-control" id="name" placeholder="Nome">
+            <input type="text" name="nome" class="form-control" id="name" placeholder="Nome" required>
             <label for="name">Nome</label>
         </div>
         <div class="form-floating m-1">
-          <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+          <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
           <label for="email">Email </label>
         </div>
         <div class="form-floating m-1">
-            <input type="text" name="fone" class="form-control" id="fone" placeholder="Telefone">
+            <input type="tel" name="fone" class="form-control" id="fone" placeholder="Telefone" required>
             <label for="fone">Telefone</label>
         </div>
         <div class="form-floating m-1">
-          <input type="password" class="form-control" id="senha" placeholder="Senha">
+          <input type="password" class="form-control" id="senha" placeholder="Senha" required>
           <label for="senha">Senha</label>
         </div>
         <div class="form-floating m-1">
-            <input type="password" class="form-control" id="confere-senha" placeholder="Senha">
+            <input type="password" class="form-control" id="confere-senha" placeholder="Senha" required>
             <label for="confere-senha">Repetir Senha</label>
         </div>
+        <p id="erro" class="ms-2 fs-6 fst-italic text-danger"></p>
         <div class="d-grid gap-2 col-6 mx-auto d-flex mt-3">
           <button class="w-50 btn sty-btnsimp p-sm-0 py-md-2" width='40'><a class="text-decoration-none text-reset" href="{% url 'home' %}">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="4 2 17 15">
@@ -51,10 +54,11 @@
             </svg>
           </button>
         </div>
+        <br>
         <p class="mt-5 mb-3 text-light">© Sintonia Mental-2024</p>
       </form>
     </main>
-    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
     
         
     
