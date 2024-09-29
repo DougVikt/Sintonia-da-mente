@@ -19,27 +19,31 @@
           <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        {% if user.is_authenticated %}
+          
+
+        {% else %}
         <div class="offcanvas-body px-0">
             <ul class="navbar-nav  mx-auto">
               <li class="nav-item">
-                <a href="#quest" class="nav-link sty-link-nav px-5">Iniciar</a>
+                <a href="#quest" class="nav-link sty-link-nav px-4">Iniciar</a>
               </li>
               <li class="nav-item">
-                <a href="#depoimentos" class="nav-link sty-link-nav px-5">Depoimentos</a>
+                <a href="#depoimentos" class="nav-link sty-link-nav px-4">Depoimentos</a>
               </li>
               <li class="nav-item">
-                <a href="#sobre" class="nav-link sty-link-nav px-5">Sobre</a>
+                <a href="#sobre" class="nav-link sty-link-nav px-4">Sobre</a>
                 </li>
               <li class="nav-item">
-                <a href="#ajuda" class="nav-link sty-link-nav px-5">Ajuda</a>
+                <a href="#ajuda" class="nav-link sty-link-nav px-4">Ajuda</a>
                 </li>
             </ul>
         </div>
-      </div>
-        
+      </div>     
       <div class="text-end me-5">
         <button type="button" class="btiniciar" data-bs-toggle="modal" data-bs-target="#modalcadastrar">Cadastrar</button>
       </div>
+      {% endif %}
   </nav>
 <!-------- modal ---------->
 <div class="modal fade" id="modalcadastrar" tabindex="-1" aria-labelledby="modalcadastrar" aria-hidden="false">
