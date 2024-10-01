@@ -9,3 +9,11 @@
 h1{
     color: rgb(236, 105, 44);
 }
+.sty-rtlogin{
+    font-size: 0.7rem;
+    color: rgb(63 152 255);
+}
+.sty-rtlogin:hover{
+    color:rgb(252 148 99);
+    text-decoration: none
+}
