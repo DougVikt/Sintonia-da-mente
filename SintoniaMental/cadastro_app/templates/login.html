@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <!----------bootstrap------------>
+    <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
+    <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Css/cadastro_app/login.css' %}" >
+</head>
+<body class="d-flex align-items-center py-4 sty-body w-100" >
+ 
+    <main class="sty-main form-signin m-auto p-5 shadow rounded">
+        <a class="d-flex sty-a-svg" href="{% url 'home' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+            </svg>
+        </a>
+    <form>
+        <div class="d-flex mb-3 px-sm-0 px-md-2 row">
+            <img class="p-1 rounded-pill img-fluid col-sm-3 col-md-4 w-25 sty-logo" src="{% static 'imagens/sm2.svg' %}" alt="logo simplificada da sintonia mental" width="32" height="27">
+            <h1 class="col ms-sm-auto fw-bold sty-orange">Login</h1>
+        </div>
+        <div class="form-floating mt-1">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+        <label for="email">Email</label>
+        </div>
+        <div class="form-floating mt-1">
+        <input type="password" class="form-control" id="senha" placeholder="Password" required>
+        <label for="senha">Senha</label>
+        </div>
+
+        <div class="form-check text-start my-3">
+        <input class="form-check-input" type="checkbox" value="relembrar" id="relembrar">
+        <label class="form-check-label fs-6" for="relembrar">
+            Manter conectado
+        </label>
+        </div>
+        <button class="btn sty-btn w-100 py-2" type="submit">Logar</button>
+    </main>
+
+</body>
+</html>

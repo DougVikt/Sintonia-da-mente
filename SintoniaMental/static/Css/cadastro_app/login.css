@@ -1,0 +1,32 @@
+.sty-body{
+    background-color: rgb(44, 44, 44);
+}
+.sty-main{
+    background-color: rgba(218, 218, 218, 0.801);
+    width: 40%;
+}
+.sty-logo{
+    background-color: rgba(0, 0, 0, 0.63);
+}
+.sty-orange{
+    color:rgb(236, 105, 44);
+}
+.sty-btn{
+    background-color:rgb(236, 105, 44);
+    color: black;
+}
+.sty-btn:hover{
+    background-color: black;
+    color: rgb(236, 105, 44);
+}
+.sty-a-svg {
+    display: inline-block;
+}
+.sty-return {
+    color: rgb(250, 119, 59);
+    pointer-events: all;
+}
+.sty-a-svg:hover , .sty-return {
+    transform: scale(0.9);
+    transform-origin: center;   
+}
