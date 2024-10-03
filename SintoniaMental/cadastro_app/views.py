@@ -1,33 +1,37 @@
 from django.shortcuts import render , redirect
-from .models import Usuarios
+from .models import Pacientes,Profissionais
+from .forms import PacienteValidate,ProfisValidate
 
 def cads_lite_user(request):
     if request.method == 'POST':
-        nome = request.POST.get('nome')
-        email = request.POST.get('email')
-        fone = request.POST.get('fone')
-        senha =  request.POST.get('senha')
-        usuario = Usuarios(
-            nome=nome, email=email, fone=fone )
-        usuario.cripto_senha(senha)
-        usuario.save()
-        return redirect('usuario/simplificado.html')
-        
+        form = PacienteValidate(request.POST)
+        if form.is_valid():
+            usuario = Pacientes.objects.create(
+                nome = form.cleaned_data['nome'],
+                email = form.cleaned_data['email'],
+                fone = form.cleaned_data['fone']
+            )
+            usuario.cripto_senha(form.cleaned_data['senha'])
+            usuario.save()
+            print('foi salvo')
+            return redirect('home')
+    else:
+        print('não foi salvo')
     
     return render(request , 'usuario/simplificado.html')
 
 
 def cads_lite_prof(request):
     if request.method == 'POST':
-        nome = request.POST.get('nome')
-        email = request.POST.get('email')
-        fone = request.POST.get('fone')
-        senha =  request.POST.get('senha')
-        usuario = Usuarios(
-            nome=nome, email=email, fone=fone )
-        usuario.cripto_senha(senha)
-        usuario.save()
-        return redirect('profissional/simplificado.html')
+        form = ProfisValidate(request.POST)
+        if form.is_valid():
+            profis = Profissionais.objects.create(
+                nome = form.cleaned_data['nome'],
+                email = form.cleaned_data['email'],
+                fone = form.cleaned_data['fone'] )
+            profis.cripto_senha(form.cleaned_data['senha'])
+            profis.save()
+            return redirect("home")
         
     return render(request , 'profissional/simplificado.html')
 

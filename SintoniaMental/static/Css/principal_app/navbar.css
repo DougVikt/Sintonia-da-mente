@@ -1,16 +1,21 @@
 .btiniciar{
     background-color: rgb(241, 96, 28);
-    padding: .4rem;
-    color: rgb(0, 0, 2);
-    font-weight: 500;
-    border-radius: .8rem;
+    color: rgb(0, 0, 2);  
     width: 7rem;
 }
 .btiniciar:hover , .bt-modal:hover{
     color:  rgb(241, 96, 28);
     background-color: rgb(0, 0, 2);
 }
+.click-efect {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
 
+.click-efect:hover {
+    transform: scale(0.90);
+}
 .sty-navbar{
     background-color: rgb(36, 36, 36);
     font-size: 20px;
@@ -23,7 +28,6 @@
 }
 .sty-link-nav:hover{
     color: rgb(241, 96, 28);
-    font-weight: 600;
     
 }
 .sty-image{
@@ -75,7 +79,7 @@
         margin-left: .5rem;
     }
     .sty-image{
-        content: url('../imagens/logo5-semfundo.png');
+        content: url('/static/imagens/logo5-semfundo.png');
         width: 7rem;
     }
     .offcanvas{

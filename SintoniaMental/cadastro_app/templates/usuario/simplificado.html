@@ -40,14 +40,16 @@
             <label for="confere-senha">Repetir Senha</label>
         </div>
         <p id="erro" class="ms-2 fs-6 fst-italic text-danger"></p>
-        <div class="d-grid gap-2 col-md-6 col-sm-8 mx-auto d-flex mt-3">
-          <button class="w-50 btn sty-btnsimp py-0" width='40'><a class="text-decoration-none text-reset" href="{% url 'home' %}">
-            VOLTAR
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="4 2 17 15">
+        <div class="d-grid gap-5 col-md-6 col-sm-8 mx-auto d-flex mt-3">
+          <a class="text-decoration-none text-reset w-50 btn p-0" href="{% url 'home' %}">  
+            <button class="btn sty-btnsimp w-100 p-2 border-0 " type="button">          
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="4 2 17 15">
               <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-            </svg></a>
-          </button>
-          <button class="w-50 btn sty-btnsimp py-0" width='40' type="submit">
+            </svg>
+            VOLTAR
+            </button>
+          </a>
+          <button class="w-50 btn sty-btnsimp p-2 border-0" type="submit">
             ENTRAR
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="-4 2 17 15">
               <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>

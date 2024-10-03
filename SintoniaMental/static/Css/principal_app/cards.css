@@ -25,8 +25,7 @@
     background-color: rgb(0, 0, 0);
     color: rgb(241, 96, 28);
     border-color: rgb(241, 96, 28);
-    width: 8.5rem;
-    height: 2.9rem;
+
 }
 .sty-btnmodal{
     background-color:rgb(236, 105, 44) ;
@@ -34,5 +33,13 @@
 .sty-btnmodal:hover{
     background-color: #000000;
     color: rgb(236, 105, 44);
-    border: 0.1px solid rgb(236, 105, 44)
+}
+.click-efect {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+.click-efect:hover {
+    transform: scale(0.95);
 }

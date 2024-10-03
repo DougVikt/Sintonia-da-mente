@@ -23,10 +23,15 @@
     display: inline-block;
 }
 .sty-return {
-    color: rgb(250, 119, 59);
+    color: rgb(230, 89, 24);
     pointer-events: all;
 }
 .sty-a-svg:hover , .sty-return {
-    transform: scale(0.9);
+    transform: scale(0.8);
     transform-origin: center;   
+}
+@media(max-width:1000px ){
+    .sty-logo{
+        display: none;
+    }
 }
