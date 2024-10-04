@@ -38,9 +38,19 @@
           </div>
         </div>   
         <div class="text-end me-4">
-          <img class="img-fluid">
+          <button class="dropdown-toggle rounded-pill" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+          </button>
+          <!-------- menu -------->
+          <ul class="dropdown-menu">
+            <li><button class="dropdown-item" type="button"></button></li>
+            <li><button class="dropdown-item" type="button"><a href="">Configurações</a></button></li>
+            <li><button class="dropdown-item" type="button"><a href="">Logout</a></button></li>
+          </ul>
         </div>
-
         {% else %}
           <div class="offcanvas-body px-0">
               <ul class="navbar-nav  mx-auto">
@@ -62,25 +72,25 @@
         <div class="text-end me-5 ">
           <button type="button" class="btiniciar click-efect btn fw-bold p-1 fs-6 rounded"  data-bs-toggle="modal" data-bs-target="#modalcadastrar">ENTRAR</button>
         </div>
-      {% endif %}
-  </nav>
-<!-------- modal ---------->
-<div class="modal fade" id="modalcadastrar" tabindex="-1" aria-labelledby="modalcadastrar" aria-hidden="false">
-    <div class="modal-dialog modal-dialog-centered modal-sm ">
-      <div class="modal-content bg-dark">
-        <div class="modal-header-border-0 align-self-start">
-          <button type="button" class="m-2 btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="row m-3 d-flex justify-content-center">
-            <div class="col-sm-8">
-                <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url "cads_lite_prof" %}">Sou Profissional</a></button>  
+      <!-------- modal ---------->
+      <div class="modal fade" id="modalcadastrar" tabindex="-1" aria-labelledby="modalcadastrar" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered modal-sm ">
+          <div class="modal-content bg-dark">
+            <div class="modal-header-border-0 align-self-start">
+              <button type="button" class="m-2 btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col-sm-8">
-                <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url 'cads_lite_user' %}">Sou Paciente</a></button>
+            <div class="row m-3 d-flex justify-content-center">
+              <div class="col-sm-8">
+                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url "cads_lite_prof" %}">Sou Profissional</a></button>  
+              </div>
+              <div class="col-sm-8">
+                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url 'cads_lite_user' %}">Sou Paciente</a></button>
+              </div>
             </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+</nav>
+
 
 {% endblock %}
