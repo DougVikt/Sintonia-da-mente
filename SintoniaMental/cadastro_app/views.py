@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect
 from .models import Pacientes,Profissionais
 from .forms import PacienteValidate,ProfisValidate
 
-def cads_lite_user(request):
+def register_lite_user(request):
     if request.method == 'POST':
         form = PacienteValidate(request.POST)
         if form.is_valid():
@@ -21,7 +21,7 @@ def cads_lite_user(request):
     return render(request , 'usuario/simplificado.html')
 
 
-def cads_lite_prof(request):
+def register_lite_prof(request):
     if request.method == 'POST':
         form = ProfisValidate(request.POST)
         if form.is_valid():
