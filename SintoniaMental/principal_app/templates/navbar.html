@@ -1,4 +1,6 @@
+
 {% load static %}
+
 
 {% block navbar_css %}
 <link rel="stylesheet" href="{% static 'Css/principal_app/navbar.css' %}">
@@ -23,7 +25,7 @@
           <div class="offcanvas-body px-0">
             <ul class="navbar-nav  mx-auto">
               <li class="nav-item">
-                <a href="#quest" class="nav-link sty-link-nav px-4 click-efect">Medicos</a>
+                <a href="#quest" class="nav-link sty-link-nav px-4 click-efect">Especialistas</a>
               </li>
               <li class="nav-item">
                 <a href="#depoimentos" class="nav-link sty-link-nav px-4 click-efect">Consultas</a>
@@ -82,10 +84,10 @@
             </div>
             <div class="row m-3 d-flex justify-content-center">
               <div class="col-sm-8">
-                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url "cads_lite_prof" %}">Sou Profissional</a></button>  
+                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url "register_lite_prof" %}">Sou Profissional</a></button>  
               </div>
               <div class="col-sm-8">
-                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url 'cads_lite_user' %}">Sou Paciente</a></button>
+                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url 'register_lite_user' %}">Sou Paciente</a></button>
               </div>
             </div>
           </div>
