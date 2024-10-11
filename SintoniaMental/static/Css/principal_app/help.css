@@ -1,0 +1,16 @@
+
+body {
+    background-image: url('/static/imagens/backgroud-body.png');
+    background-repeat: repeat;
+    background-size: 5rem;
+    background-color: rgb(65, 65, 65);
+   
+}
+.sty-btn{
+    background-color: rgb(228, 109, 54);
+    color: rgb(219, 219, 219);
+}
+.sty-btn:hover{
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(228, 109, 54);
+}

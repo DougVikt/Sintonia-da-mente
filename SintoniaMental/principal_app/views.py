@@ -9,3 +9,5 @@ def home(request):
         nome_usuario = ""
     return render(request, 'home.html', {'nome_usuario' :nome_usuario})
 
+def help(request):
+    return render(request , "help.html")
