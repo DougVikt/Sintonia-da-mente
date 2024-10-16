@@ -10,22 +10,13 @@
     <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'Css/principal_app/home.css' %}">
 
-    <!------- statico do navbar ---------->
-    {% block navbar_css %}{% endblock %}    
-    <!------- statico do casds ------------>
-    {% block cards_css %} {% endblock %}
-    <!------- statico da avaliações -------->
-    {% block avaliacoes_css %} {% endblock %}
-    <!------ statico do questionario -------->
-    {% block quest_css %}{% endblock %}
-    <!------- statico do sobre-------------->
-    {% block sobre_css %}{% endblock %}
-   
+    <!--------- css ------------>
+    {% block head_css %}{% include "particionais/head_css.html" %}{% endblock %}
 </head>
 <body>
   <!------------ navbar ---------------->
     {% block navbar %}
-      {% include 'navbar.html' %}
+  
     {% endblock %}
       <br>
   <!------------------ cards --------------------> 
