@@ -1,6 +1,4 @@
-{% extends "home.html" %}
-
-
+{% load static %}
 
 {% block navbar %}
 <nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
@@ -70,7 +68,8 @@
         <div class="text-end me-5 ">
           <button type="button" class="btiniciar click-efect btn fw-bold p-1 fs-6 rounded"  data-bs-toggle="modal" data-bs-target="#modalcadastrar">ENTRAR</button>
         </div>
-        
+      {% endif %}
+      </nav>
       <!-------- modal ---------->
       <div class="modal fade" id="modalcadastrar" tabindex="-1" aria-labelledby="modalcadastrar" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered modal-sm">
@@ -89,8 +88,7 @@
           </div>
         </div>
       </div>
-    {% endif %}
-</nav>
+
 
 
 {% endblock %}
