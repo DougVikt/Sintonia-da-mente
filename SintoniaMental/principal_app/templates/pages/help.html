@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda</title>
-    {% load static %}
-     <!----------bootstrap------------>
-     <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
-     <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
-     <link rel="stylesheet" href="{% static 'Css/principal_app/help.css' %}">
+{% extends "structure.html" %}
+{% load static %}
 
-</head>
-<body>
+{% comment %}titulo da pagina{% endcomment %}
+{% block local_title %}Ajuda{% endblock %}
+
+{% comment %}css da pagina{% endcomment %}
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/principal_app/help.css' %}">
+{% endblock %}
+
+{% block local_body %}
   <div class="position-fixed top-0 start-0 ms-3 mt-2 "> 
     <button class="btn m-auto sty-btn p-1">
       <a href="{% url "home" %}" class=" text-reset text-decoration-none w-100 p-2">Voltar</a>
@@ -49,8 +47,7 @@
           </p>
         </div>
     </main>
-</body>
-</html>
+{% endblock %}
 {% comment %} 
  colocar um for para gerar as perguntas e respostas, colocando vindo do banco 
 {% endcomment %}

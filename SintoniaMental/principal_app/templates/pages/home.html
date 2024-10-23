@@ -1,0 +1,36 @@
+{% extends "structure.html" %}
+{% load static %}
+
+{% comment %} titulo da pagina{% endcomment %}
+{% block local_title %}Sintonia Mental{% endblock  %}
+
+{% comment %} css de todas as pasticões {% endcomment %}
+{% block local_css %}{% include "partitions/home/head_css.html" %}{% endblock %}
+
+{% block local_body %} 
+<!---------------- navbar -------------------->
+  {% include "partitions/home/navbar.html" %}
+  <br>
+<!------------------ cards --------------------> 
+  <section id="home">        
+  {% include 'partitions/home/cards.html' %}
+  {% comment %} {% include 'cards.html' with objeto=objeto %}{% endcomment %}
+  </section>
+<!------------------- avaliações ------------------> 
+  <section id="depoimentos">
+  {% include 'partitions/home/avaliacoes.html' %}
+  </section>      
+<!---------------- questionario -------------------->
+  <section id="quest">
+  {% include 'partitions/home/quest.html' %}
+  </section>
+<!------------------- sobre ---------------------->
+  <section id="sobre">
+  {% include 'partitions/home/sobre.html' %}
+  </section>
+<!---------------- footer ------------------------>
+  {% include 'partitions/home/footer.html' %}
+
+  <script src="{% static 'Js/navbar.js' %}"></script>
+     
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "structure.html" %}
+{% load static %}
+
+{% block local_title %}Cadastro Paciente{% endblock  %} 
+  
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/cadastro_app/simplificado.css' %}">
+{% endblock  %}    
+
+{% block local_js %}
+<script src="{% static 'Js/simplifiq_func.js' %}"></script>
+{% endblock  %}
+  
+{% block class_body %}
+class="d-flex align-items-center p-5 bg-dark
+{% endblock %}
+
+{% block local_body %}
+<main class="form-signin w-50 m-auto m-4">
+      <form onsubmit = "return ValidacaoSenha()">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center">
+          <h1 class="sty-h1 mb-3 fw-bold p-0 fs-1">Cadastro</h1>
+        </div>
+        <div class="form-floating m-1">
+            <input type="text" name="nome" class="form-control" id="name" placeholder="Nome" required>
+            <label for="name">Nome</label>
+        </div>
+        <div class="form-floating m-1">
+          <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+          <label for="email">Email </label>
+        </div>
+        <div class="form-floating m-1">
+            <input type="tel" name="fone" class="form-control" id="fone" placeholder="Telefone" required>
+            <label for="fone">Telefone</label>
+        </div>
+        <div class="form-floating m-1">
+          <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+          <label for="senha">Senha</label>
+        </div>
+        <div class="form-floating m-1">
+            <input type="password" class="form-control" id="confere-senha" placeholder="Senha" required>
+            <label for="confere-senha">Repetir Senha</label>
+        </div>
+        <p id="erro" class="ms-2 fs-6 fst-italic text-danger"></p>
+      {% include "partitions/buttons.html" %}
+      </form>
+      <br>
+      {% include "partitions/complement.html" %}
+    </main>
+   
+{% endblock %} 
+        

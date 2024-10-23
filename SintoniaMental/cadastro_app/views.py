@@ -18,7 +18,7 @@ def register_lite_user(request):
     else:
         print('não foi salvo')
     
-    return render(request , 'usuario/simplificado.html')
+    return render(request , 'pages_user/simplificado.html')
 
 
 def register_lite_prof(request):
@@ -33,7 +33,7 @@ def register_lite_prof(request):
             profis.save()
             return redirect("home")
         
-    return render(request , 'profissional/simplificado.html')
+    return render(request , 'pages_specialist/simplificado.html')
 
 
 
