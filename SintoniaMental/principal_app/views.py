@@ -3,11 +3,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-    if request.user.is_authenticated :
-        nome_usuario = request.user.username
-    else :
-        nome_usuario = ""
-    return render(request, "pages/home.html", {'nome_usuario' :nome_usuario})
+    home_page = True
+    return render(request, "pages/home.html", {'home_page':home_page})
 
 def help(request):
     return render(request , "pages/help.html")
