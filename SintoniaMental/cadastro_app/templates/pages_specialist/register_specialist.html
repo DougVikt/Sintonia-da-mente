@@ -1,0 +1,32 @@
+{% extends "structure.html" %}
+{% load static %}
+
+{% block local_title %}Cadastro Profissional{% endblock %} 
+    
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/cadastro_app/simplificado.css' %}">
+{% endblock  %}    
+
+{% block local_js %}
+<script src="{% static 'Js/simplifiq_func.js' %}"></script>
+{% endblock  %}
+
+{% block class_body %} 
+class="d-flex align-items-center p-5 bg-dark" 
+{% endblock %}
+  
+{% block local_body %}
+  <main class="form-signin w-50 m-auto m-4">
+      <form onsubmit = "return ValidacaoSenha()">
+        {% csrf_token %}
+        {% include "partitions/form.html" %}
+        <p id="erro" class="ms-2 fs-6 fst-italic text-danger"></p>
+        {% include "partitions/buttons.html" %}
+      </form>
+      <br>
+      {% include "partitions/complement.html" %}
+  </main>
+{% endblock %} 
+    
+        
+    

@@ -1,0 +1,29 @@
+  <div class="d-flex justify-content-center">
+    <h1 class="sty-h1 mb-3 fw-bold p-0 fs-1">Cadastro</h1>
+  </div>
+  <div class="form-floating m-1">
+      <input type="text" name="nome" class="form-control" id="name" placeholder="Nome" required>
+      <label for="name">Nome</label>
+  </div>
+  <div class="form-floating m-1">
+    <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+    <label for="email">Email </label>
+  </div>
+  <div class="form-floating m-1">
+      <input type="tel" name="fone" class="form-control" id="fone" placeholder="Telefone" required>
+      <label for="fone">Telefone</label>
+  </div>
+  {% if is_specialist is True %}
+  <div class="form-floating m-1">
+      <input type="text" name="registro" class="form-control" id="registro" placeholder="registro" required>
+      <label for="registro">CRP/CRM</label>
+  </div>
+  {% endif %}
+  <div class="form-floating m-1">
+    <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+    <label for="senha">Senha</label>
+  </div>
+  <div class="form-floating m-1">
+      <input type="password" class="form-control" id="confere-senha" placeholder="Senha" required>
+      <label for="confere-senha">Repetir Senha</label>
+  </div>

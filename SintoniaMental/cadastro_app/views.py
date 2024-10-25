@@ -13,12 +13,9 @@ def register_lite_user(request):
             )
             usuario.cripto_senha(form.cleaned_data['senha'])
             usuario.save()
-            print('foi salvo')
-            return redirect('home')
-    else:
-        print('não foi salvo')
+            return redirect('home')        
     
-    return render(request , 'pages_user/simplificado.html')
+    return render(request , 'pages_user/register_user.html')
 
 
 def register_lite_prof(request):
@@ -32,8 +29,10 @@ def register_lite_prof(request):
             profis.cripto_senha(form.cleaned_data['senha'])
             profis.save()
             return redirect("home")
-        
-    return render(request , 'pages_specialist/simplificado.html')
+    
+    is_specialist = True
+    
+    return render(request , 'pages_specialist/register_specialist.html',{"is_specialist":is_specialist})
 
 
 
