@@ -23,4 +23,5 @@ urlpatterns = [
     path('quest/',include("questionario_app.urls")),
     path('registre/',include("cadastro_app.urls")),
     path('user/', include('area_user.urls')),
+    path("login/", include("login_app.urls")),
 ]

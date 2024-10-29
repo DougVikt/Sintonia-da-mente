@@ -11,3 +11,5 @@
 # comando para criar um usuario comum:
 # python manage.py createsuperuser --username=nome --email=email --password=senha
 
+# comando para criar um app :
+# python manage.py startapp nome_do_app
