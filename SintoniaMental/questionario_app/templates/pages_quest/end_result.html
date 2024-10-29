@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado do teste</title>
-    {% load static %}
-    <!----------bootstrap------------>
-    <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.min.css' %}">
-    <script src="{% static 'Bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
-    <script src="{% static 'Js/result_func.js' %}"></script>
+{% extends "structure.html" %}
 
-</head>
-<body class="bg-secondary d-flex justify-content-center">
+{% block local_title %}SM|Resultado do Teste {% endblock %}
+
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
+{% endblock %}
+
+{% block local_js %}
+<script src="{% static 'Js/result_func.js' %}"></script>
+{% endblock %}
+
+{% block class_body %}
+class="bg-secondary d-flex justify-content-center"
+{% endblock %}
+
+{% block local_body %}
     <div  class="container mx-3 my-3 rounded-3 bg-light shadow-lg">
         <a class="sty-a-svg" href="{% url 'home' %}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
@@ -52,5 +54,4 @@
             exibirResultado(resultado);
         });
      </script>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "structure.html" %}
+
+{% block local_title %}SM|Para Pais-Parentes {% endblock %}
+
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
+{% endblock %}
+
+{% block local_js %}
+<script src="{% static 'Js/quest_func.js' %}"></script>
+{% endblock %}
+
+{% block local_css %}
+class="bg-secondary d-flex justify-content-center row flex-column-flex-row-reverse"
+{% endblock %}        
+
+{% block local_body %}
+    {% include "partitions/content_quest.html" %}
+
+    <script >
+        const perguntas = textos('pais');
+        quest(perguntas);
+
+    </script>
+                
+{% endblock %}

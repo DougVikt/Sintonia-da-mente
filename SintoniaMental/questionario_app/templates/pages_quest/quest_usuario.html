@@ -1,0 +1,25 @@
+{% extends "structure.html" %}
+ 
+{% block local_title %}SM|Para Mim Mesmo {% endblock %}
+
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
+{% endblock %}    
+
+{% block local_js %}
+<script src="{% static 'Js/quest_func.js' %}"></script>
+{% endblock %}
+
+{% block class_body %}
+class="bg-secondary d-flex justify-content-center row flex-column-flex-row-reverse"
+{% endblock %}
+
+{% block local_body %}
+    {% include "partitions/content_quest.html" %}
+            
+    <script >
+        const perguntas = textos('user');
+        quest(perguntas);
+        
+    </script>
+{% endblock %}
