@@ -35,6 +35,3 @@ def register_lite_prof(request):
     return render(request , 'pages_specialist/register_specialist.html',{"is_specialist":is_specialist})
 
 
-
-def login(request):
-    return render(request,'login.html')

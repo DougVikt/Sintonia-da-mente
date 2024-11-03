@@ -1,6 +1,7 @@
 {% extends "structure.html" %}
+{% load static %}
 
-{% block local_title %}SM|Para Pais-Parentes {% endblock %}
+{% block local_title %}SM | Para Pais-Parentes {% endblock %}
 
 {% block local_css %}
 <link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
@@ -10,7 +11,7 @@
 <script src="{% static 'Js/quest_func.js' %}"></script>
 {% endblock %}
 
-{% block local_css %}
+{% block class_body %}
 class="bg-secondary d-flex justify-content-center row flex-column-flex-row-reverse"
 {% endblock %}        
 

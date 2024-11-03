@@ -1,6 +1,7 @@
 {% extends "structure.html" %}
+{% load static %}
 
-{% block local_title %}SM|Teste Mental{% endblock  %}
+{% block local_title %}SM | Teste Mental{% endblock  %}
 
 {% block local_css %}
 <link rel="stylesheet" href="{% static 'Css/questionario_app/questionario.css' %}">
@@ -52,5 +53,5 @@ class="bg-secondary d-flex justify-content-center"
         </div>
       </div>
 </div>
-
+{% endblock %}
      

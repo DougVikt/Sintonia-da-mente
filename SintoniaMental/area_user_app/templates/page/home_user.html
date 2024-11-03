@@ -1,0 +1,22 @@
+{% extends "structure.html" %}
+{% load static %}
+
+{% block local_title %}SM | Area do Paciente{% endblock  %}
+
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/principal_app/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'Css/principal_app/home.css' %}">
+{% endblock  %}
+
+
+
+{% block local_body %}
+<!--------- navbar -------------->
+    {% include "partitions/home/navbar.html" %}
+
+<!---------- carrossel ---------->
+    {% include "partitions/carosel.html" %}
+
+
+    <script src="{% static 'Js/navbar.js' %}"></script>
+{% endblock  %}

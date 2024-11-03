@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'principal_app',
     'questionario_app',
     'cadastro_app',
-    'area_user',
+    'area_user_app',
     'login_app',
 ]
 
