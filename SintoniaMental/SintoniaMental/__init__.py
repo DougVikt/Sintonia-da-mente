@@ -13,3 +13,10 @@
 
 # comando para criar um app :
 # python manage.py startapp nome_do_app
+
+# comando  para criar um o caminho do meus models:
+# python manage.py makemigrations
+
+#  comando para criar o banco de dados:
+# python manage.py migrate
+# sempre usar para atualizar os models no banco de dados

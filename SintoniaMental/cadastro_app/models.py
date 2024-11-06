@@ -9,6 +9,10 @@ class Usuarios(models.Model):
     
     def cripto_senha(self , text_senha):
         self.senha = make_password(text_senha)
+    
+    # função para retornar o nome na pagina de admin    
+    def __str__(self):
+        return self.nome
 
 class Pacientes(Usuarios):
     pass

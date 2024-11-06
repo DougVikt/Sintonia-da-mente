@@ -13,7 +13,7 @@ def register_lite_user(request):
             )
             usuario.cripto_senha(form.cleaned_data['senha'])
             usuario.save()
-            return redirect('home')        
+            return redirect('home_user')        
     
     return render(request , 'pages_user/register_user.html')
 
