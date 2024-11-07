@@ -4,6 +4,7 @@
 }
 svg , .sty-h2{
     color:  rgb(241, 96, 28);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 .sty-p2{
     color: aliceblue;

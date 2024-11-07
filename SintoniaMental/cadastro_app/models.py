@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.hashers import make_password
 
 class Usuarios(models.Model):
+    
+    class Meta():# clase que define metadados , no caso define a classe Usuarios como uma classe modelo
+        abstract = True
+    
     nome = models.CharField( max_length=50)
     email = models.EmailField(unique=True)
     fone = models.CharField(max_length=15)
