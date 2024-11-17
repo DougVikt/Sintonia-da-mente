@@ -16,3 +16,11 @@ body {
     background-color: rgb(241, 241, 241);
     border-color: rgb(228, 109, 54);
 }
+.dropdown button , .dropdown p {
+    font-size: 25px;
+}
+@media (max-width: 770px) {
+    .dropdown button , .dropdown p {
+        font-size: 17px;
+    }
+}

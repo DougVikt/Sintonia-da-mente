@@ -6,13 +6,17 @@ class Usuarios(models.Model):
     class Meta():# clase que define metadados , no caso define a classe Usuarios como uma classe modelo
         abstract = True
     
-    nome = models.CharField( max_length=50)
+    name = models.CharField( max_length=50)
     email = models.EmailField(unique=True)
     fone = models.CharField(max_length=15)
-    senha = models.CharField(max_length=128)
+    password = models.CharField(max_length=128)
     
-    def cripto_senha(self , text_senha):
-        self.senha = make_password(text_senha)
+    def save(self, *args, **kwargs):
+        # Se a senha não estiver criptografada, criptografa antes de salvar
+        if self.pk is None:  # Verifica se é um novo objeto
+            self.password = make_password(self.password)  # Criptografa a senha
+        super().save(*args, **kwargs)
+    
     
     # função para retornar o nome na pagina de admin    
     def __str__(self):
