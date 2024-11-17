@@ -49,13 +49,13 @@ def register_lite_prof(request):
         messages.error(request, "Nome ja cadastrado !")
     else :
         try:
-            patient = object_specialist.create(
+            specialist = object_specialist.create(
                 name=name,
                 email=email,
                 fone=fone,  
                 password=password
             )
-            patient.save()
+            specialist.save()
             messages.error(request, "Cadastro realizado com sucesso !")
             return redirect('home_specialist')
         except Exception as e:
