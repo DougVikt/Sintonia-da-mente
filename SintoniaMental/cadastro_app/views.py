@@ -40,6 +40,7 @@ def register_lite_prof(request):
         email = request.POST.get('email')
         fone = request.POST.get('fone')
         password = request.POST.get('password')
+        crm = request.POST.get('register')
         
         object_specialist = Profissionais.objects
     
@@ -53,7 +54,8 @@ def register_lite_prof(request):
                 name=name,
                 email=email,
                 fone=fone,  
-                password=password
+                password=password,
+                register=crm
             )
             specialist.save()
             messages.error(request, "Cadastro realizado com sucesso !")

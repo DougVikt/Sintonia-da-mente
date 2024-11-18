@@ -27,6 +27,7 @@ class Pacientes(Usuarios):
         
         
 class Profissionais(Usuarios):
-    registro = models.CharField(max_length=80)
+    register = models.CharField(max_length=80)
+    verification = models.BooleanField(default=False , null=False)
     pass
         
