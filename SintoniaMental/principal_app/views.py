@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from .models import FaqBank , ContentTips
 
 # Create your views here.
 def home(request):
-    home_page = True
-    return render(request, "pages/home.html", {'home_page':home_page})
+    tips = ContentTips.objects.all()
+    return render(request, "pages/home.html", {"tips":tips})
 
 def help(request):
-    return render(request , "pages/help.html")
+    questions = FaqBank.objects.all() # pega todos os resultados
+    return render(request , "pages/help.html" , {'questions':questions})
