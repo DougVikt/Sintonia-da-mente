@@ -12,7 +12,7 @@ class ContentTips(models.Model):
     title = models.CharField(max_length=255)
     resume = models.CharField(max_length=255)
     content = models.TextField()
-    images = models.ImageField((""), upload_to=None, height_field=None, width_field=None, max_length=None)
+    images = models.ImageField( upload_to='tips/', blank=True)
     
     def __str__(self):
         return self.title
