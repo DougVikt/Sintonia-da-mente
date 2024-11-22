@@ -3,8 +3,8 @@ from .models import FaqBank , ContentTips
 
 # Create your views here.
 def home(request):
-    tips = ContentTips.objects.all()
-    return render(request, "pages/home.html", {"tips":tips})
+    tips_random = ContentTips.objects.order_by('?')[:2] # pega 2 tips aleatorios do banco
+    return render(request, "pages/home.html", {"tips":tips_random})
 
 def help(request):
     questions = FaqBank.objects.all() # pega todos os resultados
