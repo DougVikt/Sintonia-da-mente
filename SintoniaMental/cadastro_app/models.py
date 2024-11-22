@@ -10,7 +10,7 @@ class Usuarios(models.Model):
     email = models.EmailField(unique=True)
     fone = models.CharField(max_length=15)
     password = models.CharField(max_length=128)
-    photo_perfil = models.ImageField(upload_to="photo/" , null=True)
+    photo_perfil = models.ImageField(upload_to="photo_profile/" , null=True)
     
     def save(self, *args, **kwargs):
         # Se a senha não estiver criptografada, criptografa antes de salvar

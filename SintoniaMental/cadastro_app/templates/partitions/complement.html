@@ -1,5 +1,11 @@
 <div class="mt-3 d-flex justify-content-center ">
-    <a href="{% url "login" %}" class="sty-rtlogin">Ja tem cadastro? Ir para fazer o login</a>
+    <a href="
+        {% if is_specialist %}
+            {% url "login_specialist" %}
+        {% else %}
+            {% url "login_user" %}
+        {% endif %}" class="sty-rtlogin">
+            Ja tem cadastro? Ir para fazer o login</a>
     </a>
 </div>
 <p class="mt-5 mb-3 text-light">© Sintonia Mental-2024</p>
