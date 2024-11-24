@@ -1,7 +1,10 @@
 .sty-cards{
     background-color: rgba(148, 148, 148, 0.705);
-    
+    .sty-img{
+        height: 40rem;
+    }    
 }
+
 .sty-h1{
     font-size: 3rem;
     font-weight: 700;

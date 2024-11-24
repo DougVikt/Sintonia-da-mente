@@ -1,58 +1,57 @@
 {% load static %}
-
-
- {% comment %}
-  {{ objeto.id }} = id referente ao banco
-  {{ objeto.titulo }} = titulo da dica
-  {{ objeto.conteudo }} = conteudo resumido da dica
-  {{ objeto.descricao }} = descrição completa da dica que vai no modal
-  {{ objeto.imagem }} = caminho da imagem no statico
-  {{ objeto.desc_imagem }} = descrição da imagem 
- {% endcomment %}
-
-  {% comment %}{% for objeto in objetos %}{% endcomment %}
-  {% comment %} {% if forloop.counter0 == 0 or forloop.counter0 == 2 %} {% endcomment %}
-    <div  class="row featurette p-0 m-0 sty-cards h-100">   
-      <div class="col-md-6 " >
-        <img src="{% static 'imagens/mente1.jpg' %}" alt="" class="rounded-4 img-fluid w-100 h-100" />
+    <div  class="row featurette px-1 m-0 sty-cards">   
+      <div class="col-md-6 p-0" >
+        <img src="{{ tips1.images.url }}" alt="{{ tips1.alt_image }}" class="img-fluid sty-img " />
       </div>
       <div class="col-md-6 p-1 ">
-        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center"> Crie uma Rotina Estruturada</h1><br>
-        <p class="sty-p text-center px-3">
-          Ter uma rotina diária pode ser extremamente benéfico. Tente estabelecer horários fixos para atividades como acordar, trabalhar, estudar e relaxar.
-        </p><br>
+        <h1 class="py-4 ps-md-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center">{{ tips1.title }}</h1><br>
+        <p class="sty-p text-center px-3">{{ tips1.resume }}</p><br>
         <div class="mt-4 mb-4 text-center">
-          <button class="sty-button btn click-efect"data-bs-toggle="modal" data-bs-target="#modaldica-{{ objeto.id }}">saiba mais</button>
+          <button class="sty-button btn click-efect"data-bs-toggle="modal" data-bs-target="#modal-tips1">saiba mais</button>
         </div>
       </div>
     </div>
     <hr class="featurette-divider m-3">
-  {% comment %} {% else %} {% endcomment %}
-    <div class="row featurette p-0 m-0 sty-cards h-100">   
+    <div class="row featurette px-1 m-0 sty-cards">   
       <div class="col-md-6 p-1 ">
-        <h1 class="py-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> Ambiente de Trabalho Organizado</h1><br>
-        <p class="sty-p text-center px-3">
-         Um espaço de trabalho livre de distrações é crucial. Organize seu ambiente de modo que apenas os itens essenciais estejam visíveis.
-        </p><br>
+        <h1 class="py-4 pe-md-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> {{ tips2.title }}</h1><br>
+        <p class="sty-p text-center px-3">{{ tips2.resume }}</p><br>
         <div class="mt-4 mb-4 text-center">
-          <button class="sty-button btn click-efect"data-bs-toggle="modal" data-bs-target="#modaldica-{{ objeto.id }}">saiba mais</button>
+          <button class="sty-button btn click-efect" data-bs-toggle="modal" data-bs-target="#modal-tips2">saiba mais</button>
         </div>
       </div> 
-      <div class="col-md-6 " >
-        <img src="{% static 'imagens/mente2.jpg' %}" alt="" class="rounded-4 img-fluid sty-img2 w-100 h-100" />
+      <div class="col-md-6 p-0" >
+        <img src="{{ tips2.images.url }}" alt="{{ tips2.alt_image }}" class="img-fluid sty-img " />
       </div>
     </div>
    
       <!--------------- modal ---------------------->
-        <div class="modal fade" id="modaldica-{{ objeto.id }}" tabindex="-1" aria-labelledby="modaldica-{{ objeto.id }}" aria-hidden="true">
+        <div class="modal fade" id="modal-tips1" tabindex="-1" aria-labelledby="modal-tips1" aria-hidden="true">
           <div class="modal-dialog ">
             <div class="modal-content text-dark opacity-75">
               <div class="modal-header">
-                <h5 class="modal-title fs-4">{{ objeto.titulo }}</h5>
+                <h5 class="modal-title fs-4">{{ tips1.title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body fs-5 fw-semibold">
-                <p>{{ objeto.descricao }}</p>
+                <p>{{ tips1.content }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn sty-btnmodal" data-bs-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modal-tips2" tabindex="-1" aria-labelledby="modal-tips2" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content text-dark opacity-75">
+              <div class="modal-header">
+                <h5 class="modal-title fs-4">{{ tips2.title }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body fs-5 fw-semibold">
+                <p>{{ tips2.content }}</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn sty-btnmodal" data-bs-dismiss="modal">Fechar</button>
@@ -62,5 +61,4 @@
         </div>
 
 
-      {% comment %}{% endfor %}{% endcomment %}
      

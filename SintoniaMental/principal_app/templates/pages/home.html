@@ -20,12 +20,10 @@
   <section id="depoimentos">
   {% include 'partitions/home/avaliacoes.html' %}
   </section>  
-{% if home_page %}    
 <!---------------- questionario -------------------->
   <section id="quest">
   {% include 'partitions/home/quest.html' %}
   </section>
-{% endif %}
 <!------------------- sobre ---------------------->
   <section id="sobre">
   {% include 'partitions/home/sobre.html' %}
@@ -34,5 +32,6 @@
   {% include 'partitions/home/footer.html' %}
 
   <script src="{% static 'Js/navbar.js' %}"></script>
+  
      
 {% endblock %}

@@ -44,25 +44,25 @@ def register_lite_prof(request):
         
         object_specialist = Profissionais.objects
     
-    if object_specialist.filter(email=email).exists():
-        messages.error(request, "Email ja cadastrado !")
-    elif object_specialist.filter(name=name).exists():
-        messages.error(request, "Nome ja cadastrado !")
-    else :
-        try:
-            specialist = object_specialist.create(
-                name=name,
-                email=email,
-                fone=fone,  
-                password=password,
-                register=crm
-            )
-            specialist.save()
-            messages.error(request, "Cadastro realizado com sucesso !")
-            return redirect('home_specialist')
-        except Exception as e:
-            messages.error(request, f"Erro ao cadastrar !")
-            
+        if object_specialist.filter(email=email).exists():
+            messages.error(request, "Email ja cadastrado !")
+        elif object_specialist.filter(name=name).exists():
+            messages.error(request, "Nome ja cadastrado !")
+        else :
+            try:
+                specialist = object_specialist.create(
+                    name=name,
+                    email=email,
+                    fone=fone,  
+                    password=password,
+                    register=crm
+                )
+                specialist.save()
+                messages.error(request, "Cadastro realizado com sucesso !")
+                return redirect('home_specialist')
+            except Exception as e:
+                messages.error(request,"Erro ao cadastrar !")
+                
     is_specialist = True
     
     return render(request , 'pages_specialist/register_specialist.html',{"is_specialist":is_specialist})
