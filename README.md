@@ -8,7 +8,7 @@
 
 # PROPOSITO 
 
-  _Promover informações e suporte para a convivência com transtornos mentais._
+  _"Oferecer informações e apoio para melhorar a qualidade de vida das pessoas com transtornos mentais."_
 
 # HISTORIA
 
