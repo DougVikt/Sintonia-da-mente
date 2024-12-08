@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.core.serializers.json',
-    'principal_app',
-    'questionario_app',
-    'cadastro_app',
-    'area_user_app',
-    'login_app',
+    'main_app.apps.MainAppConfig',
+    'questionnaire_app.apps.QuestionnaireConfig',
+    'register_app.apps.RegisterAppConfig',
+    'area_user_app.apps.AreaUserConfig',
+    'login_app.apps.LoginAppConfig',
 ]
 
 MIDDLEWARE = [

@@ -6,7 +6,7 @@
 
 # comando para criar um usuario admin:
 # python manage.py createsuperuser 
-# ex: lorddoug - projetodoug
+# ex: doug - projetodoug
 
 # comando para criar um usuario comum:
 # python manage.py createsuperuser --username=nome --email=email --password=senha
