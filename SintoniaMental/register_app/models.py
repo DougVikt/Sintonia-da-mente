@@ -7,7 +7,7 @@ class MasterUser(models.Model):
     class Meta():# clase que define metadados , no caso define a classe MasterUser como uma classe modelo
         abstract = True
     
-    auth_user= models.OneToOneField(User , on_delete=models.CASCADE)
+    # auth_user= models.OneToOneField(User , on_delete=models.CASCADE)
     # cria um campo em comum com o user do django , ligação um para um 
     name = models.CharField( max_length=50)
     email = models.EmailField(unique=True)

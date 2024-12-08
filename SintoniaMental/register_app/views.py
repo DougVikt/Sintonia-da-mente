@@ -1,4 +1,5 @@
 from django.shortcuts import render , redirect
+from django.contrib.auth.models import User
 from .models import Patients,Professionals
 from django.contrib import messages
 
@@ -10,6 +11,7 @@ def register_lite_user(request):
         email = request.POST.get('email')
         fone = request.POST.get('fone')
         password = request.POST.get('password')
+        date_birth = request.POST.get("datebirth")
         
         object_user = Patients.objects
         
@@ -22,14 +24,16 @@ def register_lite_user(request):
                 patient = object_user.create(
                     name=name,
                     email=email,
+                    date_birth=date_birth,
                     fone=fone,  
                     password=password
                 )
                 patient.save()
                 messages.error(request, "Cadastro realizado com sucesso !")
-                return redirect('home_user')
+                return redirect('home')
             except Exception as e:
-                messages.error(request, f"Erro ao cadastrar !")
+                messages.error(request, "Erro ao cadastrar !")
+                print(e)
                 
     return render(request , 'pages_user/register_user.html')
 
@@ -39,6 +43,7 @@ def register_lite_prof(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         fone = request.POST.get('fone')
+        date_birth = request.POST.get("datebirth")
         password = request.POST.get('password')
         crm = request.POST.get('register')
         
@@ -51,15 +56,17 @@ def register_lite_prof(request):
         else :
             try:
                 specialist = object_specialist.create(
+                    auth_user = name,
                     name=name,
                     email=email,
                     fone=fone,  
+                    date_birth=date_birth,
                     password=password,
                     register=crm
                 )
                 specialist.save()
                 messages.error(request, "Cadastro realizado com sucesso !")
-                return redirect('home_specialist')
+                return redirect('home')
             except Exception as e:
                 messages.error(request,"Erro ao cadastrar !")
                 

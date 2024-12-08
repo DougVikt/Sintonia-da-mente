@@ -4,10 +4,14 @@ import random
 
 # Create your views here.
 def home(request):
-    tips_random = list(ContentTips.objects.all()) 
-    # pega todos tips e armazena na lista
-    random.shuffle(tips_random)
-    # emparalha todos os resultados 
+    content_tips = ContentTips.objects.all()
+    if content_tips.exists():
+        tips_random = list(content_tips) 
+        # pega todos tips e armazena na lista
+        random.shuffle(tips_random)
+        # emparalha todos os resultados 
+    else :
+        tips_random = ['nada aqui' , 'nada aqui']
     return render(request, "pages/home.html", context={"tips1":tips_random[0],"tips2":tips_random[1]})
 
 def help(request):
