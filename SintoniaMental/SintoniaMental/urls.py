@@ -22,6 +22,6 @@ urlpatterns = [
     path('', include("main_app.urls")),
     path('quest/',include("questionnaire_app.urls")),
     path('registre/',include("register_app.urls")),
-    path('user/', include('area_user_app.urls')),
+    path('patient/', include('area_user_app.urls')),
     path("login/", include("login_app.urls")),
 ]

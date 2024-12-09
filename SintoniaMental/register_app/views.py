@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from .models import Patients,Professionals
 from django.contrib import messages
 
+object_user = User.objects
 
-def register_lite_user(request):
+def register_user(request):
     
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -12,8 +13,6 @@ def register_lite_user(request):
         fone = request.POST.get('fone')
         password = request.POST.get('password')
         date_birth = request.POST.get("datebirth")
-        
-        object_user = Patients.objects
         
         if object_user.filter(email=email).exists():
             messages.error(request, "Email ja cadastrado !")
@@ -21,16 +20,16 @@ def register_lite_user(request):
             messages.error(request, "Nome ja cadastrado !")
         else :
             try:
-                patient = object_user.create(
+                user = object_user.create_user(username=name,email=email,password=password)
+                user.save()
+                patient = Patients.objects.create(
                     name=name,
-                    email=email,
                     date_birth=date_birth,
                     fone=fone,  
-                    password=password
                 )
                 patient.save()
                 messages.error(request, "Cadastro realizado com sucesso !")
-                return redirect('home')
+                return redirect(f'home_user/{user.id}/')
             except Exception as e:
                 messages.error(request, "Erro ao cadastrar !")
                 print(e)
@@ -38,30 +37,27 @@ def register_lite_user(request):
     return render(request , 'pages_user/register_user.html')
 
 
-def register_lite_prof(request):
+def register_prof(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
         fone = request.POST.get('fone')
         date_birth = request.POST.get("datebirth")
         password = request.POST.get('password')
-        crm = request.POST.get('register')
-        
-        object_specialist = Professionals.objects
+        crm = request.POST.get('register')        
     
-        if object_specialist.filter(email=email).exists():
+        if object_user.filter(email=email).exists():
             messages.error(request, "Email ja cadastrado !")
-        elif object_specialist.filter(name=name).exists():
+        elif object_user.filter(name=name).exists():
             messages.error(request, "Nome ja cadastrado !")
         else :
             try:
-                specialist = object_specialist.create(
-                    auth_user = name,
+                user = object_user.create_user(username=name,email=email ,password=password)
+                user.save()
+                specialist = Professionals.objects.create(
                     name=name,
-                    email=email,
                     fone=fone,  
                     date_birth=date_birth,
-                    password=password,
                     register=crm
                 )
                 specialist.save()
