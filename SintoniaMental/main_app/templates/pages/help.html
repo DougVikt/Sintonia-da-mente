@@ -6,13 +6,13 @@
 
 {% comment %}css da pagina{% endcomment %}
 {% block local_css %}
-<link rel="stylesheet" href="{% static 'Css/principal_app/help.css' %}">
+<link rel="stylesheet" href="{% static 'Css/main_app/help.css' %}">
 {% endblock %}
 
 {% block local_body %}
   <div class="position-fixed top-0 start-0 ms-3 mt-2 "> 
     <button class="btn m-auto sty-btn p-1">
-      <a href="{% url "home" %}" class=" text-reset text-decoration-none w-100 p-2">Voltar</a>
+      <a href="{% url 'home' %}" class=" text-reset text-decoration-none w-100 p-2">Voltar</a>
     </button>
   </div>
     <main class="w-100 text-center">
