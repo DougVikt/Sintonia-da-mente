@@ -1,11 +1,19 @@
 .sty-sobre{
-    background:linear-gradient(#c7c7c7,#000000);
+    background:linear-gradient(#8d8d8d,#000000);
     
 }
 svg , .sty-h2{
     color:  rgb(241, 96, 28);
-    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 2px 3px rgb(0, 0, 0);
 }
 .sty-p2{
     color: aliceblue;
+    font-size: 1.2rem;
+}
+h3{
+    text-shadow: 1px 2px 3px  rgb(241, 96, 28);
+}
+
+.sty-div{
+    background-color: #000000bb;
 }

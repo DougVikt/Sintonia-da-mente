@@ -16,13 +16,14 @@ def register_user(request):
         
         if object_user.filter(email=email).exists():
             messages.error(request, "Email ja cadastrado !")
-        elif object_user.filter(name=name).exists():
+        elif object_user.filter(username=name).exists():
             messages.error(request, "Nome ja cadastrado !")
         else :
             try:
                 user = object_user.create_user(username=name,email=email,password=password)
                 user.save()
                 patient = Patients.objects.create(
+                    auth_user = user,
                     name=name,
                     date_birth=date_birth,
                     fone=fone,  
@@ -48,7 +49,7 @@ def register_prof(request):
     
         if object_user.filter(email=email).exists():
             messages.error(request, "Email ja cadastrado !")
-        elif object_user.filter(name=name).exists():
+        elif object_user.filter(username=name).exists():
             messages.error(request, "Nome ja cadastrado !")
         else :
             try:

@@ -8,32 +8,32 @@
 {% endblock %}
 
 {% block class_body %}
-class="d-flex align-items-center py-4 sty-body w-100"
+class="d-flex align-items-center justify-content-center py-4 sty-body w-100"
 {% endblock %}
 
 {% block local_body %}
-{% include "message_erro.html" %}
-<main class="sty-main form-signin m-auto p-5 shadow rounded position-relative">
-    <div class="container w-25 d-flex justify-content-start m-0 position-absolute start-0 top-0">
+
+<main class="sty-main d-flex form-signin m-auto p-5 shadow rounded position-relative">
+        <div class="container w-25 d-flex justify-content-start m-0 position-absolute start-0 top-0">
         <a class="d-flex sty-a-svg" href="{% url 'home' %}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
             </svg>
         </a>
     </div>
-    <form>
+    <form method="post">
         {% csrf_token %}
         <div class="d-flex mb-3 px-sm-0 px-md-2 row w-50 align-items-center">
-            <img class="p-1 rounded-pill img-fluid col-sm-1 col-md-2 w-25 sty-logo" src="{% static 'imagens/sm2.svg' %}" alt="logo simplificada da sintonia mental">
+            <img class="p-1 rounded-pill img-fluid col-sm-1 col-md-2 w-25 sty-logo" src="{% static 'images/sm2.svg' %}" alt="logo simplificada da sintonia mental">
             <h1 class="col m-auto fw-bold sty-orange w-50 p-3">Login</h1>
         </div>
         <div class="form-floating mt-5">
-            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email"  placeholder="name@example.com" required>
+            <label for="email" id="email">Email</label>
         </div>
         <div class="form-floating mt-1">
-            <input type="password" class="form-control" id="senha" placeholder="Password" required>
-            <label for="senha">Senha</label>
+            <input type="password" class="form-control" name="password"  placeholder="Password" required>
+            <label for="password" id="password">Senha</label>
         </div>
         <div class="form-check text-start my-4">
             <input class="form-check-input" type="checkbox" value="relembrar" id="relembrar">
@@ -44,4 +44,7 @@ class="d-flex align-items-center py-4 sty-body w-100"
         <button class="btn sty-btn w-100 py-2" type="submit">Entrar</button>
     </form>
 </main>
+
+
+    
 {% endblock %}
