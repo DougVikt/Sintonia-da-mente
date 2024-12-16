@@ -18,7 +18,9 @@ class="d-flex align-items-center p-5 bg-dark"
 {% block local_body %}
   
   <main class="form-signin w-50 m-auto m-4">
-  {% include "message_erro.html" %}  
+ 
+    {% include "message_erro.html" %}  
+  
       <form onsubmit = "return ValidacaoSenha()" method="post">
         {% csrf_token %}
         {% include "partitions/form.html" %}

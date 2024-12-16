@@ -1,7 +1,7 @@
 // verifica se as senhas são identicas 
 function ValidacaoSenha(){
-    let senha = document.getElementById('senha');
-    let confereSenha = document.getElementById('confere-senha');
+    let senha = document.getElementById('password');
+    let confereSenha = document.getElementById('check-password');
     let msmErro = document.getElementById('erro');
 
     if (senha.value !== confereSenha.value) {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // limita a senha a ter no minimo 8 e no maximo 20 caracteres 
 document.addEventListener("DOMContentLoaded",function(){
-  let passwordInput = document.getElementById('senha');
+  let passwordInput = document.getElementById('password');
   passwordInput.addEventListener('input',function(p){
       const password = this.value;
       if(password.length < 8 ){
