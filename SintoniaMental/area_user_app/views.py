@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 def home_user(request, id):
     patient = get_object_or_404(User , id=id)
-    return render(request , 'page/home_user.html',{'patient':patient})
+    return render(request , 'page/home_user.html',{'patient':patient,'is_connected': "user"})
 
 def logout_user(request):
     logout(request)

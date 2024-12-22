@@ -5,9 +5,9 @@
   </svg>
   <div>
     {% for message in messages %} 
-    {% if forloop.first %}
-     <p>{{ message }}</p>
-     {% endif %}
+      {% if forloop.first %}
+        <p>{{ message }}</p>
+      {% endif %}
     {% endfor %}
   </div>
 </div>
