@@ -13,12 +13,12 @@ ENV PYTHONUNBUFFERED=1
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
 
-WORKDIR /SintoniaMental
-COPY . /SintoniaMental
+WORKDIR /SintoniaMental/SintoniaMental/
+COPY . /SintoniaMental/SintoniaMental/
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
-RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /SintoniaMental
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /SintoniaMental/SintoniaMental/
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
