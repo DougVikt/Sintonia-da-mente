@@ -1,11 +1,11 @@
 
 <div  class="carousel slide carousel-fade mt-3 w-100" data-bs-ride="carousel" data-interval="8000" >
     <div class="carousel-inner sty-body text-center py-4">
-            {% comment %}{% for avaliacao in avaliacoes %}{% endcomment %}
+            {% for review in reviews %}
             <div class="carousel-item active{% if forloop.first %}active{% endif %}">
                 <div class="text-light container">
                     <div class="text-center m-5 text-md-start">
-                        <h4 class="m-4 p-3 ">Vanessa Valentim{{ name }}</h4>
+                        <h4 class="m-4 p-3 ">{{ review.user.first_name }}</h4>
                     </div>
                     <div class="row aligh-item-center sty-row">
                         <div class="col-2 sty-aspas fw-bold  d-flex flex-row-reverse align-self-start p-0">
@@ -14,9 +14,8 @@
                             </svg>
                         </div>
                         <div class="col-8 sty-text p-2 fst-italic  align-self-center">
-                            {{ avaliacao }}
-                            O medico Clodoaldo foi muito sinpatico, me atendeu muito bem . Ja estou fazendo o tratamento , me sinto mais atento as coisa e tudo isso a um preço acessivel . Obrigado a Sintonia Mental por existir .
-                         </div>
+                            {{ review.review }}
+                           </div>
                         <div class="col-2 sty-aspas fw-bold  d-flex align-self-end p-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
                                 <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
@@ -24,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-            {% comment %} {% endfor %}{% endcomment %}
+             {% endfor %}
         </div>
     </div>
 </div>

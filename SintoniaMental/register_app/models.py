@@ -5,6 +5,7 @@ class MasterUser(models.Model):
     
     class Meta():# clase que define metadados , no caso define a classe MasterUser como uma classe modelo
         abstract = True
+        
     
     auth_user= models.OneToOneField(User , on_delete=models.CASCADE)
     # cria um campo em comum com o user do django , ligação um para um 
@@ -20,10 +21,23 @@ class MasterUser(models.Model):
 
 
 class Patients(MasterUser):
+    class Meta:
+        db_table = 'patients'
+        managed = True
+        verbose_name = 'Patients'
+        verbose_name_plural = 'Patients'
+        ordering = ['id']
     pass
-        
+    
         
 class Professionals(MasterUser):
+    class Meta:
+        db_table = 'professionals'
+        managed = True
+        verbose_name = 'Professionals'
+        verbose_name_plural = 'Professionals'
+        ordering = ['id']
+        
     register = models.CharField(max_length=80)
     specialty = models.CharField(max_length=40 , null=True)
     # campo para indicar a especialidade
