@@ -12,7 +12,7 @@ class MasterUser(models.Model):
     name = models.CharField( max_length=50)
     fone = models.CharField(max_length=15)
     date_birth = models.DateField()
-    photo_perfil = models.ImageField(upload_to="photo_profile/" , null=True)
+    photo_perfil = models.ImageField(upload_to=f"photo_profile/{name}" , null=True)
         
     # função para retornar o nome na pagina de admin    
     def __str__(self):
@@ -39,7 +39,7 @@ class Professionals(MasterUser):
         ordering = ['id']
         
     register = models.CharField(max_length=80)
-    specialty = models.CharField(max_length=40 , null=True)
+    specialty = models.CharField(max_length=40 , null=False , blank=True ,default=None) 
     # campo para indicar a especialidade
     verification = models.BooleanField(default=False , null=False) 
     # para definir se ja foi confirmado se e realmente um especialista 

@@ -1,40 +1,40 @@
 {% load static %}
     <div  class="row featurette px-1 m-0 sty-cards">   
       <div class="col-md-6 p-0" >
-        <img src="{{ tips1.images.url }}" alt="{{ tips1.alt_image }}" class="img-fluid sty-img " />
+        <img src="{{ tips.0.images.url }}" alt="{{ tips.0.alt_image }}" class="img-fluid sty-img " />
       </div>
       <div class="col-md-6 p-1 ">
-        <h1 class="py-4 ps-md-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center">{{ tips1.title }}</h1><br>
-        <p class="sty-p text-center px-3">{{ tips1.resume }}</p><br>
+        <h1 class="py-4 ps-md-4 sty-h1 mt-5 mb-3 d-md-block text-md-start text-center">{{ tips.0.title }}</h1><br>
+        <p class="sty-p text-center px-3">{{ tips.0.resume }}</p><br>
         <div class="mt-4 mb-4 text-center">
-          <button class="sty-button btn click-efect"data-bs-toggle="modal" data-bs-target="#modal-tips1">saiba mais</button>
+          <button class="sty-button btn click-efect"data-bs-toggle="modal" data-bs-target="#modal-tips.0">saiba mais</button>
         </div>
       </div>
     </div>
     <hr class="featurette-divider m-3">
     <div class="row featurette px-1 m-0 sty-cards">   
       <div class="col-md-6 p-1 ">
-        <h1 class="py-4 pe-md-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> {{ tips2.title }}</h1><br>
-        <p class="sty-p text-center px-3">{{ tips2.resume }}</p><br>
+        <h1 class="py-4 pe-md-4 sty-h1 mt-5 mb-3 d-md-block text-md-end text-center"> {{ tips.1.title }}</h1><br>
+        <p class="sty-p text-center px-3">{{ tips.1.resume }}</p><br>
         <div class="mt-4 mb-4 text-center">
-          <button class="sty-button btn click-efect" data-bs-toggle="modal" data-bs-target="#modal-tips2">saiba mais</button>
+          <button class="sty-button btn click-efect" data-bs-toggle="modal" data-bs-target="#modal-tips.1">saiba mais</button>
         </div>
       </div> 
       <div class="col-md-6 p-0" >
-        <img src="{{ tips2.images.url }}" alt="{{ tips2.alt_image }}" class="img-fluid sty-img " />
+        <img src="{{ tips.1.images.url }}" alt="{{ tips.1.alt_image }}" class="img-fluid sty-img " />
       </div>
     </div>
    
       <!--------------- modal ---------------------->
-        <div class="modal fade" id="modal-tips1" tabindex="-1" aria-labelledby="modal-tips1" aria-hidden="true">
+        <div class="modal fade" id="modal-tips.0" tabindex="-1" aria-labelledby="modal-tips.0" aria-hidden="true">
           <div class="modal-dialog ">
             <div class="modal-content text-dark opacity-75">
               <div class="modal-header">
-                <h5 class="modal-title fs-4">{{ tips1.title }}</h5>
+                <h5 class="modal-title fs-4">{{ tips.0.title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body fs-5 fw-semibold">
-                <p>{{ tips1.content }}</p>
+                <p>{{ tips.0.content }}</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn sty-btnmodal" data-bs-dismiss="modal">Fechar</button>
@@ -43,15 +43,15 @@
           </div>
         </div>
 
-        <div class="modal fade" id="modal-tips2" tabindex="-1" aria-labelledby="modal-tips2" aria-hidden="true">
+        <div class="modal fade" id="modal-tips.1" tabindex="-1" aria-labelledby="modal-tips.1" aria-hidden="true">
           <div class="modal-dialog ">
             <div class="modal-content text-dark opacity-75">
               <div class="modal-header">
-                <h5 class="modal-title fs-4">{{ tips2.title }}</h5>
+                <h5 class="modal-title fs-4">{{ tips.1.title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body fs-5 fw-semibold">
-                <p>{{ tips2.content }}</p>
+                <p>{{ tips.1.content }}</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn sty-btnmodal" data-bs-dismiss="modal">Fechar</button>

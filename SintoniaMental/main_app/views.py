@@ -9,27 +9,28 @@ def home(request):
         content_tips = ContentTips.objects.all()
         reviews_user = ReviewsUser.objects.all()
         if content_tips.exists():
-            tips_random = random.sample(list(content_tips)) 
+            tips_random = random.sample(list(content_tips) , min(len(content_tips) , 2)) 
             # pega todos tips e armazena na lista depois o embaralha
         else :
             tips_random = ['nada aqui' , 'nada aqui']
         if reviews_user.exists():
-            reviews_random = random.sample(list(reviews_user))
+            reviews_random = random.sample(list(reviews_user), min(len(reviews_user), len(reviews_user)))
         else:   
             reviews_random = ['nada aqui']
             
         context = {
-            "tips1":tips_random[0],
-            "tips2":tips_random[1],
+            "tips":tips_random,
             "reviews":reviews_random,
         }
+        print(reviews_random)
         return render(request, "pages/home.html", context)
     except Exception as e:
+        print(e)
         context = {
-            "tips1":'Algo deu errado ',
-            "tips2":'Algo deu errado',
+            "tips":['Algo deu errado ','Algo deu errado '],
             "reviews":'Algo deu errado',
         }
+        
         return render(request, "pages/home.html", context)
 
 def help(request):
