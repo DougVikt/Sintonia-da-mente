@@ -48,3 +48,34 @@ document.addEventListener("DOMContentLoaded",function(){
       }
   });
 })
+
+document.addEventListener("DOMContentLoaded", function() {
+  let type_register = document.getElementById('type_register');
+  let number_register = document.getElementById('number_register');
+
+  function formatCRP(t) {
+    let x = t.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,7})/);
+    t.target.value = !x[2] ? x[1] : x[1] + '/' + x[2];
+  }
+
+  function formatCRM(t) {
+    let value = t.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    let x = value.match(/([A-Z]{0,2})(\d{0,7})/);
+    t.target.value = !x[2] ? x[1] : x[1] + '/' + x[2];
+  }
+
+  function updateFormatter() {
+    number_register.removeEventListener('input', formatCRP);
+    number_register.removeEventListener('input', formatCRM);
+
+    if (type_register.value == 'CRP') {
+      number_register.addEventListener('input', formatCRP);
+    } else if (type_register.value == 'CRM') {
+      number_register.addEventListener('input', formatCRM);
+    }
+  }
+  updateFormatter();
+
+  // percebe a mudança no tipo de registro
+  type_register.addEventListener('change', updateFormatter);
+});

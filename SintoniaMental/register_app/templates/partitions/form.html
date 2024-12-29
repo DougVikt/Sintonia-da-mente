@@ -15,12 +15,38 @@
   </div>
   <div class="form-floating m-1">
     <input type="date" name="datebirth" class="form-control" id="datebirth" placeholder="data de nascimento" required>
-    <label for="date">Data de Nascimento</label>
+    <label for="datebirth">Data de Nascimento</label>
 </div>
   {% if is_specialist is True %}
+  <div class="row gy-1 gx-1 px-1">
+    <div class="form-floating col-2">
+      <select class="form-select fs-6 W-25" name="type" id="type_register" aria-label="Default select example" required>
+        <option value="CRM">CRM</option>
+        <option value="CRP">CRP</option>
+      </select>  
+      <label for="type_register">CRM/CRP</label>
+    </div>
+    <div class="form-floating col-10">  
+      <input type="text" name="register" class="form-control" id="number_register" placeholder="registro" required>
+      <label for="number_register">Numero</label>
+    </div>
+  </div>
   <div class="form-floating m-1">
-      <input type="text" name="register" class="form-control" id="register" placeholder="registro" required>
-      <label for="register">CRP/CRM</label>
+    <select class="form-select fs-6" name="specialty" id="specialty" aria-label="Default select example" required>
+      <option selected>-- Selecionar --</option>
+      <option value="Psiquiatria Cultural">Psiquiatria Cultural</option>
+      <option value="Psiquiatria Psicossomática">Psiquiatria Psicossomática</option>
+      <option value="Psiquiatria de Dependência">Psiquiatria de Dependência</option>
+      <option value="Neuropsiquiatria">Neuropsiquiatria</option>
+      <option value="Psiquiatria da Infância e Adolescência">Psiquiatria da Infância e Adolescência</option>
+      <option value="Psiquiatria Geral">Psiquiatria Geral</option>
+      <option value="Psicólogos de Saúde">Psicólogos de Saúde</option>
+      <option value="Psicoterapeutas Cognitivo-Comportamentais">Psicoterapeutas Cognitivo-Comportamentais (TCC)</option>
+      <option value="Neuropsicólogos">Neuropsicólogos</option>
+      <option value="Psicólogos Escolares">Psicólogos Escolares</option>
+      <option value="Psicólogos Clínicos">Psicólogos Clínicos</option>
+    </select>
+    <label for="specialty">Especialidade</label>
   </div>
   {% endif %}
   <div class="form-floating m-1">

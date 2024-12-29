@@ -30,7 +30,7 @@ def register_user(request):
                 )
                 patient.save()
                 messages.error(request, "Cadastro realizado com sucesso !")
-                return redirect(f'patient/home_user/{user.id}/')
+                return redirect("login")
             except Exception as e:
                 messages.error(request, "Erro ao cadastrar !")
                 
@@ -43,8 +43,12 @@ def register_prof(request):
         email = request.POST.get('email')
         fone = request.POST.get('fone')
         date_birth = request.POST.get("datebirth")
+        specialty = request.POST.get('specialty')
         password = request.POST.get('password')
-        crm = request.POST.get('register')        
+        register_number = request.POST.get('register') 
+        register_type = request.POST.get('type') 
+        # para ter o codigo completo 
+        register_complete = register_type + register_number      
         
         if object_user.filter(email=email).exists():
             messages.error(request, "Email ja cadastrado !")
@@ -59,11 +63,12 @@ def register_prof(request):
                     name=name,
                     fone=fone,  
                     date_birth=date_birth,
-                    register=crm
+                    specialty=specialty,
+                    register=register_complete
                 )
                 specialist.save()
                 messages.error(request, "Cadastro realizado com sucesso !")
-                return redirect('home')
+                return redirect('login')
             except Exception as e:
                 user.delete()
                 messages.error(request,"Erro ao cadastrar !")

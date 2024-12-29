@@ -143,6 +143,15 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# Expira a sessão quando o navegador for fechado
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# Duração da sessão em segundos (por exemplo, 30 minutos)
+SESSION_COOKIE_AGE = 1800  # 30 minutos
+
+# Salva a sessão a cada requisição
+SESSION_SAVE_EVERY_REQUEST = True
+
 # Configuração para o upload de arquivos
 MEDIA_URL = "/media/"
 
