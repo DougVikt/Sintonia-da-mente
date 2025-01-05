@@ -1,0 +1,50 @@
+<div class="container p-3 mt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <h5>{{ month }} - {{ year }}</h5>
+                <!-- Cabeçalho da tabela com os dias da semana -->
+                <th>Dom</th>
+                <th>Seg</th>
+                <th>Ter</th>
+                <th>Qua</th>
+                <th>Qui</th>
+                <th>Sex</th>
+                <th>Sab</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- Loop para iterar sobre os dias do mês -->
+                {% for day in days_month %}
+                    <!-- Adiciona células vazias no início da primeira semana -->
+                    {% if forloop.first %}
+                        {% for _ in primary_week %}
+                            <td></td>
+                        {% endfor %}
+                    {% endif %}
+                    <td>
+                        <!-- Exibe o dia do mês -->
+                        {{ day }}
+                        <!-- Loop para iterar sobre as consultas e exibir as consultas do dia atual -->
+                        {% for consult in consults %}
+                            {% if consult.data.day == day %}
+                                <div>{{ consult.title }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <!-- Adiciona células vazias no final da última semana -->
+                    {% if forloop.last %}
+                        {% for _ in last_week %}
+                            <td></td>
+                        {% endfor %}
+                    {% endif %}
+                    <!-- Quebra a linha da tabela a cada 7 dias -->
+                    {% if forloop.counter|divisibleby:7 and not forloop.last %}
+                        </tr><tr>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>

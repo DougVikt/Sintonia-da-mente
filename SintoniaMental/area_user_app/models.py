@@ -16,13 +16,14 @@ class ReviewsUser(models.Model):
         verbose_name_plural = 'ReviewsUsers'
         ordering = ['id']
     def __str__(self):
-        return self.user.first_name
+        return self.user.name
     
 # classe de consultas dos usuários
 class Consultations(models.Model):
     user = models.ForeignKey(Patients , on_delete=models.CASCADE)
     specialist = models.ForeignKey(Professionals , on_delete=models.CASCADE)
     description = models.TextField()
+    title = models.CharField(max_length=50)
     date = models.DateTimeField()
     status = models.BooleanField(default=False)
     type_consultation = models.CharField(max_length=20)
@@ -33,4 +34,4 @@ class Consultations(models.Model):
         verbose_name_plural = 'Consultations'
         ordering = ['id']
     def __str__(self):
-        return self.user.first_name
+        return self.user.name

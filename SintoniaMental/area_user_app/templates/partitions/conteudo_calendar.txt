@@ -65,7 +65,7 @@ python
 Verify
 
 Open In Editor
-Edit
+Edit 
 Copy code
 from django.shortcuts import render
 from .models import Evento

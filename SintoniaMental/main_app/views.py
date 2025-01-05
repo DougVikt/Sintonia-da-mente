@@ -22,10 +22,8 @@ def home(request):
             "tips":tips_random,
             "reviews":reviews_random,
         }
-        print(reviews_random)
         return render(request, "pages/home.html", context)
     except Exception as e:
-        print(e)
         context = {
             "tips":['Algo deu errado ','Algo deu errado '],
             "reviews":'Algo deu errado',
