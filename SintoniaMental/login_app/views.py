@@ -5,7 +5,6 @@ from django.conf import settings
 
 
 
-
 def login(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -26,7 +25,7 @@ def login(request):
                 if hasattr(user, 'patients'):
                     # verifica se o atributo patients esta no objeto , atributo esse criado pelo django
                     messages.success(request, 'Login realizado com sucesso!.')
-                    return redirect('home_user' , id=user.id)
+                    return redirect('home_user' , id=user.id , month=1 , year=1)
                 elif hasattr(user, 'professionals'):
                     messages.success(request, 'Login como profissional bem-sucedido.')
                     return redirect('home_specialist', id=user.id) 

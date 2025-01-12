@@ -3,28 +3,44 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import datetime ,timedelta
-from .models import Consultations as Consult
+from .models import Consultations as Consult ,Patients
+import calendar
 
 
+def month_text(month:int)->str:
+    months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
+    return months[month-1]
 
 @login_required
-def home_user(request, id , year=datetime.now().year , month=datetime.now().month):
-    patient = get_object_or_404(User , id=id ) 
-    primary_day = datetime(year,month,1)# primeiro dia do mês
-    last_day = (primary_day + timedelta(days=31)).replace(day=1) - timedelta(days=1) # último dia do mês
-    primary_week = [day for day in range(primary_day.weekday())] # dias iniciais da semana que faltam
-    last_week = [day for day in range(last_day.weekday(),-1)] # dias finais da semana que faltam
-    consults = Consult.objects.filter(user=id, date__range=[primary_day , last_day])
-    days_month = list(range(1,last_day.day+1))
+def home_user(request, id , month ,year):
+    user = get_object_or_404(User , id=id ) 
+    patient = get_object_or_404(Patients , auth_user=user)
+    consults = Consult.objects.filter(user_id=patient.id)
+    if year == 1:
+        month=datetime.now().month 
+        year=datetime.now().year
+    list_weeks = calendar.monthcalendar(year,month) 
+    
+    # Calcular o mês anterior e o próximo mês
+    prev_month = (datetime(year, month, 1) - timedelta(days=1)).month
+    prev_year = (datetime(year, month, 1) - timedelta(days=1)).year
+    next_month = (datetime(year, month, 28) + timedelta(days=4)).month
+    next_year = (datetime(year, month, 28) + timedelta(days=4)).year      
+    date_list ={ 
+        'text_month':month_text(month) ,
+        'month':month,
+        'year':year,
+        'prev_month':prev_month,
+        'prev_year':prev_year,
+        'next_month':next_month,
+        'next_year':next_year,
+    }
     return render(request , 'page/home_user.html',context={
         'patient':patient,
-        'consults':consults,
-        'year':year,
-        'month':month,
-        'days_month':days_month,
-        'primary_week':primary_week,
-        'last_week':last_week,
-        'is_connected': "user"
+        'is_connected': "user",
+        'list_weeks': list_weeks,
+        'date_list':date_list,
+        'consults':consults
     })
 
 def logout_user(request):
