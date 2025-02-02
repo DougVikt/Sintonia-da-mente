@@ -3,7 +3,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import datetime ,timedelta
-from .models import Consultations as Consult ,Patients
+from .models import Consultations as Consult ,Patients ,Professionals
 import calendar
 
 
@@ -15,7 +15,11 @@ def month_text(month:int)->str:
 def home_user(request, id , month ,year):
     user = get_object_or_404(User , id=id ) 
     patient = get_object_or_404(Patients , auth_user=user)
-    consults = Consult.objects.filter(user_id=patient.id)
+    consults = Consult.objects.filter(user_id=patient)
+    consult_specialist = consults.values('specialist_id').distinct()
+    specialists = Professionals.objects.filter(id=1)
+    for spe in consult_specialist:
+        print(spe)
     if year == 1:
         month=datetime.now().month 
         year=datetime.now().year
@@ -40,7 +44,9 @@ def home_user(request, id , month ,year):
         'is_connected': "user",
         'list_weeks': list_weeks,
         'date_list':date_list,
-        'consults':consults
+        'consults':consults,
+        #'specialists':specialists,
+        
     })
 
 def logout_user(request):

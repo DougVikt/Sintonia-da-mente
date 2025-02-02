@@ -1,0 +1,20 @@
+<div>
+    <h5>Especialistas recentes</h5>
+    {% for specialist in specialists %}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ recent.name }}</h5>
+                            <p class="card-text">nada</p>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                            <a href="{% url '#' %}" class="btn btn-primary">Ver perfil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+</div>
