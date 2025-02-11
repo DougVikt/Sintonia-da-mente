@@ -3,3 +3,6 @@ Django==5.1.4
 pillow==11.0.0
 sqlparse==0.5.3
 tzdata==2024.2
+
+
+# para instalar : pip install -r requirements.txt
