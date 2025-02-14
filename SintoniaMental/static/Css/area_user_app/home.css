@@ -13,3 +13,27 @@
     width:100%;
     height:100%;
 }
+.sty-div-specialist{
+    background-color: rgb(52, 52, 52);
+}
+.sty-name{
+    color: rgb(236, 105, 44);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.sty-p{
+    font-style: italic;
+    font-size: 0.9rem;
+    color: white;
+
+}
+.sty-button{
+    background-color: rgb(236, 105, 44);
+    color: white;
+    border: none;
+    font-size: 1rem
+}
+.sty-button:hover{
+    background-color: black;
+    color: rgb(236, 105, 44);
+}

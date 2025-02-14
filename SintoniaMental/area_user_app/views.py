@@ -17,9 +17,11 @@ def home_user(request, id , month ,year):
     patient = get_object_or_404(Patients , auth_user=user)
     consults = Consult.objects.filter(user_id=patient)
     consult_specialist = consults.values('specialist_id').distinct()
-    specialists = Professionals.objects.filter(id=1)
+    prof = set()
     for spe in consult_specialist:
-        print(spe)
+        prof.add(spe['specialist_id'])
+        print(prof)
+        specialists = Professionals.objects.filter(id__in=prof)
     if year == 1:
         month=datetime.now().month 
         year=datetime.now().year
@@ -45,7 +47,7 @@ def home_user(request, id , month ,year):
         'list_weeks': list_weeks,
         'date_list':date_list,
         'consults':consults,
-        #'specialists':specialists,
+        'specialists':specialists,
         
     })
 
