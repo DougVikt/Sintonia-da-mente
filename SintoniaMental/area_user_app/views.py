@@ -1,6 +1,7 @@
 from django.shortcuts import render ,redirect , get_object_or_404
 from django.contrib.auth import logout  
 from django.contrib.auth.models import User
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from datetime import datetime ,timedelta
 from .models import Consultations as Consult ,Patients ,Professionals
@@ -17,11 +18,10 @@ def home_user(request, id , month ,year):
     patient = get_object_or_404(Patients , auth_user=user)
     consults = Consult.objects.filter(user_id=patient)
     consult_specialist = consults.values('specialist_id').distinct()
-    prof = set()
+    id_specialist = set()
     for spe in consult_specialist:
-        prof.add(spe['specialist_id'])
-        print(prof)
-        specialists = Professionals.objects.filter(id__in=prof)
+        id_specialist.add(spe['specialist_id'])
+        specialists = Professionals.objects.filter(id__in=id_specialist)
     if year == 1:
         month=datetime.now().month 
         year=datetime.now().year
@@ -41,6 +41,7 @@ def home_user(request, id , month ,year):
         'next_month':next_month,
         'next_year':next_year,
     }
+    today = timezone.now()
     return render(request , 'page/home_user.html',context={
         'patient':patient,
         'is_connected': "user",
@@ -48,6 +49,7 @@ def home_user(request, id , month ,year):
         'date_list':date_list,
         'consults':consults,
         'specialists':specialists,
+        'today':today
         
     })
 

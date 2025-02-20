@@ -118,6 +118,8 @@ AUTHENTICATION_BACKENDS = [
 
 LANGUAGE_CODE = 'pt-br'
 
+LOGIN_URL = '/login/'
+
 TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True

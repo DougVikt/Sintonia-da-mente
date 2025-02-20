@@ -11,4 +11,12 @@
     {% endfor %}
   </div>
 </div>
+<script>
+  setTimeout(() => {
+    let alert = document.getElementById('alerta');
+    if (alert){
+      alert.style.display = 'none';
+    }
+  },5000)
+</script>
 {% endif %}

@@ -34,30 +34,54 @@
                 <th scope="col">Domingo</th>
             </tr>
         </thead>
-        <tbody > 
+        <tbody>
+            {% comment %} listando os dias da semana {% endcomment %}
             {% for week in list_weeks %}
-                <tr > 
-                {% for day in week %}             
-                    <td scope="row">
-                        {% if day == 0 %}
-                            &nbsp;
-                        {% else %}
+            <tr>
+                {% for day in week %}
+                <td scope="row">
+                    {% comment %} Se o dia for 0, exibe um espaço em branco {% endcomment %}
+                    {% if day == 0 %}
+                        &nbsp;
+                    {% else %}
+                        {% comment %} Se o dia atual for igual ao dia, exibe o dia em negrito e laranja {% endcomment %}
+                        <span class="{% if today.year == date_list.year and today.month == date_list.month and today.day == day %}fw-bold text-warning {% endif %}">
                             {{ day }}
-                            {% for consult in consults %}
-                                {% if consult.date.day == day and consult.date.month == date_list.month and consult.date.year == date_list.year and not consult.status  %}
-                                    <svg style="color:orange" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
-                                    </svg>
-                                {% elif consult.date.day == day and consult.date.month == date_list.month and consult.date.year == date_list.year and consult.status  %}
+                        </span>
+                        {% comment %} Itera sobre as consultas {% endcomment %}
+                        {% for consult in consults %}
+                            {% comment %} Se a data da consulta for igual ao dia atual {% endcomment %}
+                            {% if consult.date.day == day and consult.date.month == date_list.month and consult.date.year == date_list.year %}
+                            {% comment %} Se a consulta estiver confirmada, exibe um ícone verde {% endcomment %}
+                                {% if consult.status %}
+                                <a>
                                     <svg style="color:green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
                                     </svg>
+                                </a>
+                                {% else %}
+                                    {% comment %} Se a data atual for menor que a data da consulta, exibe um ícone laranja {% endcomment %}
+                                    {% if today < consult.date %}
+                                    <a>
+                                        <svg style="color:orange" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                        </svg>
+                                    </a>
+                                    {% else %}
+                                    {% comment %} Se a data atual for maior que a data da consulta, exibe um ícone vermelho {% endcomment %}
+                                    <a> 
+                                        <svg style="color:red" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                        </svg>
+                                    </a>
+                                    {% endif %}
                                 {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    </td> 
-                {% endfor %}            
-                </tr> 
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
             {% endfor %}
         <tbody>
     </table>
