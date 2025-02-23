@@ -20,7 +20,20 @@
 
 <!---------- calendario ---------->
     {% include "partitions/calendar.html" %}
-    {% include "partitions/expert_list.html" %}
+<!---------- especialistas ---------->
+    <section > 
+    <!---------- recentes ---------->
+    {% include "partitions/expert_list_recent.html" %}
+    </section>
+    <section id="specialist_all">
+    <!---------- lista de todos ----------> 
+    {% include "partitions/expert_list_all.html" %}
+    </section>
 
     <script src="{% static 'Js/navbar.js' %}"></script>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        
+    </script>
 {% endblock  %}
