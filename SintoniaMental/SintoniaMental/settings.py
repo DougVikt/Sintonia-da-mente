@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
     'node300a.containers.back4app.com',
+    'sintoniamental-ku50ryot.b4a.run'
 ]
 
 
