@@ -12,8 +12,14 @@ ENV PYTHONUNBUFFERED=1
 # Cria um ambiente virtual
 RUN python -m venv /ambiente-django
 
-# Entrar no ambiente virtual
-RUN ambiente-django/bin/activate
+# Define permissões para o ambiente virtual
+RUN chmod -R 755 /ambiente-django
+
+# Define o PATH para usar o ambiente virtual
+ENV PATH="/ambiente-django/bin:$PATH"
+
+# Ativa o ambiente virtual usando o shell bash
+RUN /bin/bash -c "source /ambiente-django/bin/activate"
 
 WORKDIR /SintoniaMental
 COPY  requirements.txt .
@@ -28,9 +34,6 @@ COPY . /SintoniaMental
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /SintoniaMental
 USER appuser
-
-# Define o PATH para usar o ambiente virtual
-ENV PATH="/ambiente-django/bin:$PATH"
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 # File wsgi.py was not found. Please enter the Python path to wsgi file.
