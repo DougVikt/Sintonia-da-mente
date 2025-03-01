@@ -1,6 +1,6 @@
 function exibirResultado(resultado){
-    const texto = document.getElementById('texto');
-    const btn_cadastrar = document.getElementById('btn-cadastrar');
+    const texto = document.getElementById('text');
+    const btn_cadastrar = document.getElementById('btn-register');
     
     if(resultado <= 28){
         texto.innerHTML = `A pontução foi de ${resultado} , implica que não corresponde a ter um potencial de Transtorno de Déficit de Atenção e Hiperatividade (TDAH). Agradecemos sua participação !`;
