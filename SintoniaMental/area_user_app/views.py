@@ -14,19 +14,29 @@ def month_text(month:int)->str:
 
 @login_required
 def home_user(request, id , month ,year):
-    user = get_object_or_404(User , id=id ) 
-    patient = get_object_or_404(Patients , auth_user=user)
+    # Obter o usuário com base no ID fornecido ou retornar 404 se não encontrado
+    user = get_object_or_404(User, id=id)
+    # Obter o paciente associado ao usuário autenticado ou retornar 404 se não encontrado
+    patient = get_object_or_404(Patients, auth_user=user)
+    # Obter todas as consultas associadas ao paciente
     consults = Consult.objects.filter(user_id=patient)
-    consult_specialist = consults.values('specialist_id').distinct()
+    # Obter os IDs dos especialistas das consultas do paciente, garantindo que sejam únicos
+    consult_patient = consults.values('specialist_id').distinct()
+    # Criar um conjunto para armazenar os IDs dos especialistas
     id_specialist = set()
-    for spe in consult_specialist:
+    # Iterar sobre os especialistas únicos das consultas do paciente
+    for spe in consult_patient:
         id_specialist.add(spe['specialist_id'])
+        # Filtrar os profissionais com base nos IDs dos especialistas
         specialists = Professionals.objects.filter(id__in=id_specialist)
+    # objeto de todos os especialistas
+    specialists_all = Professionals.objects.all()
+    # Se o ano for 1, definir o mês e o ano atuais
     if year == 1:
-        month=datetime.now().month 
-        year=datetime.now().year
-    list_weeks = calendar.monthcalendar(year,month) 
-    
+        month = datetime.now().month 
+        year = datetime.now().year
+    # Obter a lista de semanas do mês e ano fornecidos
+    list_weeks = calendar.monthcalendar(year, month)
     # Calcular o mês anterior e o próximo mês
     prev_month = (datetime(year, month, 1) - timedelta(days=1)).month
     prev_year = (datetime(year, month, 1) - timedelta(days=1)).year
@@ -49,10 +59,13 @@ def home_user(request, id , month ,year):
         'date_list':date_list,
         'consults':consults,
         'specialists':specialists,
+        'specialists_all':specialists_all,
         'today':today
         
     })
 
+# função e logut do usuário
+@login_required
 def logout_user(request):
     logout(request)
     return redirect('home')

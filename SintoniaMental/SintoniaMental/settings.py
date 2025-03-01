@@ -24,10 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l!&!m=u=vmzg8vu1wdp6=)1bo!i#95ib7j136@(2&pp(qh!y0%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1',
+    'node301a.containers.back4app.com',
+    'node300a.containers.back4app.com',
+    'sintoniamental-ku50ryot.b4a.run'
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://sintoniamental-ku50ryot.b4a.run/',
+]
 
 # Application definition
 

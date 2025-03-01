@@ -37,3 +37,13 @@
     background-color: black;
     color: rgb(236, 105, 44);
 }
+.sty-carrosel{
+    overflow-x: auto;    
+    scroll-behavior: smooth;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.sty-carrosel .card{
+    display: inline-block;
+    vertical-align: top;
+}
