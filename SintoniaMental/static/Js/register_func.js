@@ -1,19 +1,22 @@
-// verifica se as senhas são identicas 
-function ValidacaoSenha(){
-    let senha = document.getElementById('password');
-    let confereSenha = document.getElementById('check-password');
-    let msmErro = document.getElementById('erro');
 
-    if (senha.value !== confereSenha.value) {
-      senha.classList.add('is-invalid');
-      confereSenha.classList.add('is-invalid');
-      msmErro.innerHTML= 'As senhas não são identicas !'
-      
-      return false;
-    }
+// Função para validar se as senhas são idênticas
+function validationPassword(){
+  let password = document.getElementById('password');
+  let checkpassword = document.getElementById('check-password');
+  let msmErro = document.getElementById('error');
+
+  // Verifica se as senhas são diferentes
+  if (password.value !== checkpassword.value) {
+    // Adiciona a classe 'is-invalid' aos campos de senha
+    password.classList.add('is-invalid');
+    checkpassword.classList.add('is-invalid');
+    // Exibe a mensagem de erro
+    msmErro.innerHTML = 'As senhas não são idênticas!';
     
-    return true;
-   
+    return false;
+  }
+  
+  return true;
 }
 
 // formata a caixa input do telefone para o formato correto e limitando apenas a numeros 
@@ -32,16 +35,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// limita a senha a ter no minimo 8 e no maximo 20 caracteres 
+// limita a passworda ter no minimo 8 e no maximo 20 caracteres 
 document.addEventListener("DOMContentLoaded",function(){
   let passwordInput = document.getElementById('password');
   passwordInput.addEventListener('input',function(p){
       const password = this.value;
       if(password.length < 8 ){
-        this.setCustomValidity('A senha deve ter no mínimo 8 caracteres.');
+        this.setCustomValidity('A passworddeve ter no mínimo 8 caracteres.');
       }
       else if(password.length > 20){
-        this.setCustomValidity('A senha deve ter no máximo 20 caracteres.');
+        this.setCustomValidity('A passworddeve ter no máximo 20 caracteres.');
       }
       else{
         this.setCustomValidity('');
@@ -53,17 +56,20 @@ document.addEventListener("DOMContentLoaded", function() {
   let type_register = document.getElementById('type_register');
   let number_register = document.getElementById('number_register');
 
+  // Função para formatar o CRP
   function formatCRP(t) {
     let x = t.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,7})/);
     t.target.value = !x[2] ? x[1] : x[1] + '/' + x[2];
   }
 
+  // Função para formatar o CRM
   function formatCRM(t) {
     let value = t.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
     let x = value.match(/([A-Z]{0,2})(\d{0,7})/);
     t.target.value = !x[2] ? x[1] : x[1] + '/' + x[2];
   }
 
+  // Função para atualizar o formatador com base no tipo de registro
   function updateFormatter() {
     number_register.removeEventListener('input', formatCRP);
     number_register.removeEventListener('input', formatCRM);
@@ -76,6 +82,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   updateFormatter();
 
-  // percebe a mudança no tipo de registro
+  // Detecta a mudança no tipo de registro
   type_register.addEventListener('change', updateFormatter);
 });

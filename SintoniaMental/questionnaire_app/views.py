@@ -6,16 +6,16 @@ def quest(request):
 
 
 def quest_user(request):
-    return render(request, 'pages_quest/quest_usuario.html')
+    return render(request, 'pages_quest/quest_user.html')
 
 
-def quest_pais(request):
-    return render(request,'pages_quest/quest_pais.html' )
+def quest_parent(request):
+    return render(request,'pages_quest/quest_parent.html' )
 
 
-def quest_prof(request):
-    return render(request,'pages_quest/quest_prof.html' )
+def quest_teacher(request):
+    return render(request,'pages_quest/quest_teacher.html' )
 
 
-def resultado(request):
+def end_result(request):
     return render(request,'pages_quest/end_result.html')

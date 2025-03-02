@@ -24,18 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l!&!m=u=vmzg8vu1wdp6=)1bo!i#95ib7j136@(2&pp(qh!y0%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
-    'node301a.containers.back4app.com',
-    'node300a.containers.back4app.com',
-    'sintoniamental-ku50ryot.b4a.run'
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://sintoniamental-ku50ryot.b4a.run/',
+    
 ]
 
 # Application definition
@@ -149,7 +143,7 @@ STATIC_URL = '/static/'
 # Diretório onde os arquivos estáticos serão coletados
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Diretórios adicionais para buscar arquivos estáticos (opcional)
+# Diretórios adicionais para buscar arquivos estáticos
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]

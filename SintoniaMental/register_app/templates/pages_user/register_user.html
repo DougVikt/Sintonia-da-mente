@@ -21,10 +21,10 @@ class="d-flex align-items-center p-5 bg-dark"
  
     {% include "message_erro.html" %}  
   
-      <form onsubmit = "return ValidacaoSenha()" method="post">
+      <form onsubmit = "return validationPassword()" method="post">
         {% csrf_token %}
         {% include "partitions/form.html" %}
-        <p id="erro" class="ms-2 fs-6 fst-italic text-danger"></p>
+        <p id="error" class="ms-2 fs-6 fst-italic text-danger"></p>
       {% include "partitions/buttons.html" %}
       </form>
       <br>

@@ -28,7 +28,7 @@ class="bg-secondary d-flex justify-content-center"
             <p id="text" class="col-lg-8 mx-auto fs-5 text-muted"></p>
             
             <div class="d-inline-flex mb-5 row flex-column">
-                <a id="btn-register" class="col-11 text-reset my-2" href="{% url 'login' %}" >
+                <a id="btn-register" class="col-11 text-reset my-2" href="{% url 'register_user' %}" >
                     <button class="w-100 fs-5 px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" type="button" >
                         CADASTRAR
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="currentColor" class="bi bi-arrow-right-short sty-svgbt " viewBox="0 0 12 16">
@@ -51,8 +51,8 @@ class="bg-secondary d-flex justify-content-center"
     
      <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const resultado = localStorage.getItem('resultado');
-            exibirResultado(resultado);
+            const result = localStorage.getItem('result');
+            displayResult(result);
         });
      </script>
 {% endblock %}

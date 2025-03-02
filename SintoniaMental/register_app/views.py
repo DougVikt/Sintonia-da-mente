@@ -37,7 +37,7 @@ def register_user(request):
     return render(request , 'pages_user/register_user.html')
 
 
-def register_prof(request):
+def register_specialist(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')

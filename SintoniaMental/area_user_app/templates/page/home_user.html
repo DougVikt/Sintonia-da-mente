@@ -32,6 +32,7 @@
 
     <script src="{% static 'Js/navbar.js' %}"></script>
     <script>
+        // popover de cada dia do calendario
         const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
         const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
         

@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('register_user/', views.register_user , name='register_user'),
-    path('register_specialist/', views.register_prof , name='register_prof'),
+    path('register_specialist/', views.register_specialist , name='register_specialist'),
    
 ]
 # para adicionar o caminho das midias 

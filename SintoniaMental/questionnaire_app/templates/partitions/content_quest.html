@@ -1,4 +1,4 @@
-<div id="alerta" class="col-12"></div>
+<div id="alert" class="col-12"></div>
 <div class="col-10 container mx-3 my-3 rounded-3 bg-light shadow-lg">
     <a class="sty-a-svg" href="{% url 'quest' %}">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left mt-2 me-3 sty-return" viewBox="0 0 16 16">
@@ -9,11 +9,11 @@
     <div class="p-5 text-center rounded-3">
         <div class="row">
             <form class="col">
-                <div class="row flex-column" id="pergunta"></div>
+                <div class="row flex-column" id="questions"></div>
                 <br>
-                <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" id="proximo" onclick="next(event,perguntas)">Proximo</button>
+                <button class="px-md-5 border border-3 d-inline-flex align-items-center btn sty-btquest btn-lg px-4 rounded-pill" id="next_question" onclick="next(event,questions)">Proximo</button>
             </form>
-            <div class="p-0 progress mt-5" id="progresso"></div>
+            <div class="p-0 progress mt-5" id="progress_bar"></div>
         </div>            
     </div>
 </div> 

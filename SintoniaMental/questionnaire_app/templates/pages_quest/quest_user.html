@@ -1,15 +1,15 @@
 {% extends "structure.html" %}
 {% load static %}
-
-{% block local_title %}SM | Para Professores {% endblock %}
+ 
+{% block local_title %}SM | Para Mim Mesmo {% endblock %}
 
 {% block local_css %}
 <link rel="stylesheet" href="{% static 'Css/questionnaire_app/questionnaire.css' %}">
-{% endblock %}
+{% endblock %}    
 
 {% block local_js %}
 <script src="{% static 'Js/quest_func.js' %}"></script>
-{% endblock %}    
+{% endblock %}
 
 {% block class_body %}
 class="bg-secondary d-flex justify-content-center row flex-column-flex-row-reverse"
@@ -17,10 +17,10 @@ class="bg-secondary d-flex justify-content-center row flex-column-flex-row-rever
 
 {% block local_body %}
     {% include "partitions/content_quest.html" %}
-        
+            
     <script >
-        const perguntas = textos('prof');
-        quest(perguntas);
+        const questions = texts('user');
+        quest(questions);
+        
     </script>
-    
 {% endblock %}

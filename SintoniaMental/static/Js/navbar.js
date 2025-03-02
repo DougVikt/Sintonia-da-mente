@@ -2,7 +2,7 @@
 const nav = document.getElementById('nav');
 
 // posição atual do scroll
-let posicion_scroll = 0;
+let position_scroll = 0;
 
 // Adiciona um evento de scroll à janela
 window.addEventListener('scroll', function() {
@@ -10,7 +10,7 @@ window.addEventListener('scroll', function() {
   let scrollTop = window.scrollY;
 
   // Verifica se o usuário rolou para baixo
-  if (scrollTop > posicion_scroll) {
+  if (scrollTop > position_scroll) {
     // Esconde o nav
     nav.style.top = '-60px';
     nav.style.opacity = '0.7';
@@ -20,5 +20,5 @@ window.addEventListener('scroll', function() {
     nav.style.opacity = '1';
   }
   // Atualiza a posição do scroll
-  posicion_scroll = scrollTop;
+  position_scroll = scrollTop;
 });

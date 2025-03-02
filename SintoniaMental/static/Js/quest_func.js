@@ -1,4 +1,5 @@
-function textos(type=''){
+function texts(type=''){
+    // Definindo as perguntas para o usuário
     const user_questions = [
         'Tem dificuldade em prestar atenção em detalhes ou comete erros por descuido no trabalho ou em tarefas escolares?',
         'Acha difícil manter o foco em tarefas ou atividades, como ler um livro ou assistir a uma palestra?',
@@ -20,11 +21,10 @@ function textos(type=''){
         'Tem dificuldade em completar projetos ou tarefas que começa?',
         'Frequentemente se sente frustrado ou irritado com facilidade?',
         'Tem dificuldade em lembrar de informações importantes, como datas ou compromissos?',
-        
     ];
 
+    // Definindo as perguntas para os pais
     const parent_questions= [
-
         'Não presta atenção aos detalhes ou comete erros por descuido nos trabalhos escolares, no trabalho ou em outras atividades?',
         'Tem dificuldade em manter a atenção em tarefas ou brincadeiras, podendo esquecer as regras facilmente?',
         'Parece ter dificuldade de prestar atenção ou ouvir quando lhe fala diretamente?',
@@ -47,6 +47,7 @@ function textos(type=''){
         'Usa objetos de maneira imprópria ou perigosa ou brinca com fogo? (Apenas para crianças mais novas)',
     ];
 
+    // Definindo as perguntas para os professores
     const teacher_questions = [
         'O aluno(a) tem dificuldade em prestar atenção aos detalhes ou comete erros por descuido nas tarefas escolares?',
         'O aluno(a) tem dificuldade em manter a atenção em tarefas ou atividades lúdicas?',
@@ -70,6 +71,7 @@ function textos(type=''){
         'O aluno(a) apresenta comportamentos impulsivos que podem ser perigosos para si mesmo e para outros?',
     ];
     
+    // Retorna as perguntas de acordo com o tipo
     if(type == 'user'){
         return user_questions;
     }
@@ -79,10 +81,9 @@ function textos(type=''){
     else if(type == 'teacher'){
         return teacher_questions;
     }
-
-    
 }
 
+// Definindo as alternativas de resposta
 const alternatives = [
     {'text':'Nunca','pontos':0},
     {'text':'As vezes','pontos':2},
@@ -95,61 +96,74 @@ let index_questions = 0;
 let sum_points =  0;
 let percentages = 0;
 let directing = false;
+
 function quest(questions) {
     let alternativesHtml = '';
+    // Gerando o HTML das alternativas
     alternatives.forEach((alternatives) => { 
         alternativesHtml += `
         <div class="form-check w-25 col align-self-center">
             <input class="form-check-input sty-radio" type="radio" name="q${index_questions + 1}" value="${alternatives.pontos}" id="radioquest${index_questions}">
             <label class="form-check-label " for="radioquest${index_questions}">
-            ${alternatives.texto}
+            ${alternatives.text}
             </label>
         </div>`;
     });
-    
-    document.getElementById("pergunta").innerHTML = `
-        <h2>${perguntas[index_questions]}</h2><hr>
+   
+    // Atualizando o HTML da pergunta
+    document.getElementById("questions").innerHTML = `
+        <h2>${questions[index_questions]}</h2><hr>
         ${alternativesHtml}
-    `;
-    document.getElementById("alerta").innerHTML = "";
-    percentages = Math.round((index_questions*100)/perguntas.length);
+        `;
+
+    // Barra de progresso
+    document.getElementById("alert").innerHTML = "";
+    percentages = Math.round((index_questions*100)/questions.length);
 }
 
-function next(event, perguntas) {
+function next(event, questions) {
     event.preventDefault();
     const radios = document.querySelectorAll(`input[name="q${index_questions + 1}"]:checked`);
+    
+    // Verifica se está direcionando para a página de resultados
     if(directing){
-        window.location.href = 'end_result.html';
-        localStorage.setItem('resultado', sum_points);     
-        
+        window.location.href = '/quest/end_result/';
+        localStorage.setItem('result', sum_points);     
     }
+    
+    // Verifica se alguma alternativa foi selecionada
     if (radios.length > 0) {
         sum_points += parseInt(radios[0].value);
     
         index_questions++;
-        if (index_questions < perguntas.length) {
-            quest(perguntas);
-            document.getElementById("progresso").innerHTML = `
+        
+        // Verifica a cada pergunda respondida e atualiza a barra de progresso
+        if (index_questions < questions.length) {
+            quest(questions);
+            document.getElementById("progress_bar").innerHTML = `
             <div class="progress-bar progress-bar-striped rounded" role="progressbar" aria-label="Example with label" style="width: ${percentages}%;" aria-valuemin="0" aria-valuemax="100">${percentages}%</div>
             `;
         } 
-        else if(index_questions == perguntas.length) {
-            document.getElementById("pergunta").innerHTML = `
+        // Verifica se todas as perguntas foram respondidas
+        else if(index_questions == questions.length) {
+            document.getElementById("questions").innerHTML = `
                 <h2>CONCLUIDO !</h2>
-            `;
-            document.getElementById("progresso").innerHTML = `
+            `;// Mensagem de conclusão
+            document.getElementById("progress_bar").innerHTML = `
             <div class="progress-bar progress-bar-striped rounded" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuemin="0" aria-valuemax="100">100%</div>
-            `;
-            document.getElementById('proximo').innerHTML = 'Resultado'
-            
+            `;// Barra de progresso completa
+            document.getElementById('next_question').innerHTML = 'Resultado';
+            // Adiciona o botão para a página de resultado
             directing = true;
         }
+        // Redireciona para a página inicial caso algo dê errado
         else {
             window.location.href = 'home.html';
         }
-    }else {
-        if(index_questions < perguntas.length){
-            document.getElementById("alert---------------------------------------------------------------------------------------").innerHTML = `
+    } else {
+        // Exibe um alerta caso nenhuma alternativa tenha sido selecionada
+        if(index_questions < questions.length){
+            document.getElementById("alert").innerHTML = `
             <div id="alerta" class="alert alert-warning align-items-center" role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi flex-shrink-0 me-2 bi-exclamation-triangle-fill" role="img" aria-label="Warning:" viewBox="0 0 16 16">
                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -159,8 +173,5 @@ function next(event, perguntas) {
                 </div>
             </div>`
         }
-          
     }
-  
 }
-
