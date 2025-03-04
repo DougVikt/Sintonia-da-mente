@@ -2,13 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "/SintoniaMental/wsgi.py",
+      "src": "SintoniaMental/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb" }
     }
   ],
- 
-    "rewrites": [
-    { "source": "/(.*)", "destination": "/SintoniaMental/wsgi.py" }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "SintoniaMental/wsgi.py"
+    }
   ]
   }
