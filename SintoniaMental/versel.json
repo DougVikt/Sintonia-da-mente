@@ -6,7 +6,7 @@
         "use": "@vercel/python",
         "config": {
           "maxLambdaSize": "15mb",
-          "runtime": "python3.x"
+          "runtime": "python3.13"
         }
       }
     ],
@@ -17,6 +17,6 @@
       }
     ],
     "rewrites": [
-    { "source": "/(.*)", "destination": "/seu_projeto/wsgi.py" }
+    { "source": "/(.*)", "destination": "/SintoniaMental/wsgi.py" }
   ]
   }
