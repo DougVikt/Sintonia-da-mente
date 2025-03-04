@@ -1,8 +1,8 @@
 <div class="container-fluid m-3 p-md-1">
     <h4>Especialistas recentes</h4>
-    <div class=" mt-3 row row-cols-1 row-cols-md-3 g-2">
+    <div class=" mt-3 row row-cols-1 row-cols-md-3 g-2 sty-div-list">
     {% for specialist in specialists %}
-            <div class="card m-3 p-0 sty-div-specialist" style="width: 12rem;">
+            <div class="card m-3 p-0 sty-div-specialist d-flex">
                 <div class="row g-0 flex-column align-items-center">
                     <div class="col-4 mt-3">
                         {% if specialist.photo_perfil  %}
@@ -16,9 +16,9 @@
                     </div>
                     <div class="col-8 p-0">
                         <div class="card-body p-1">
-                            <h5 class="card-title mt-2 sty-name">{{ specialist.name }}</h5>
-                            <p class="card-text sty-p">{{ specialist.specialty }}</p>
-                            <a href="#" class="btn sty-button m-2">Ver perfil</a>
+                            <h5 class="card-title mt-2">{{ specialist.name }}</h5>
+                            <p class="card-text">{{ specialist.specialty }}</p>
+                            <a href="#" class="btn m-2">Ver perfil</a>
                         </div>
                     </div>
                 </div>

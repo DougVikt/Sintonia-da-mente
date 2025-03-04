@@ -15,19 +15,23 @@
 }
 .sty-div-specialist{
     background-color: rgb(52, 52, 52);
+    width: 12rem;
 }
-.sty-name{
+.sty-div-specialist h5{
     color: rgb(236, 105, 44);
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: bold; 
+    word-wrap: break-word;
+    white-space: normal;
 }
-.sty-p{
+.sty-div-specialist p{
     font-style: italic;
     font-size: 0.9rem;
     color: white;
-
+    word-wrap: break-word;
+    white-space: normal;                    
 }
-.sty-button{
+.sty-div-specialist a{
     background-color: rgb(236, 105, 44);
     color: white;
     border: none;
@@ -37,13 +41,13 @@
     background-color: black;
     color: rgb(236, 105, 44);
 }
-.sty-carrosel{
+.sty-div-list{
     overflow-x: auto;    
-    scroll-behavior: smooth;
-    display: flex;
-    flex-wrap: nowrap;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
 }
-.sty-carrosel .card{
+/* .sty-div-list .card{
     display: inline-block;
     vertical-align: top;
-}
+} */

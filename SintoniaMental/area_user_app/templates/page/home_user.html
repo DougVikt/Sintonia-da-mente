@@ -29,7 +29,11 @@
     <!---------- lista de todos ----------> 
     {% include "partitions/expert_list_all.html" %}
     </section>
-
+<!---------- lista das consultas ----------> 
+    <section id="consultations">
+        {% include "partitions/list_consultations.html" %}
+    </section>
+    
     <script src="{% static 'Js/navbar.js' %}"></script>
     <script>
         // popover de cada dia do calendario
