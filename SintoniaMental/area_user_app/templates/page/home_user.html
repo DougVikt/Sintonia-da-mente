@@ -12,7 +12,9 @@
 {% block local_js %}
 {% endblock  %}
 
-
+{% block class_body %}
+class="sty-body d-flex flex-column"
+{% endblock %}
 
 {% block local_body %}
 <!--------- navbar -------------->
@@ -30,7 +32,7 @@
     {% include "partitions/expert_list_all.html" %}
     </section>
 <!---------- lista das consultas ----------> 
-    <section id="consultations">
+    <section id="agenda">
         {% include "partitions/list_consultations.html" %}
     </section>
     

@@ -1,3 +1,8 @@
+.sty-body{
+  min-width: 20rem;
+  height: 100%;
+}
+
 .sty-arrows{
     background-color:  rgb(236, 105, 44);
     width: 10rem;
@@ -47,7 +52,7 @@
     white-space: nowrap;
     scroll-snap-type: x mandatory;
 }
-/* .sty-div-list .card{
+.sty-div-list .card{
     display: inline-block;
     vertical-align: top;
-} */
+}
