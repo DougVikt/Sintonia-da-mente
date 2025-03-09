@@ -6,26 +6,51 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+            {% if consults %}
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>Fecha</th>
-                        <th>Psicólogo</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
+                        <th>Data</th>
+                        <th>Especialidade</th>
+                        <th>Descrição</th>
+                        <th>Especialista</th>
+                        <th>Status</th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr ng-repeat="consultation in consultations">
-                        <td>{{consultation.date}}</td>
-                        <td>{{consultation.psychologist}}</td>
-                        <td>{{consultation.status}}</td>
-                        <td>
-                            <a href="#/consultation/{{consultation.id}}" class="btn btn-primary">Ver</a>
-                        </td>
-                    </tr>
+                <tbody class="table-striped sty-text">
+                    
+                 
+                        {% for consult in consults %}
+                            <tr>
+                                <td>{{ consult.date }}</td>
+                                <td>{{ consult.type_consultation }}</td>
+                                <td>{{ consult.description }}</td>
+                                <td>{% if consult.specialist_id == specialist.id %}
+                                    {{ specialist.name }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if consult.status %}
+                                    <span class="bg-success badge">Realizado</span>
+                                    {% else %}
+                                    <span class="bg-warning badge">Pendente</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">ir</a>
+                                </td>
+                            </tr>
+                    
+                    {% endfor %}
                 </tbody>
             </table>
+            {% else %}
+            <div class="alert alert-warning">
+                Não há consultas agendadas
+            </div>
+            {% endif %}
+
         </div>
     </div>
 </div>
