@@ -11,3 +11,29 @@ body {
   color:#ebebeb;
   background-color: #000000;
 }
+
+
+
+/* ================== Estilo para a barra de deslocamento ================== */
+
+/* Estilo para a barra de deslocamento */
+::-webkit-scrollbar {
+  width: 1rem; 
+  height: 1rem; 
+}
+
+/* Estilo para o fundo da barra de deslocamento */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* Estilo para o "thumb" da barra de deslocamento */
+::-webkit-scrollbar-thumb {
+  background: #79716c; 
+  border-radius: 10px; 
+}
+
+/* Estilo para o "thumb" da barra de deslocamento ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(228, 109, 54); 
+}

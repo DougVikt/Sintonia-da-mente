@@ -19,7 +19,7 @@ def home_user(request, id , month ,year):
     # Obter o paciente associado ao usuário autenticado ou retornar 404 se não encontrado
     patient = get_object_or_404(Patients, auth_user=user)
     # Obter todas as consultas associadas ao paciente
-    consults = Consult.objects.filter(user_id=patient)
+    consults = Consult.objects.filter(user_id=patient).order_by('date')
     # Obter os IDs dos especialistas das consultas do paciente, garantindo que sejam únicos
     consult_patient = consults.values('specialist_id').distinct()
     # Criar um conjunto para armazenar os IDs dos especialistas
@@ -60,7 +60,7 @@ def home_user(request, id , month ,year):
         'consults':consults,
         'specialists':specialists,
         'specialists_all':specialists_all,
-        'today':today
+        'today':today,
         
     })
 
