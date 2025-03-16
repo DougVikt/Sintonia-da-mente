@@ -1,0 +1,46 @@
+{% extends "structure.html" %}
+{% load static %}
+
+{% block local_title %}SM | Area do Paciente{% endblock  %}
+
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'Css/main_app/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'Css/main_app/home.css' %}">
+<link rel="stylesheet" href="{% static 'Css/area_us_spec_app/home.css' %}">
+{% endblock  %}
+
+{% block local_js %}
+{% endblock  %}
+
+{% block class_body %}
+class="sty-body d-flex flex-column"
+{% endblock %}
+
+{% block local_body %}
+<!--------- navbar -------------->
+    {% include "partitions/home/navbar.html" %}
+
+<!---------- calendario ---------->
+    {% include "partitions/calendar.html" %}
+<!---------- especialistas ---------->
+    <section > 
+    <!---------- recentes ---------->
+    {% include "partitions/patient_list_recent.html" %}
+    </section>
+    <section id="specialist_all">
+    <!---------- lista de todos ----------> 
+    {% include "partitions/expert_list_all.html" %}
+    </section>
+<!---------- lista das consultas ----------> 
+    <section id="agenda">
+        {% include "partitions/list_consultations.html" %}
+    </section>
+    
+    <script src="{% static 'Js/navbar.js' %}"></script>
+    <script>
+        // popover de cada dia do calendario
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        
+    </script>
+{% endblock  %}
