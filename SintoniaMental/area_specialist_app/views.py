@@ -10,9 +10,10 @@ import calendar
 @login_required
 def home_specialist(request , id):
     user = get_object_or_404(User, pk=id)
-    specialist = get_object_or_404(Professionals , user=user)
-    consultations = Consult.objects.filter(professional=specialist)
-    return render(request , 'home_specialist.html' )
+  
+    return render(request , 'page/home_specialist.html', context={
+        'is_connected': "specialist",
+    })
 
 # função e logut do usuário
 @login_required

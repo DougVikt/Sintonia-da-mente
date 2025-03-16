@@ -6,3 +6,4 @@ tzdata==2024.2
 
 
 # para instalar : pip install -r requirements.txt
+# para gerar : pip freeze > requirements.txt

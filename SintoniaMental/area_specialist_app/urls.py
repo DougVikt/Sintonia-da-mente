@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('home_specialist/<int:id>/<int:month>/<int:year>/', views.home_specialist, name='home_specialist'),
+    path('home_specialist/<int:id>/', views.home_specialist, name='home_specialist'),
     path('logout/',views.logout_user , name='logout')
 ]
 

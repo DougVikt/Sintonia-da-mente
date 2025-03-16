@@ -21,19 +21,19 @@ class="sty-body d-flex flex-column"
     {% include "partitions/home/navbar.html" %}
 
 <!---------- calendario ---------->
-    {% include "partitions/calendar.html" %}
+    {% comment %} {% include "partitions/calendar.html" %} {% endcomment %}
 <!---------- especialistas ---------->
     <section > 
     <!---------- recentes ---------->
-    {% include "partitions/patient_list_recent.html" %}
+    {% comment %} {% include "partitions/patient_list_recent.html" %} {% endcomment %}
     </section>
     <section id="specialist_all">
     <!---------- lista de todos ----------> 
-    {% include "partitions/expert_list_all.html" %}
+    {% comment %} {% include "partitions/expert_list_all.html" %} {% endcomment %}
     </section>
 <!---------- lista das consultas ----------> 
     <section id="agenda">
-        {% include "partitions/list_consultations.html" %}
+        {% comment %} {% include "partitions/list_consultations.html" %} {% endcomment %}
     </section>
     
     <script src="{% static 'Js/navbar.js' %}"></script>
