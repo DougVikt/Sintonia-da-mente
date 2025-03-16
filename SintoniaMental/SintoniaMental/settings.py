@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'questionnaire_app.apps.QuestionnaireConfig',
     'register_app.apps.RegisterAppConfig',
     'area_user_app.apps.AreaUserConfig',
+    'area_specialist_app.apps.AreaSpecialistConfig',
     'login_app.apps.LoginAppConfig',
 ]
 
