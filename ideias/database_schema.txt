@@ -1,0 +1,111 @@
+-- Banco de dados: tdah_consultas
+-- Esquema para a plataforma TDAH Consultas
+
+-- Tabela de usuários (pacientes e profissionais)
+CREATE TABLE usuarios (
+    usuario_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    tipo_usuario ENUM('paciente', 'profissional') NOT NULL,
+    nome_completo VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL, -- Formato CPF brasileiro (ex.: 123.456.789-00)
+    data_nascimento DATE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    telefone VARCHAR(15) NOT NULL, -- ex.: (11) 98765-4321
+    senha_hash VARCHAR(255) NOT NULL, -- Senha criptografada
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_email (email),
+    INDEX idx_cpf (cpf)
+);
+
+-- Tabela de profissionais (extende usuarios para dados específicos)
+CREATE TABLE profissionais (
+    profissional_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    usuario_id BIGINT UNIQUE NOT NULL,
+    tipo_titulacao ENUM('medicina', 'psicologia', 'outro') NOT NULL,
+    instituicao_titulacao VARCHAR(255) NOT NULL,
+    ano_titulacao INT NOT NULL CHECK (ano_titulacao >= 1900 AND ano_titulacao <= YEAR(CURDATE())),
+    numero_registro VARCHAR(50) NOT NULL, -- ex.: CRM 123456/SP
+    estado_registro VARCHAR(2) NOT NULL, -- ex.: SP, RJ
+    especialidade VARCHAR(100) NOT NULL, -- ex.: Psiquiatria com foco em TDAH
+    verificado BOOLEAN DEFAULT FALSE, -- Verificação administrativa das credenciais
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
+    INDEX idx_registro (numero_registro, estado_registro)
+);
+
+-- Tabela de horários disponíveis dos profissionais
+CREATE TABLE horarios_disponiveis (
+    horario_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    profissional_id BIGINT NOT NULL,
+    data_horario DATE NOT NULL,
+    hora_horario TIME NOT NULL,
+    recorrente BOOLEAN DEFAULT FALSE, -- Horário recorrente semanal
+    disponivel BOOLEAN DEFAULT TRUE, -- Horário não reservado
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (profissional_id) REFERENCES profissionais(profissional_id) ON DELETE CASCADE,
+    INDEX idx_data_hora (data_horario, hora_horario),
+    UNIQUE (profissional_id, data_horario, hora_horario) -- Evita horários duplicados
+);
+
+-- Tabela de consultas
+CREATE TABLE consultas (
+    consulta_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    paciente_id BIGINT NOT NULL,
+    profissional_id BIGINT NOT NULL,
+    horario_id BIGINT NOT NULL,
+    data_consulta DATE NOT NULL,
+    hora_consulta TIME NOT NULL,
+    status ENUM('agendada', 'concluida', 'cancelada', 'em_andamento') DEFAULT 'agendada',
+    url_chamada_video VARCHAR(255), -- URL da chamada de vídeo (ex.: WebRTC ou link de terceiros)
+    lembrete_ativado BOOLEAN DEFAULT TRUE, -- Lembretes por e-mail
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (paciente_id) REFERENCES usuarios(usuario_id) ON DELETE RESTRICT,
+    FOREIGN KEY (profissional_id) REFERENCES profissionais(profissional_id) ON DELETE RESTRICT,
+    FOREIGN KEY (horario_id) REFERENCES horarios_disponiveis(horario_id) ON DELETE RESTRICT,
+    INDEX idx_data_consulta (data_consulta, hora_consulta),
+    UNIQUE (horario_id) -- Uma consulta por horário
+);
+
+-- Tabela de pagamentos
+CREATE TABLE pagamentos (
+    pagamento_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    consulta_id BIGINT NOT NULL,
+    valor DECIMAL(10, 2) NOT NULL, -- ex.: 250.00
+    metodo_pagamento ENUM('cartao', 'pix', 'boleto', 'paypal') NOT NULL,
+    status ENUM('pendente', 'concluido', 'falhou', 'reembolsado') DEFAULT 'pendente',
+    id_transacao VARCHAR(100), -- ID da transação do gateway de pagamento
+    ultimos_quatro_cartao VARCHAR(4), -- Últimos 4 dígitos do cartão (se aplicável)
+    codigo_pix VARCHAR(255), -- Código da transação Pix (se aplicável)
+    codigo_boleto VARCHAR(255), -- Código de barras do boleto (se aplicável)
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (consulta_id) REFERENCES consultas(consulta_id) ON DELETE RESTRICT,
+    INDEX idx_id_transacao (id_transacao)
+);
+
+-- Tabela de avaliações de consultas
+CREATE TABLE avaliacoes (
+    avaliacao_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    consulta_id BIGINT NOT NULL,
+    paciente_id BIGINT NOT NULL,
+    profissional_id BIGINT NOT NULL,
+    nota INT NOT NULL CHECK (nota >= 1 AND nota <= 5), -- 1-5 estrelas
+    comentarios TEXT, -- Comentários opcionais
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (consulta_id) REFERENCES consultas(consulta_id) ON DELETE CASCADE,
+    FOREIGN KEY (paciente_id) REFERENCES usuarios(usuario_id) ON DELETE RESTRICT,
+    FOREIGN KEY (profissional_id) REFERENCES profissionais(profissional_id) ON DELETE RESTRICT,
+    UNIQUE (consulta_id), -- Uma avaliação por consulta
+    INDEX idx_nota (nota)
+);
+
+-- Tabela de logs de auditoria para ações sensíveis
+CREATE TABLE logs_auditoria (
+    log_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    usuario_id BIGINT,
+    acao VARCHAR(100) NOT NULL, -- ex.: 'usuario_criado', 'pagamento_processado'
+    descricao TEXT,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE SET NULL
+);

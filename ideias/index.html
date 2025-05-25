@@ -1,0 +1,298 @@
+<script type="text/javascript">
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+        return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                    headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+    }
+</script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas TDAH - Início</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-warning position-absolute top-0 start-0 m-2">Pular
+        para o Conteúdo Principal</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="#">TDAH Consultas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium text-warning" href="#" aria-current="page"><i
+                                class="bi bi-house me-1"></i>Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#"><i
+                                class="bi bi-info-circle me-1"></i>Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#"><i
+                                class="bi bi-calendar-check me-1"></i>Consultas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#"><i
+                                class="bi bi-envelope me-1"></i>Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#" data-bs-toggle="modal"
+                            data-bs-target="#loginModal"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="loginModalLabel">Acesse sua Conta</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-medium">Usuário</label>
+                            <input type="text" class="form-control" id="username" placeholder="Ex.: usuario123" required
+                                aria-describedby="usernameHelp">
+                            <div id="usernameHelp" class="form-text">Digite seu nome de usuário ou e-mail.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-medium">Senha</label>
+                            <input type="password" class="form-control" id="password" placeholder="Digite sua senha"
+                                required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Lembrar-me</label>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100">Entrar</button>
+                    </form>
+                </div>
+                <div class="modal-footer bg-light">
+                    <a href="#" class="text-warning">Esqueceu a senha?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="main-content" class="bg-warning text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Bem-vindo ao TDAH Consultas</h1>
+            <p class="lead fs-3 mb-4">Suporte especializado para TDAH, com consultas online acessíveis e personalizadas.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="btn btn-dark btn-lg px-5"><i class="bi bi-calendar-check me-2"></i>Agendar
+                    Consulta</a>
+                <a href="#" class="btn btn-outline-light btn-lg px-5" data-bs-toggle="modal"
+                    data-bs-target="#loginModal"><i class="bi bi-box-arrow-in-right me-2"></i>Acessar Sessão</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div id="tdahCarousel" class="carousel slide shadow" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#tdahCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#tdahCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#tdahCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/1200x400?text=Suporte+TDAH" class="d-block w-100"
+                            alt="Suporte TDAH">
+                        <div class="carousel-caption bg-dark bg-opacity-75 rounded p-3">
+                            <h3 class="text-warning fw-bold">Apoio Personalizado</h3>
+                            <p class="fs-5">Consultas adaptadas às suas necessidades com TDAH.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/1200x400?text=Equipe+Especializada" class="d-block w-100"
+                            alt="Equipe Especializada">
+                        <div class="carousel-caption bg-dark bg-opacity-75 rounded p-3">
+                            <h3 class="text-warning fw-bold">Equipe Especializada</h3>
+                            <p class="fs-5">Profissionais qualificados para te orientar.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/1200x400?text=Agendamento+Fácil" class="d-block w-100"
+                            alt="Agendamento Fácil">
+                        <div class="carousel-caption bg-dark bg-opacity-75 rounded p-3">
+                            <h3 class="text-warning fw-bold">Agendamento Simples</h3>
+                            <p class="fs-5">Marque sua consulta em poucos cliques.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#tdahCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#tdahCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-warning display-5 fw-bold mb-4">Sobre Nós</h2>
+                    <p class="fs-4 mx-auto" style="max-width: 800px;">
+                        No TDAH Consultas, oferecemos um ambiente acolhedor e acessível para pessoas com Transtorno do
+                        Déficit de Atenção com Hiperatividade (TDAH). Nossa equipe de especialistas está pronta para
+                        ajudar com diagnósticos precisos, tratamentos personalizados e suporte contínuo, tudo projetado
+                        para facilitar sua jornada com clareza e empatia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-warning display-5 fw-bold text-center mb-5">O que nossos pacientes dizem</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-dark shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <span class="ms-2 fs-6 text-muted">5.0</span>
+                            </div>
+                            <p class="card-text fst-italic fs-5">"As consultas mudaram minha vida! Consegui organizar
+                                minha rotina com estratégias práticas."</p>
+                            <h5 class="card-title text-warning mt-3">Ana S.</h5>
+                            <p class="text-muted fs-6">Consulta com Dra. Carla Mendes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-dark shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-half text-warning"></i>
+                                <span class="ms-2 fs-6 text-muted">4.5</span>
+                            </div>
+                            <p class="card-text fst-italic fs-5">"A equipe é extremamente atenciosa, e o agendamento é
+                                super simples. Recomendo!"</p>
+                            <h5 class="card-title text-warning mt-3">Lucas M.</h5>
+                            <p class="text-muted fs-6">Consulta com Dr. Rafael Souza</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-dark shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <span class="ms-2 fs-6 text-muted">5.0</span>
+                            </div>
+                            <p class="card-text fst-italic fs-5">"Sinto-me verdadeiramente apoiado. O atendimento é
+                                acolhedor e profissional."</p>
+                            <h5 class="card-title text-warning mt-3">Maria C.</h5>
+                            <p class="text-muted fs-6">Consulta com Dra. Fernanda Lima</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Chat Button -->
+    <button class="btn btn-warning position-fixed bottom-0 end-0 m-3" data-bs-toggle="tooltip" data-bs-placement="left"
+        title="Fale conosco!">
+        <i class="bi bi-chat-dots-fill"></i> Ajuda
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">© 2025 TDAH Consultas. Todos os direitos reservados. <a href="#"
+                    class="text-warning">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    </script>
+</body>
+
+</html>

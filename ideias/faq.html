@@ -1,0 +1,210 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas TDAH - FAQ</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-warning position-absolute top-0 start-0 m-2">Pular para o Conteúdo Principal</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="index.html">TDAH Consultas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="index.html"><i class="bi bi-house me-1"></i>Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#"><i class="bi bi-info-circle me-1"></i>Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#"><i class="bi bi-calendar-check me-1"></i>Consultas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium text-warning" href="#" aria-current="page"><i class="bi bi-question-circle me-1"></i>FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="loginModalLabel">Acesse sua Conta</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-medium">Usuário</label>
+                            <input type="text" class="form-control" id="username" placeholder="Ex.: usuario123" required aria-describedby="usernameHelp">
+                            <div id="usernameHelp" class="form-text">Digite seu nome de usuário ou e-mail.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-medium">Senha</label>
+                            <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Lembrar-me</label>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100">Entrar</button>
+                    </form>
+                </div>
+                <div class="modal-footer bg-light">
+                    <a href="#" class="text-warning">Esqueceu a senha?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="main-content" class="py-5 bg-light">
+        <div class="container">
+            <h1 class="text-warning display-5 fw-bold text-center mb-5">Perguntas Frequentes</h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-dark shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button bg-dark text-warning fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                    Como agendar uma consulta?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Clique em "Agendar Consulta" na página inicial, escolha um horário disponível e preencha os dados solicitados. Você receberá uma confirmação por e-mail com os detalhes da sua consulta.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-dark shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button bg-dark text-warning fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    As consultas são online ou presenciais?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Todas as nossas consultas são realizadas online, via videoconferência, para maior comodidade e acessibilidade. Você precisará de uma conexão estável com a internet e um dispositivo com câmera.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-dark shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button bg-dark text-warning fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    Posso receber lembretes para minha consulta?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sim! Após agendar, você pode configurar lembretes por e-mail ou notificações no seu dispositivo. Acesse sua conta para personalizar as preferências de lembretes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-dark shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button bg-dark text-warning fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Quem são os profissionais que atendem?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nossa equipe é composta por psicólogos e psiquiatras especializados em TDAH, com experiência em diagnósticos e tratamentos personalizados. Veja mais na seção "Sobre".
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-dark shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button bg-dark text-warning fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                    O que fazer se eu perder minha consulta?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Entre em contato pelo chat de suporte ou e-mail para reagendar. Oferecemos flexibilidade para ajustar horários, respeitando sua rotina.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Chat Button -->
+    <button class="btn btn-warning position-fixed bottom-0 end-0 m-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Fale conosco!">
+        <i class="bi bi-chat-dots-fill"></i> Ajuda
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">© 2025 TDAH Consultas. Todos os direitos reservados. <a href="#" class="text-warning">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    </script>
+</body>
+</html>

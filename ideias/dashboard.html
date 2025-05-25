@@ -1,0 +1,286 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas TDAH - Área do Usuário</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="visually-hidden-focusable btn btn-warning position-absolute top-0 start-0 m-2">Pular para o Conteúdo Principal</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="index.html">TDAH Consultas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="index.html"><i class="bi bi-house me-1"></i>Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#"><i class="bi bi-info-circle me-1"></i>Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium text-warning" href="#" aria-current="page"><i class="bi bi-person-circle me-1"></i>Minha Área</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="faq.html"><i class="bi bi-question-circle me-1"></i>FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-warning" href="#"><i class="bi bi-box-arrow-right me-1"></i>Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section id="main-content" class="py-5 bg-light">
+        <div class="container">
+            <h1 class="text-warning display-5 fw-bold text-center mb-5">Bem-vindo à Sua Área, [Usuário]</h1>
+
+            <!-- Calendar Section -->
+            <div class="mb-5">
+                <h2 class="text-warning fw-bold mb-4">Suas Consultas</h2>
+                <div class="card border-dark shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 text-dark mb-3">Calendário de Consultas</h3>
+                        <table class="table table-bordered">
+                            <thead class="bg-dark text-warning">
+                                <tr>
+                                    <th scope="col">Dom</th>
+                                    <th scope="col">Seg</th>
+                                    <th scope="col">Ter</th>
+                                    <th scope="col">Qua</th>
+                                    <th scope="col">Qui</th>
+                                    <th scope="col">Sex</th>
+                                    <th scope="col">Sáb</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="bg-warning text-dark">1<br><small>Consulta com Dra. Carla</small></td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9<br><small>Consulta com Dr. Rafael</small></td>
+                                    <td>10</td>
+                                    <td>11</td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consultation Schedule Section -->
+            <div class="mb-5">
+                <h2 class="text-warning fw-bold mb-4">Agenda de Consultas</h2>
+                <div class="card border-dark shadow-sm">
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead class="bg-dark text-warning">
+                                <tr>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Médico</th>
+                                    <th scope="col">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/06/2025</td>
+                                    <td>14:00</td>
+                                    <td>Dra. Carla Mendes</td>
+                                    <td><a href="#" class="btn btn-sm btn-dark">Reagendar</a></td>
+                                </tr>
+                                <tr>
+                                    <td>09/06/2025</td>
+                                    <td>10:30</td>
+                                    <td>Dr. Rafael Souza</td>
+                                    <td><a href="#" class="btn btn-sm btn-dark">Reagendar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Available Doctors Section -->
+            <div class="mb-5">
+                <h2 class="text-warning fw-bold mb-4">Médicos Disponíveis</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-dark shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-warning">Dra. Carla Mendes</h5>
+                                <p class="card-text">Psiquiatra especializada em TDAH</p>
+                                <a href="#" class="btn btn-dark">Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-dark shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-warning">Dr. Rafael Souza</h5>
+                                <p class="card-text">Psicólogo clínico</p>
+                                <a href="#" class="btn btn-dark">Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-dark shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-warning">Dra. Fernanda Lima</h5>
+                                <p class="card-text">Neuropsicóloga</p>
+                                <a href="#" class="btn btn-dark">Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Doctors Section -->
+            <div class="mb-5">
+                <h2 class="text-warning fw-bold mb-4">Médicos Recentes</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-dark shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-warning">Dra. Carla Mendes</h5>
+                                <p class="card-text">Última consulta: 15/05/2025</p>
+                                <a href="#" class="btn btn-dark">Agendar Novamente</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-dark shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-warning">Dr. Rafael Souza</h5>
+                                <p class="card-text">Última consulta: 01/05/2025</p>
+                                <a href="#" class="btn btn-dark">Agendar Novamente</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheduling Form Section -->
+            <div class="mb-5">
+                <h2 class="text-warning fw-bold mb-4">Agendar Nova Consulta</h2>
+                <div class="card border-dark shadow-sm">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="doctorSelect" class="form-label fw-medium">Selecione o Médico</label>
+                                <select class="form-select" id="doctorSelect" required aria-describedby="doctorHelp">
+                                    <option value="" disabled selected>Escolha um médico</option>
+                                    <option value="1">Dra. Carla Mendes</option>
+                                    <option value="2">Dr. Rafael Souza</option>
+                                    <option value="3">Dra. Fernanda Lima</option>
+                                </select>
+                                <div id="doctorHelp" class="form-text">Selecione o profissional para sua consulta.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dateInput" class="form-label fw-medium">Data</label>
+                                <input type="date" class="form-control" id="dateInput" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="timeSelect" class="form-label fw-medium">Horário</label>
+                                <select class="form-select" id="timeSelect" required>
+                                    <option value="" disabled selected>Escolha um horário</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="16:00">16:00</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="reminderCheck">
+                                <label class="form-check-label" for="reminderCheck">Ativar lembretes por e-mail</label>
+                            </div>
+                            <button type="submit" class="btn btn-dark w-100">Confirmar Agendamento</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Chat Button -->
+    <button class="btn btn-warning position-fixed bottom-0 end-0 m-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Fale conosco!">
+        <i class="bi bi-chat-dots-fill"></i> Ajuda
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">© 2025 TDAH Consultas. Todos os direitos reservados. <a href="#" class="text-warning">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    </script>
+</body>
+</html>
