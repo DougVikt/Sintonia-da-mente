@@ -1,0 +1,32 @@
+<div class="container py-5">
+    <h1 class="display-2 fw-bold mb-4 sty-h2 text-light
+    ">Bem-vindo ao Sintonia Mental</h1>
+    <p class="lead fs-3 mb-4">Suporte especializado para TDAH, com consultas online acessíveis e personalizadas.
+    </p>
+    <div class="d-flex justify-content-center gap-3">
+        <a href="#quest" class="btn btn-dark btn-lg px-5"><i class="bi bi-calendar-check me-2"></i>Teste do TDAH</a>
+        <a href="#" class="btn btn-outline-light btn-lg px-5" data-bs-toggle="modal"
+        data-bs-target="#registertype"><i class="bi bi-box-arrow-in-right me-2"></i>Cadastre-se</a>
+    </div>
+</div>
+
+
+<!------ modal tipo de registro ----------->
+<div class="modal fade" id="registertype" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title" id="loginModalLabel">Escolha seu registro</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-3">
+                <button type="button" class="btn sty-button w-100 py-2 mb-3" onclick="location.href='{% url 'register_specialist' %}'">
+                    Sou Profissional</button>
+                <button type="button" class="btn sty-button w-100 py-2 mb-3" onclick="location.href='{% url 'register_user' %}'">
+                    Sou Paciente</button>
+
+            </div>
+        </div>
+    </div>
+</div>

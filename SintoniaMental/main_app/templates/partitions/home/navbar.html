@@ -1,11 +1,11 @@
 {% load static %}
 
-<nav id="nav" class="navbar navbar-expand-md fixed-top m-0  p-1 sty-navbar">
+<nav id="nav" class="navbar navbar-expand-lg fixed-top m-0  p-1 sty-navbar">
     <button class="navbar-toggler ms-4 bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="mb-0 mb-md-0  sty-image">
-        <a class="navbar-brand" href="#home">
+        <a class="navbar-brand" href="#hero">
           <img class="img-fluid" src="{% static 'images/sm2.svg' %}" alt="logo sintonia mental" width="90" height="90"/>
         </a>
       </div>
@@ -24,46 +24,28 @@
           <div class="offcanvas-body px-0">
               <ul class="navbar-nav  mx-auto">
                 <li class="nav-item">
-                  <a href="#quest" class="nav-link sty-link-nav px-4 click-efect">Iniciar</a>
+                  <a href="#hero" class="nav-link sty-link-nav px-4 click-efect"><i
+                                class="bi bi-house me-1"></i>Iniciar</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#depoimentos" class="nav-link sty-link-nav px-4 click-efect">Depoimentos</a>
+                  <a href="#depoimentos" class="nav-link sty-link-nav px-4 click-efect"><i 
+                    class="bi bi-card-checklist"></i> Depoimentos</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#sobre" class="nav-link sty-link-nav px-4 click-efect">Sobre</a>
+                  <a href="#sobre" class="nav-link sty-link-nav px-4 click-efect"><i
+                    class="bi bi-info-circle me-1"></i>Sobre</a>
                   </li>
                 <li class="nav-item">
-                  <a href="{% url 'help' %}" class="nav-link sty-link-nav px-4 click-efect">Ajuda</a>
+                  <a href="{% url 'help' %}" class="nav-link sty-link-nav px-4 click-efect"><i
+                    class= "bi bi-question-circle"></i> Faq</a>
                   </li>
               </ul>
           </div>
         </div>     
-        <div class="text-end me-5 ">
-          <button type="button" class="btiniciar click-efect btn fw-bold p-1 fs-6 rounded"  data-bs-toggle="modal" data-bs-target="#modalcadastrar">ENTRAR</button>
+        <div class="text-end me-md-4 me-sm-1">
+          <button type="button" class="btiniciar click-efect btn fw-bold p-1 fs-6 rounded" onclick="">LOGIN</button>
         </div>
       {% endif %}
-      </nav>
-      <!-------- modal ---------->
-      <div class="modal fade" id="modalcadastrar" tabindex="-1" aria-labelledby="modalcadastrar" aria-hidden="false">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-          <div class="modal-content bg-dark">
-            <div class="modal-header-border-0 align-self-start">
-              <button type="button" class="m-2 btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="row m-3 d-flex justify-content-center">
-              <div class="col-sm-8">
-                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url "register_specialist" %}">Sou Profissional</a></button>  
-              </div>
-              <div class="col-sm-8">
-                  <button type="button" class="btn my-2 py-2 w-100 aligh-self-center rounded-3 bt-modal"><a class="text-reset text-decoration-none" href="{% url 'register_user' %}">Sou Paciente</a></button>
-              </div>
-              <div class="col-sm-8">
-                <button type="button" class="btn text-light fw-bold my-2 py-1 w-100 aligh-self-center rounded-3 "><a class="text-reset text-decoration-none" href="{% url 'login' %}">Login</a></button>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
+</nav>
+ 
 

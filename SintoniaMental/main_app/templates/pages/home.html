@@ -11,10 +11,17 @@
 <!---------------- navbar -------------------->
   {% include "partitions/home/navbar.html" %}
   <br>
+ <main>
+<!------------------ hero ---------------------->
+  <section id="hero" class="text-white text-center py-5" style="background:rgba(230, 100, 40, 0.84);">
+   {% include 'partitions/home/hero.html' %}
+  </section>
+  <hr>
 <!------------------ cards --------------------> 
-  <section id="home">        
+  <section id="card">        
   {% include 'partitions/home/cards.html' %}
   </section>
+  <hr>
 <!------------------- avaliações ------------------> 
   <section id="depoimentos">
   {% include 'partitions/home/reviews.html' %}
@@ -29,7 +36,7 @@
   </section>
 <!---------------- footer ------------------------>
   {% include 'partitions/home/footer.html' %}
-
+</main>
   <script src="{% static 'Js/navbar.js' %}"></script>
   
      

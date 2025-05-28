@@ -1,12 +1,12 @@
 /* usado para todos navs */
 .btiniciar{
     background-color: rgb(241, 96, 28);
-    color: rgb(0, 0, 2);  
+    color: rgb(6, 6, 6);  
     width: 7rem;
 }
-.btiniciar:hover , .bt-modal:hover{
+.btiniciar:hover {
     color:  rgb(241, 96, 28);
-    background-color: rgb(0, 0, 2);
+    background-color: rgb(243, 243, 243);
 }
 .click-efect {
     display: inline-block;
@@ -54,12 +54,7 @@
 .hide-nav {
     top: -100px; /* esconda o nav quando rolar a página */
 }
-.bt-modal{
-    background-color: rgb(241, 96, 28);
-    color: rgb(0, 0, 0);
-    font-weight: 500;
-    padding: auto;
-}
+
 /* area do usuario */
 .sty-menu-user a{
     font-size: 19px;
@@ -68,7 +63,7 @@
     
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .sty-link-nav{
         margin: 10px;
         color: rgb(241, 96, 28);
