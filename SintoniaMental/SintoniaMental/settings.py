@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
+    '.vercel.app',  # Permite o domínio do Vercel
     
 ]
 
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'area_user_app.apps.AreaUserConfig',
     'area_specialist_app.apps.AreaSpecialistAppConfig',
     'login_app.apps.LoginAppConfig',
+    'user_connections.apps.UserConnectionsConfig',
+    'django.contrib.humanize',  # para usar filtros de humanização
 ]
 
 MIDDLEWARE = [
