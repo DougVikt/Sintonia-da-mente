@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import FaqBank , ContentTips 
-from area_user_app.models import ReviewsUser
+from user_connections.models import ReviewsUser
 import random
 
 # Create your views here.
