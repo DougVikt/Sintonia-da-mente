@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from datetime import datetime ,timedelta
-from .models import Consultations as Consult ,Patients ,Professionals
+from register_app.models import Patients ,Professionals
+from user_connections.models import Consultations as Consult
 import calendar
 
 
