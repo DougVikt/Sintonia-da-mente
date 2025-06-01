@@ -29,8 +29,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
-    '.vercel.app',  # Permite o domínio do Vercel
-    
+    'sintoniamental.com.br',  
+    'www.sintoniamental.com.br',  # Adicione o domínio com www, se necessário
+    '*.sintoniamental.com.br',  # Adicione subdomínios, se necessário
 ]
 
 # Application definition
@@ -92,8 +93,12 @@ WSGI_APPLICATION = 'SintoniaMental.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
