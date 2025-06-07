@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,17 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l!&!m=u=vmzg8vu1wdp6=)1bo!i#95ib7j136@(2&pp(qh!y0%'
+# SECRET_KEY = 'django-insecure-l!&!m=u=vmzg8vu1wdp6=)1bo!i#95ib7j136@(2&pp(qh!y0%'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'chave-insegura-para-dev')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
-    'sintoniamental.com.br',  
-    'www.sintoniamental.com.br',  # Adicione o domínio com www, se necessário
-    '*.sintoniamental.com.br',  # Adicione subdomínios, se necessário
+    'sintoniamental.onrender.com',  
+    'sintonia-da-mente.onrender.com',
 ]
 
 # Application definition
@@ -62,6 +63,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # adicinado 
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
   
 ]
 
@@ -92,16 +96,12 @@ WSGI_APPLICATION = 'SintoniaMental.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -154,9 +154,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Diretórios adicionais para buscar arquivos estáticos
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATICFILES_DIRS = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#[os.path.join(BASE_DIR, 'static'),]
 
 # Expira a sessão quando o navegador for fechado
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
