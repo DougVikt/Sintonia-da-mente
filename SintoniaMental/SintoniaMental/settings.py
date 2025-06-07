@@ -154,8 +154,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Diretórios adicionais para buscar arquivos estáticos
-STATICFILES_DIRS = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#[os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS =[
+    os.path.join(BASE_DIR, 'static'),
+    ]
+
+# Configuração do WhiteNoise para servir arquivos estáticos
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Expira a sessão quando o navegador for fechado
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
