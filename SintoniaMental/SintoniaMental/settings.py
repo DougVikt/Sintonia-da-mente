@@ -96,12 +96,18 @@ WSGI_APPLICATION = 'SintoniaMental.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
+    # Configuração do banco de dados usando dj_database_url 
+    ''''default': dj_database_url.config( 
         default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True
-    )
+    )'''
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',  # Motor do banco SQLite
+        'NAME': BASE_DIR / 'db.sqlite3',         # Caminho para o arquivo do banco
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
