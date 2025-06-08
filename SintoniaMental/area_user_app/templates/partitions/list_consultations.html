@@ -1,7 +1,7 @@
 <div class="container-fluid p-3 m-2 " >
     <div class="row ">
-        <div class="col-8">
-            <h3>Consultas</h3>
+        <div class="col-8 ms-5">
+            <h3 class="fs-2 fw-bold">Agenda</h3>
         </div>
     </div>
     <div class="row d-flex">
@@ -11,7 +11,7 @@
                 <thead>
                     <tr class="table-dark">
                         <th>Data</th>
-                        <th>Especialidade</th>
+                        <th>Hora</th>
                         <th>Descrição</th>
                         <th>Especialista</th>
                         <th>Status</th>
@@ -21,8 +21,8 @@
                 <tbody class="table-striped sty-text">
                         {% for consult in consults %}
                             <tr>
-                                <td>{{ consult.date }}</td>
-                                <td>{{ consult.type_consultation }}</td>
+                                <td>{{ consult.date.date }}</td>
+                                <td>{{ consult.date|date:"H:i A" }}</td>
                                 <td>{{ consult.description }}</td>
                                 <td>{% for specialist in specialists %}
                                         {% if consult.specialist_id == specialist.id %}
@@ -31,11 +31,16 @@
                                     {% endfor %}
                                 </td>
                                 <td>
-                                    {% if consult.status %}
-                                    <span class="bg-success badge">Realizado</span>
-                                    {% else %}
-                                    <span class="bg-warning badge">Pendente</span>
-                                    {% endif %}
+                                    <a href="#" class="btn sty-button 
+                                    {% if today != consult.date %}disabled btn-secondary {% endif %}">
+                                    {% if not consult.status %}
+                                       
+                                        <span class="bg-warning badge">Pendente</span>
+                                        {% else %}
+                                        
+                                        {% endif %}
+                                        <button class="bg-success badge">Realizado</button>
+                                    </a>
                                 </td>
                                 <td>
                                     <a href="#" class="btn sty-button
@@ -43,6 +48,10 @@
                                     ir
                                     </a>
                                 </td>
+                                <td>
+                                    <a href="#" class="btn btn-danger">
+                                        Reagendar
+                                    </a>
                             </tr>
                             
                     {% endfor %}

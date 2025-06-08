@@ -21,7 +21,7 @@
 # python manage.py migrate
 # sempre usar para atualizar os models no banco de dados
 
-# criando a pasta mde midia 
+# criando a pasta de midia 
 # em settings.py adicionar o caminho da pasta midia
 # MEDIA_URL = "/media/"
 # MEDIA_ROOT = os.path.join(BASE_DIR, "media")

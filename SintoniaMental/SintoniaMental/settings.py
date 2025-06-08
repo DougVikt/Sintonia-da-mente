@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+#import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,17 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-l!&!m=u=vmzg8vu1wdp6=)1bo!i#95ib7j136@(2&pp(qh!y0%'
-SECRET_KEY = os.environ.get('SECRET_KEY', 'chave-insegura-para-dev')
+SECRET_KEY = 'django-insecure-l!&!m=u=vmzg8vu1wdp6=)1bo!i#95ib7j136@(2&pp(qh!y0%'
+# SECRET_KEY = os.environ.get('SECRET_KEY', 'chave-insegura-para-dev')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'False'
 
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
-    'sintoniamental.onrender.com',  
-    'sintonia-da-mente.onrender.com',
+    # 'sintoniamental.onrender.com',  
+    # 'sintonia-da-mente.onrender.com',
 ]
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.core.serializers.json',
+    'django.contrib.humanize',  # para usar filtros de humanização
     'main_app.apps.MainAppConfig',
     'questionnaire_app.apps.QuestionnaireConfig',
     'register_app.apps.RegisterAppConfig',
@@ -52,7 +53,7 @@ INSTALLED_APPS = [
     'area_specialist_app.apps.AreaSpecialistAppConfig',
     'login_app.apps.LoginAppConfig',
     'user_connections.apps.UserConnectionsConfig',
-    'django.contrib.humanize',  # para usar filtros de humanização
+    
 ]
 
 MIDDLEWARE = [
@@ -64,8 +65,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # adicinado 
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'django.middleware.security.SecurityMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
   
 ]
 
@@ -97,11 +98,11 @@ WSGI_APPLICATION = 'SintoniaMental.wsgi.application'
 
 DATABASES = {
     # Configuração do banco de dados usando dj_database_url 
-    ''''default': dj_database_url.config( 
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True
-    )'''
+    # 'default': dj_database_url.config( 
+    #     default=os.environ.get('DATABASE_URL'),
+    #     conn_max_age=600,
+    #     ssl_require=True
+    # )
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',  # Motor do banco SQLite
         'NAME': BASE_DIR / 'db.sqlite3',         # Caminho para o arquivo do banco
@@ -162,10 +163,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Diretórios adicionais para buscar arquivos estáticos
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, 'static'),
-    ]
+]
 
 # Configuração do WhiteNoise para servir arquivos estáticos
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Expira a sessão quando o navegador for fechado
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True

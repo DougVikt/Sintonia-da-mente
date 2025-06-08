@@ -23,13 +23,17 @@ def home_user(request, id , month ,year):
     consults = Consult.objects.filter(user_id=patient).order_by('date')
     # Obter os IDs dos especialistas das consultas do paciente, garantindo que sejam únicos
     consult_patient = consults.values('specialist_id').distinct()
-    # Criar um conjunto para armazenar os IDs dos especialistas
-    id_specialist = set()
-    # Iterar sobre os especialistas únicos das consultas do paciente
-    for spe in consult_patient:
-        id_specialist.add(spe['specialist_id'])
-        # Filtrar os profissionais com base nos IDs dos especialistas
-        specialists = Professionals.objects.filter(id__in=id_specialist)
+    if consult_patient:
+        # Criar um conjunto para armazenar os IDs dos especialistas
+        id_specialist = set()
+        # Iterar sobre os especialistas únicos das consultas do paciente
+        for spe in consult_patient:
+            id_specialist.add(spe['specialist_id'])
+            # Filtrar os profissionais com base nos IDs dos especialistas
+            specialists = Professionals.objects.filter(id__in=id_specialist)
+    else:
+        # Se não houver consultas, definir specialists como uma lista vazia
+        specialists = False
     # objeto de todos os especialistas
     specialists_all = Professionals.objects.all()
     # Se o ano for 1, definir o mês e o ano atuais
