@@ -21,19 +21,21 @@ class="sty-body d-flex flex-column"
     {% include "partitions/home/navbar.html" %}
 
 <!---------- calendario ---------->
+    <section id="home">
     {% include "partitions/calendar.html" %}
+    </section>
+<!---------- lista das consultas ----------> 
+    <section id="agenda">
+        {% include "partitions/list_consultations.html" %}
+    </section>
 <!---------- especialistas ---------->
-    <section > 
+    <section id="list_recents"> 
     <!---------- recentes ---------->
     {% include "partitions/expert_list_recent.html" %}
     </section>
     <section id="specialist_all">
     <!---------- lista de todos ----------> 
     {% include "partitions/expert_list_all.html" %}
-    </section>
-<!---------- lista das consultas ----------> 
-    <section id="agenda">
-        {% include "partitions/list_consultations.html" %}
     </section>
     
     <script src="{% static 'Js/navbar.js' %}"></script>

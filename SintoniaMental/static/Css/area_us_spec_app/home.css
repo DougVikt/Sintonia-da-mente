@@ -66,12 +66,13 @@
 .sty-text td{
     word-wrap: break-word;
     white-space: normal; 
-  
+}
+.sty-footer{
     
-
+}
 /*============= Estilo para a barra de deslocamento  =============*/
 
-}/* Estilo para a barra de deslocamento */
+/* Estilo para a barra de deslocamento */
 ::-webkit-scrollbar {
     width: 1rem; 
     height: 1rem; 

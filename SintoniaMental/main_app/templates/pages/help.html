@@ -2,7 +2,7 @@
 {% load static %}
 
 {% comment %}titulo da pagina{% endcomment %}
-{% block local_title %}SM | Ajuda{% endblock %}
+{% block local_title %}SM | Perguntas Respondidas{% endblock %}
 
 {% comment %}css da pagina{% endcomment %}
 {% block local_css %}
@@ -16,7 +16,7 @@
     </button>
   </div>
     <main class="w-100 text-center">
-      <h1 class="text-light p-1 my-5">Perguntas e Respostas</h1>
+      <h1 class="sty-h1 p-1 my-5">Perguntas e Respostas</h1>
       <br>
       {% comment "faq" %} cria as perguguntas e respostas de acordo com o banco {% endcomment %}
       {% for question in questions %}

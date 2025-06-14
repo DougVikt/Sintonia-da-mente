@@ -1,6 +1,7 @@
 
 <div  class="carousel slide mt-3 w-100" data-bs-ride="carousel">
     <div class="carousel-inner sty-body text-center py-4">
+        {% if not reviews %}
         {% for review in reviews %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-inteval="100">
                 <div class="text-light container p-0 ">
@@ -32,6 +33,17 @@
                 </div>
             </div>
         {% endfor %}
+        {% else %}
+            <div class="carousel-item active">
+                <div class="text-light container p-0 ">
+                    <div class="text-center mx-5 my-3 text-md-start">
+                        <h4 class="fs-2">Nenhum depoimento encontrado</h4>
+                        <p class="fst-italic">Aqui voce verá a avalição do paciente pos consulta , 
+                            relatando sua experiencia com nosso especialista !</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>
 
