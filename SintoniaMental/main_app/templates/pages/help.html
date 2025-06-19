@@ -20,14 +20,17 @@
       <br>
       {% comment "faq" %} cria as perguguntas e respostas de acordo com o banco {% endcomment %}
       {% for question in questions %}
-        <div class="dropdown my-2 btn-group w-75">
+        <div class="dropdown my-3 btn-group w-50">
           <button class="btn dropdown-toggle w-75 sty-btn p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <p class="text-wrap">{{ question.question }}</p>
+            <p class="text-wrap fs-5">{{ question.question }}</p>
           </button>
-          <p class="dropdown-menu mx-2 p-3 bg-secondary text-light text-wrap "> 
+          <p class="dropdown-menu mx-2 p-3 bg-secondary text-light text-wrap fs-5 "> 
              {{ question.response }}
           </p>
         </div>
         {% endfor %}
     </main>
+{% endblock %}
+
+{% block help_button %}
 {% endblock %}

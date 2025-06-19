@@ -34,17 +34,17 @@
                                     {% if consult.status %}
                                     <span class="bg-info badge">Realizado</span> 
                                     {% else %}
-                                    <span class="bg-danger badge">Pendente</span>                                    
+                                    <span class="bg-warning badge">Pendente</span>                                    
                                     {% endif %}                                
                                 </td>
                                 <td> 
                                     {% if not consult.status and today != consult.date %}
-                                    <button class="btn badge
-                                    {% if today < consult.date %}btn-info {% elif today > consult.date %} btn-danger {% endif %}
+                                    <button class="btn p-2 btn-bg-dark
+                                    {% if today < consult.date %} btn-secondary {% elif today > consult.date %} btn-danger {% endif %}
                                     " onclick="window.location.href='#'">Reagendar </button>
 
                                     {% elif not consult.status and today == consult.date %}
-                                    <button onclick="window.location.href='#'">Consultar </button>
+                                    <button onclick="window.location.href='#'"class="btn p-2 btn-bg-dark>Consultar </button>
                                     {% endif %}
                                 </td>
                             </tr>
