@@ -25,4 +25,5 @@ urlpatterns = [
     path('patient/', include('area_user_app.urls')),
     path('specialist/', include('area_specialist_app.urls')),
     path("login/", include("login_app.urls")),
+    path('Waiting_room/', include('call_consult_app.urls')),
 ]

@@ -4,7 +4,7 @@ from . import views
 # from django.conf.urls.static import static
 
 urlpatterns = [
-    path(),
+    path('', views.call_consult, name='call_consult'),
     
 ]
 

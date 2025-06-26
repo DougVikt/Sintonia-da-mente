@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'area_specialist_app.apps.AreaSpecialistAppConfig',
     'login_app.apps.LoginAppConfig',
     'user_connections.apps.UserConnectionsConfig',
+    'call_consult_app.apps.CallConsultConfig',
     
 ]
 
