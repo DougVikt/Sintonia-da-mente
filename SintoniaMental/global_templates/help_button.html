@@ -1,6 +1,6 @@
 {% load static %}
 <!------ botão de ajuda  -------->
-<button class="btn sty-button position-fixed bottom-0 end-0 m-3" data-bs-toggle="tooltip" data-bs-placement="left"
-    title="Fale conosco!">
+<button class="btn btn-warning position-fixed bottom-0 end-0 m-3 fw-bold fs-5" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Fale conosco!" style="z-index: 1000;height:3rem" onclick="window.location.href='{% url 'help' %}'">
     <i class="bi bi-chat-dots-fill"></i> Ajuda
 </button>

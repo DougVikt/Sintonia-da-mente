@@ -8,8 +8,8 @@ def call_consult(request, user_id=1):
     consult = get_object_or_404(Consultations, id=user_id)
     specialist = consult.specialist
     context = {
-        'name_specialist': specialist.name,
+        'name_specialist': specialist.name.capitalize(),
         'specialty': specialist.specialty,
         'date_consult': consult,
     }
-    return render(request, 'partitions/body.html', context)
+    return render(request, 'pages/waiting_room.html', context)

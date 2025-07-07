@@ -1,19 +1,17 @@
 {% extends "structure.html" %}
 {% load static %}
 
-{% block local_title %}SM | Sala de Espera{% endblock  %}
+{% block local_title %} SM | Sala de Espera{% endblock  %}
 
 {% block local_css %}
-<link rel="stylesheet" href="{% static 'Css/' %}">
-{% endblock  %}
+<link rel="stylesheet" href="{% static 'Css/call_consult_app/waiting_room.css' %}">
+{% endblock %}
 
-{% block local_js %}
-{% endblock  %}
 
 {% block class_body %}
-class="py-5 bg-light min-vh-100 d-flex align-items-center"
+class="py-5 min-vh-100 d-flex align-items-center"
 {% endblock %}
 
 {% block local_body %}
-    {% include "partitions/body.html" %}
+    {% include "partitions/body_waiting_room.html" %}
 {% endblock  %}

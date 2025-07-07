@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-dark shadow-sm">
+                <div class="card-body text-center">
+                    <h1 class="display-5 fw-bold mb-4 sty-color-text">Sala de Espera</h1>
+                    <div class="mb-4">
+                        <div class="spinner-border sty-color-text" role="status">
+                            <span class="visually-hidden sty-color-text">Aguardando...</span>
+                        </div>
+                        <p class="fs-4 mt-3">Sua consulta com Dr(a). {{ name_specialist }} está prestes a começar!</p>
+                    </div>
+
+                    <!-- detalhes da consulta -->
+                    <div class="mb-4">
+                        <h2 class="h4 fw-bold mb-3 sty-color-text">Detalhes da Consulta</h2>
+                        <p class="fs-5"><strong>Data: </strong>{{ date_consult.date }}</p>
+                        <p class="fs-5"><strong>Hora: </strong>{{ date_consult.date|date:"H:i A" }}</p>
+                        <p class="fs-5"><strong>Profissional:</strong> Dr(a). {{ name_specialist }} - {{ specialty }}</p>
+                    </div>
+
+                    <!-- dicas de preparação -->
+                    <div class="mb-4">
+                        <h2 class="h4 fw-bold mb-3 sty-color-text">Como se Preparar</h2>
+                        <ul class="list-unstyled fs-5 text-start mx-auto" style="max-width: 500px;">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill sty-color-text me-2"></i>Verifique sua conexão com a internet.</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill sty-color-text me-2"></i>Teste seu microfone e câmera.</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill sty-color-text me-2"></i>Escolha um ambiente calmo e sem distrações.</li>
+                        </ul>
+                    </div>
+
+                    <!-- botão de entrar na call -->
+                    <a href="#" class="btn btn-dark btn-lg px-5 "><i class="bi bi-camera-video me-2"></i>Entrar na Consulta</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
