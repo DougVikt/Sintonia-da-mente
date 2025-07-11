@@ -1,11 +1,16 @@
-<div class="container p-3 mt-5">
+<div class="py-4 mt-4 sty-welcome">
+    <h1 class="text-center mb-1 mt-5 fs-1 fw-bold">Olá, {{ patient.auth_user.first_name }}!</h1>
+    <p class="text-center fs-5">Bem-vindo(a) à sua área de usuário. Aqui você pode gerenciar suas consultas, acessar seus dados e muito mais.</p>
+</div>
+<div class="container p-3 mt-4">
+    <h1 class="text-center mb-1 mt-3 fs-1 fw-semibold">Calendário de Consultas</h1>
     <table class="table table-bordered table-striped align-middle">
         <thead class="text-center bg-dark text-white ">
             <tr>
                 <th colspan="7" class="text-center bg-dark text-white p-0">
                     <div class="d-flex justify-content-between align-items-center ">
                         <div class="sty-arrows p-0 d-flex">
-                            <a class="" href="{% url 'home_user' patient.auth_user.id date_list.prev_month date_list.prev_year %}">
+                            <a class="" href="{% url 'home_specialist' patient.auth_user.id date_list.prev_month date_list.prev_year %}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-compact-left mt-2" viewBox="0 0 18 18">
                                     <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
                                 </svg>
@@ -15,7 +20,7 @@
                             {{ date_list.text_month }}/{{ date_list.year }}
                         </h5>
                         <div class="sty-arrows p-0 d-flex">
-                            <a class="" href="{% url 'home_user' patient.auth_user.id date_list.next_month date_list.next_year %}">
+                            <a class="" href="{% url 'home_specialist' patient.auth_user.id date_list.next_month date_list.next_year %}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-compact-right mt-2" viewBox="0 0 18 18">
                                     <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
                                 </svg>

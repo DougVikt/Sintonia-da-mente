@@ -3,6 +3,13 @@
   height: 100%;
 }
 /* Path: calendar.html */
+.sty-welcome{
+    background-color: rgb(245, 136, 86);
+    color: rgb(3, 3, 3);
+    border-radius: 10px;
+    padding: 2rem;
+   
+}
 .sty-arrows{
     background-color:  rgb(236, 105, 44);
     width: 10rem;
@@ -68,7 +75,7 @@
     white-space: normal; 
 }
 .sty-footer{
-    
+    background-color: rgb(45, 45, 45);
 }
 /*============= Estilo para a barra de deslocamento  =============*/
 
