@@ -17,8 +17,6 @@
     if (alert){
       alert.style.display = 'none';
     }
-    // Clear Django messages
-    fetch('/clear-messages/', {method: 'POST'});
   },5000)
 </script>
 {% endif %}

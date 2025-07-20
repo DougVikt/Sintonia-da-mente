@@ -2,9 +2,10 @@ from django.shortcuts import render , redirect
 from django.contrib.auth import login as auth_login , authenticate 
 from django.contrib import messages
 from django.conf import settings
+from django.views.decorators.cache import never_cache
 
 
-
+@never_cache
 def login(request):
     if request.method == 'POST':
         email = request.POST['email']
