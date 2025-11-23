@@ -1,4 +1,4 @@
-<img src="SintoniaMental/static/imagens/sm2.svg" alt="Logo Sintonia Mental" width="300">
+<img src="SintoniaMental/static/images/logo5-semfundo.png" alt="Logo extensa Sintonia Mental" width="300">
 
 <br>
 
