@@ -19,23 +19,21 @@ def home_specialist(request, id , month ,year):
     user = get_object_or_404(User, id=id)
     # Obter o profissional associado ao usuário autenticado ou retornar 404 se não encontrado
     specialist = get_object_or_404(Professionals, auth_user=user)
-    # Obter todas as consultas associadas ao profissional
+    # Obter todas as consultas associadas ao profissional por ordem decrescente de data
     consults = Consult.objects.filter(user_id=specialist).order_by('date')
-    # Obter os IDs dos pacientes das consultas do profissional, garantindo que sejam únicos
-    consult_specialist = consults.values('patient_id').distinct()
-    if consult_specialist:
-        # Criar um conjunto para armazenar os IDs dos pacientes
-        id_patient = set()
-        # Iterar sobre os pacientes únicos das consultas do profissional
-        for spe in consult_specialist:
-            id_patient.add(spe['patient_id'])
-            # Filtrar os pacientes com base nos IDs dos especialistas
-            patients = Professionals.objects.filter(id__in=id_patient)
+    # Obter os IDs dos pacientes que ja teve consulta com o especialista 
+    consult_pacients = Consult.objects.values('user').filter(specialist=specialist)
+    if consult_pacients:
+        # Criar um dicionario para armazenar os IDs dos pacientes com as consultas mais recentes
+        recents_patients = {}
+        # Iterar sobre os IDs dos pacientes e obter a consulta mais recente de cada um
+        for id_pacients in consult_pacients:
+            recents_patients[id_pacients] = Consult.objects.filter(user=id_pacients).order_by('-date').first()
+            
     else:
-        # Se não houver consultas, definir patients como uma lista vazia
-        patients = False
-    # objeto de todos os pacientes
-    patients_all = Patients.objects.all()
+        # Se não houver consultas recentes , definir como boolean False
+        recents_patients = False
+    # ------- CRIA A LOGICA DO CALENDARIO ------ 
     # Se o ano for 1, definir o mês e o ano atuais
     if year == 1:
         month = datetime.now().month 
@@ -63,8 +61,8 @@ def home_specialist(request, id , month ,year):
         'list_weeks': list_weeks,
         'date_list':date_list,
         'consults':consults,
-        'patients':patients,
-        'patients_all':patients_all,
+        'recents_patients':recents_patients,
+        
         'today':today,
         
     })
