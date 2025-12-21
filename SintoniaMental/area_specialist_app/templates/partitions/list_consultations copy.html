@@ -1,0 +1,63 @@
+<div class="container-fluid p-3 m-2 " >
+    
+    <div class=" ms-5">
+        <h3 class="text-center fs-2 fw-bold">Agenda</h3>
+    </div>
+    <div class="row d-flex mx-3">
+        <div class="col-12 ">
+            {% if consults %}
+            <table class="table table-hover table-striped text-center ">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Descrição</th>
+                        <th>Especialista</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="table-striped sty-text">
+                        {% for consult in consults %}
+                            <tr>
+                                <td>{{ consult.date.date }}</td>
+                                <td>{{ consult.date|date:"H:i A" }}</td>
+                                <td>{{ consult.description }}</td>
+                                <td>{% for specialist in specialists %}
+                                        {% if consult.specialist_id == specialist.id %}
+                                            {{ specialist.name }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                                <td>                                    
+                                    {% if consult.status %}
+                                    <span class="bg-info badge">Realizado</span> 
+                                    {% else %}
+                                    <span class="bg-warning badge">Pendente</span>                                    
+                                    {% endif %}                                
+                                </td>
+                                <td> 
+                                    {% if not consult.status and today != consult.date %}
+                                    <button class="btn p-2 btn-bg-dark
+                                    {% if today < consult.date %} btn-secondary {% elif today > consult.date %} btn-danger {% endif %}
+                                    " onclick="window.location.href='#'">Reagendar </button>
+
+                                    {% elif not consult.status and today == consult.date %}
+                                    <button onclick="window.location.href='#'"class="btn p-2 btn-bg-dark>Consultar </button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="alert alert-warning">
+                Não há consultas agendadas. <a href="{% url 'agendar_consulta' %}" class="alert-link">Agendar agora</a>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+  
+</div>
