@@ -30,7 +30,6 @@ class Consultations(models.Model):
         db_table = 'consultations'
         managed = True
         verbose_name = 'Consultations'
-        verbose_name_plural = 'Consultations'
         ordering = ['id']
     def __str__(self):
         return self.user.name
@@ -45,8 +44,8 @@ class DoctorAvailability(models.Model):
     class Meta:
         db_table = 'doctor_availability'
         managed = True
-        verbose_name = 'DoctorAvailability'
-        verbose_name_plural = 'DoctorAvailabilities'
+        verbose_name = 'Doctor Availability'
+        verbose_name_plural = 'Doctor Availabilities'
         ordering = ['id']
     # função para retornar o nome do especialista e a data da disponibilidade
     def __str__(self):

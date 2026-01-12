@@ -1,4 +1,5 @@
 from django.shortcuts import render , redirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login , authenticate 
 from django.contrib import messages
 from django.conf import settings
@@ -6,7 +7,7 @@ from django.views.decorators.cache import never_cache
 
 
 @never_cache
-def login(request):
+def login_user(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -18,6 +19,8 @@ def login(request):
                 auth_login(request,user)
                 # expiração do usuario 
                 if remember:
+                    response = HttpResponseRedirect(request.path)
+                    response.set_cookie(f'remenber{user.id}', "true" ,max_age=settings.SESSION_COOKIE_AGE)
                     request.session.set_expiry(settings.SESSION_COOKIE_AGE) # expira em 30 miniutos de inatividade
                 else:
                     request.session.set_expiry(0) # expira quando o navegador fecha

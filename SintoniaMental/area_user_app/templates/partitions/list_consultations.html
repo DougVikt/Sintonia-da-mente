@@ -43,7 +43,7 @@
                                     " onclick="window.location.href='#'">Reagendar </button>
 
                                     {% elif not consult.status and today == consult.date %}
-                                    <button onclick="window.location.href='#'"class="btn p-2 btn-bg-dark>Consultar </button>
+                                    <button onclick="window.location.href='#'" class="btn p-2 btn-bg-dark>Consultar" ></button>
                                     {% endif %}
                                 </td>
                             </tr>
@@ -53,7 +53,7 @@
             </table>
             {% else %}
             <div class="alert alert-warning">
-                Não há consultas agendadas. <a href="{% url 'agendar_consulta' %}" class="alert-link">Agendar agora</a>
+                Não há consultas agendadas. <a href="#" class="alert-link">Agendar agora</a>
             </div>
             {% endif %}
 
