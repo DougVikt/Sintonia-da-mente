@@ -21,13 +21,13 @@ class="sty-body d-flex flex-column"
     {% include "partitions/home/navbar.html" %}
     
 <!---------- calendario ---------->
-    <section id="home">
-    {% include "partitions/calendar.html" %}
-    </section>
+<section id="home">
+{% include "partitions/calendar.html" %}
+</section>
 <!---------- lista das consultas ----------> 
-    <section id="agenda">
-        {% include "partitions/list_consultations.html" %}
-    </section>
+<section id="agenda">
+    {% include "partitions/list_consultations.html" %}
+</section>
 <!---------- especialistas ---------->
     <section id="list_recents"> 
     <!---------- recentes ---------->
@@ -37,13 +37,17 @@ class="sty-body d-flex flex-column"
     <!---------- lista de todos ----------> 
     {% include "partitions/expert_list_all.html" %}
     </section>
-    <!---------- footer ----------------->
-    {% include "partitions/footer.html" %}
-    <script src="{% static 'Js/navbar.js' %}"></script>
-    <script>
-        // popover de cada dia do calendario
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-        
-    </script>
+<!---------- agendar consulta ---------->    
+<section id="schedule_appointment">
+    {% include "partitions/schedule_appointment.html" %}
+</section>
+<!---------- footer ----------------->
+{% include "partitions/footer.html" %}
+<script src="{% static 'Js/navbar.js' %}"></script>
+<script>
+    // popover de cada dia do calendario
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    
+</script>
 {% endblock  %}
