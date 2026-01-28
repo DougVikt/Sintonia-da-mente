@@ -9,10 +9,10 @@ class MasterUser(models.Model):
     
     auth_user= models.OneToOneField(User , on_delete=models.CASCADE)
     # cria um campo em comum com o user do django , ligação um para um 
-    name = models.CharField( max_length=50)
-    fone = models.CharField(max_length=15)
-    date_birth = models.DateField()
-    photo_perfil = models.ImageField(upload_to=f"photo_profile/{name}" , null=True , blank=True)
+    name = models.CharField( max_length=50 , null=False)
+    fone = models.CharField(max_length=15 , null=False)
+    date_birth = models.DateField(null=False)
+    photo_perfil = models.ImageField(upload_to=f"photo_profile/%Y/%m/%d/" , null=True , blank=True)
         
     # função para retornar o nome na pagina de admin    
     def __str__(self):
@@ -24,7 +24,7 @@ class Patients(MasterUser):
     class Meta:
         db_table = 'patients'
         managed = True
-        verbose_name = 'Patients'
+        verbose_name = 'Patient'
         verbose_name_plural = 'Patients'
         ordering = ['id']
     pass
@@ -34,7 +34,7 @@ class Professionals(MasterUser):
     class Meta:
         db_table = 'professionals'
         managed = True
-        verbose_name = 'Professionals'
+        verbose_name = 'Professional'
         verbose_name_plural = 'Professionals'
         ordering = ['id']
         
