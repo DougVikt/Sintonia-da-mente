@@ -1,1 +1,7 @@
 python-3.13.1
+
+pip install -r requirements.txt
+
+
+colocar as setas no lugardas barras para os especialistas 
+p-4 p-md-5 bg-white rounded-3 shadow-sm fundo arrondondado colocar em todas as sections

@@ -29,7 +29,7 @@ def register_user(request):
                     fone=fone,  
                 )
                 patient.save()
-                messages.error(request, "Cadastro realizado com sucesso !")
+                messages.success(request, "Cadastro realizado com sucesso !")
                 return redirect("login")
             except Exception as e:
                 messages.error(request, "Erro ao cadastrar !")
@@ -67,7 +67,7 @@ def register_specialist(request):
                     register=register_complete
                 )
                 specialist.save()
-                messages.error(request, "Cadastro realizado com sucesso !")
+                messages.success(request, "Cadastro realizado com sucesso !")
                 return redirect('login')
             except Exception as e:
                 user.delete()

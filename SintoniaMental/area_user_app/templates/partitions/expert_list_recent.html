@@ -1,8 +1,7 @@
-<div class="container-fluid m-3 "style="with:100%">
+<div class="container-fluid m-auto"style="with:100%">
     <h4 class="fw-bold fs-3 ms-5">Especialistas recentes</h4>
     <div class="sty-div-list m-2">
     <div class=" row row-cols-1 d-flex flex-nowrap">
-    {% if specialists %}
         {% for specialist in specialists %}
                 <div class="card m-3 p-0 sty-div-specialist d-flex">
                     <div class="row g-0 flex-column align-items-center">
@@ -25,11 +24,11 @@
                         </div>
                     </div>
                 </div>
+        {% empty %}
+            <div class="alert alert-warning">
+                Não há especialistas recentes
+            </div>
         {% endfor %}
-    {% else %}
-        <div class="alert alert-warning">
-            Não há especialistas recentes
         </div>
-    {% endif %} 
     </div>
 </div>

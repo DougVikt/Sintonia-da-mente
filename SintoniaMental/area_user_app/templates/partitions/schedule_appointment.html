@@ -1,0 +1,39 @@
+    <div class="mb-5 mx-md-1 mx-lg-4 sty-div-schedule p-4 p-md-5 bg-light rounded-3 shadow-sm">
+        <h2 class="text-center fw-bold mb-5">Agendar Nova Consulta</h2>
+        <div class="card border-dark shadow-sm">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="doctorSelect" class="form-label fw-medium">Selecione o Médico</label>
+                        <select class="form-select" id="doctorSelect" required aria-describedby="doctorHelp">
+                            <option value="" disabled selected>Escolha um médico</option>
+                            <option value="1">Dra. Carla Mendes</option>
+                            <option value="2">Dr. Rafael Souza</option>
+                            <option value="3">Dra. Fernanda Lima</option>
+                        </select>
+                        <div id="doctorHelp" class="form-text">Selecione o profissional para sua consulta.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dateInput" class="form-label fw-medium">Data</label>
+                        <input type="date" class="form-control" id="dateInput" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="timeSelect" class="form-label fw-medium">Horário</label>
+                        <select class="form-select" id="timeSelect" required>
+                            <option value="" disabled selected>Escolha um horário</option>
+                            <option value="10:00">10:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="16:00">16:00</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="reminderCheck">
+                        <label class="form-check-label" for="reminderCheck">Ativar lembretes por e-mail</label>
+                    </div>
+                    <button type="submit" class="sty-button w-100 rounded-1 fs-4 fw-semibold mx-auto px-3" style="height: 4rem;">Confirmar Agendamento</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+

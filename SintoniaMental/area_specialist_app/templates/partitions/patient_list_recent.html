@@ -1,35 +1,34 @@
 <div class="container-fluid m-3 "style="with:100%">
     <h4>Pacientes recentes</h4>
     <div class="sty-div-list m-2">
-    <div class=" row row-cols-1 d-flex flex-nowrap">
-    {% if patients %}
+        <div class=" row row-cols-1 d-flex flex-nowrap">
         {% for patient in patients %}
-                <div class="card m-3 p-0 sty-div-patient d-flex">
-                    <div class="row g-0 flex-column align-items-center">
-                        <div class="col-4 mt-3 text-center">
-                            {% if patient.photo_perfil  %}
-                                <img src="{{ patient.photo_perfil.url }}" alt="foto de perfil perfil" class="rounded-circle" width="45" height="45">
-                            {% else %}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle text-light" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                                </svg>
-                            {% endif %}
-                        </div>
-                        <div class="col-8 p-0">
-                            <div class="card-body p-1 text-center">
-                                <h5 class="card-title mt-2 sty-name">{{ patient.name }}</h5>
-                                <p class="card-text sty-p">{{ consult.date }}</p>
-                                <a href="#" class="btn sty-button mb-2">ver</a>
-                            </div>
+            <div class="card m-3 p-0 sty-div-patient d-flex">
+                <div class="row g-0 flex-column align-items-center">
+                    <div class="col-4 mt-3 text-center">
+                        {% if patient.photo_perfil  %}
+                            <img src="{{ patient.photo_perfil.url }}" alt="foto de perfil perfil" class="rounded-circle" width="45" height="45">
+                        {% else %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle text-light" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                        {% endif %}
+                    </div>
+                    <div class="col-8 p-0">
+                        <div class="card-body p-1 text-center">
+                            <h5 class="card-title mt-2 sty-name">{{ patient.name }}</h5>
+                            <p class="card-text sty-p">{{ consult.date }}</p>
+                            <a href="#" class="btn sty-button mb-2">ver</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        {% empty %}
+            <div class="alert alert-warning">
+                Não há epatientas recentes
+            </div>
         {% endfor %}
-    {% else %}
-        <div class="alert alert-warning">
-            Não há epatientas recentes
         </div>
-    {% endif %} 
     </div>
 </div>

@@ -1,6 +1,8 @@
+/* Body */
 .sty-body{
-  min-width: 100vh;
+  min-width: 42rem;
   height: 100%;
+  overflow: auto;
 }
 /* Path: calendar.html */
 .sty-welcome{
@@ -73,7 +75,9 @@
 .sty-text td{
     word-wrap: break-word;
     white-space: normal; 
+    width: auto;
 }
+
 .sty-footer{
     background-color: rgb(45, 45, 45);
 }
